@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel watch src/css/_main.scss"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "govuk-frontend": "^3.6.0",
-    "lbh-frontend": "^2.0.0",
+    "lbh-frontend": "^2.0.0"
+  },
+  "devDependencies": {
+    "sass": "^1.26.7",
     "parcel-bundler": "^1.12.4"
   }
 }

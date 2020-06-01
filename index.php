@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/_main.css">
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/css/main.css">
     <?php wp_head(); ?>
   </head>
   <body class="govuk-template__body">
@@ -30,7 +30,7 @@
     </main>
 
     <!-- Put your path to the LBHFrontend JS File in the src attribute here -->
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/_main.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/main.js"></script>
     <?php wp_footer(); ?>
 
   </body>

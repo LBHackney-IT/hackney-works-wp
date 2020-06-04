@@ -18,32 +18,60 @@ function register_menus() {
 }
 add_action( "init", "register_menus" );
 
-function hubs_init() {
+function custom_post_types_init() {
     register_post_type("hub", array(
         "label" => __("Hubs"),
         "public" => true,
         "menu_icon" => "dashicons-location",
+        'show_in_nav_menus'     => true,
         "supports" => array("title")
     ));
 }
-add_action("init", "hubs_init");
+add_action("init", "custom_post_types_init");
 
+// Add editor blocks
 function load_block_scripts() {
-    wp_enqueue_script("blocks", get_stylesheet_directory_uri()."/dist/js/blocks.js", array("wp-blocks", "wp-element"));
+    wp_enqueue_script(
+        "blocks", 
+        get_stylesheet_directory_uri()."/dist/js/blocks.js", 
+        array("wp-blocks", "wp-element", "wp-block-editor", "wp-components")
+    );
 }
 add_action("enqueue_block_editor_assets", "load_block_scripts");
 
+// Add customiser controls
+function add_customizer_stuff( $wp_customize ) {
+    $wp_customize->add_section("announcement", array(
+        "title" => "Announcement",
+        "description" => "Alert users to important, time-sensitive information."
+    ));
 
-
-function new_block_category( $categories, $post ) {
-	return array_merge(
-		$categories,
-		array(
-			array(
-				'slug' => 'hackney',
-				'title' => 'Hackney',
-			),
-		)
-	);
+    $wp_customize->add_setting("show_announcement", array(
+        "default" => false,
+        "type" => "option"
+    ));
+    $wp_customize->add_setting("announcement_title", array(
+        "type" => "option"
+    ));
+    $wp_customize->add_setting("announcement_content", array(
+        "type" => "option"
+    ));
+    
+    $wp_customize->add_control("show_announcement", array(
+        "type" => "checkbox",
+        "section" => "announcement",
+        "label" => "Show announcement?"
+    ));
+    $wp_customize->add_control("announcement_title", array(
+        "type" => "text",
+        "section" => "announcement",
+        "label" => "Title"
+    ));
+    $wp_customize->add_control("announcement_content", array(
+        "type" => "textarea",
+        "section" => "announcement",
+        "label" => "Body"
+    ));
 }
-add_filter( 'block_categories', 'new_block_category', 10, 2);
+
+add_action( 'customize_register', 'add_customizer_stuff' );

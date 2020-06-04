@@ -23,14 +23,13 @@
                             Menu
                         </div>
                     </span>
-                    <div class='nav-right nav-menu'>
-                        <a class="nav-item is-tab  hide_hackney_link" href="/hubs">Meet the team</a>
-                        <a class="nav-item is-tab current hide_hackney_link" href="/opportunities">Opportunities</a>
-                        <a class="nav-item is-tab  hide_hackney_link" href="/client/referrers/new">Refer someone</a>
-                        <a class="nav-item is-tab  hide_hackney_link" href="/clients/new">Register</a>
-                        <a class="nav-item is-tab  hide_hackney_100_link" href="/user_logins/sign_in">Log In</a>
-                    </div>
-
+                    <?php 
+                        wp_nav_menu( array( 
+                            'theme_location' => 'header-menu',
+                            'menu_class' => 'nav-right nav-menu',
+                            'container' => ''
+                        ) ); 
+                    ?>
                 </nav>
                 <div class='lines'></div>
             </div>

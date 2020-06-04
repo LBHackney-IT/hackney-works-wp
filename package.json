@@ -14,14 +14,10 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {
-        "govuk-frontend": "^3.6.0",
-        "lbh-frontend": "^2.0.0"
-    },
+    "dependencies": {},
     "devDependencies": {
-        "@wordpress/block-editor": "^4.0.0",
-        "@wordpress/blocks": "^6.17.0",
-        "@wordpress/components": "^9.7.0",
+        "govuk-frontend": "^3.6.0",
+        "lbh-frontend": "^2.0.0",
         "gulp": "^4.0.2",
         "gulp-cli": "^2.2.1",
         "gulp-sass": "^4.1.0",

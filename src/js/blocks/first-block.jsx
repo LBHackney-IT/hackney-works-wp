@@ -35,8 +35,6 @@ window.wp.blocks.registerBlockType("myplugin/random-image", {
 
         return(
             <form onSubmit={setCategory}>
-                {category}
-                {title}
                 {category && <RandomImage category={category}/>}
                 <URLInput value={title} onChange={setTitle}/>
                 <select value={category} onChange={setCategory}>

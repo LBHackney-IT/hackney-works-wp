@@ -13,37 +13,18 @@
                     All content is available under the <a target="_blank" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>
                 </div>
             </div>
-
-            <div class='column'>
-                <div class='link'>
-                    <a href="/employers">Information for employers</a>
-                </div>
-                <div class='link'>
-                    <a href="/support">Supported Employment</a>
-                </div>
-                <div class='link'>
-                    <a href="/apprenticeships">Apprenticeships</a>
-                </div>
-                <div class='link'>
-                    <a href="/hackney100">Hackney 100</a>
-                </div>
-            </div>
-
-            <div class='column'>
-                <div class='link'>
-                    <a href="/client/referrers/new">Refer someone</a>
-                </div>
-                <div class='link'>
-                    <a href="/hubs">Meet the team</a>
-                </div>
-                <div class='link'>
-                    <a href="/privacy-policy">Privacy</a>
-                </div>
-                <div class='link'>
-                    <a href="/clients/new">Register</a>
-                    /
-                    <a href="/user_logins/sign_in">Log In</a>
-                </div>
+                <?php 
+                    wp_nav_menu( array( 
+                        'theme_location' => 'footer-left-menu',
+                        'menu_class' => 'column',
+                        'container' => ''
+                    ) ); 
+                    wp_nav_menu( array( 
+                        'theme_location' => 'footer-right-menu',
+                        'menu_class' => 'column',
+                        'container' => ''
+                    ) ); 
+                ?>
             </div>
 
         </div>

@@ -32,3 +32,18 @@ function load_block_scripts() {
     wp_enqueue_script("blocks", get_stylesheet_directory_uri()."/dist/js/blocks.js", array("wp-blocks", "wp-element"));
 }
 add_action("enqueue_block_editor_assets", "load_block_scripts");
+
+
+
+function new_block_category( $categories, $post ) {
+	return array_merge(
+		$categories,
+		array(
+			array(
+				'slug' => 'hackney',
+				'title' => 'Hackney',
+			),
+		)
+	);
+}
+add_filter( 'block_categories', 'new_block_category', 10, 2);

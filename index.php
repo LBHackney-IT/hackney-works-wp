@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" class="govuk-template lbh-template">
-  <head>
-    <meta charset="utf-8">
-    <title><?php the_title(); ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#0b0c0c">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/css/main.css">
-    <?php wp_head(); ?>
-  </head>
-  <body class="govuk-template__body">
+<?php get_header(); ?>
 
-    <script>
-      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-    </script>
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-    <!-- Skip link goes here -->
-    <!-- Cookie banner goes here -->
-    <!-- Header goes here -->
-    <?php get_header(); ?>
-    <!-- Phase banner goes here -->
-    <!-- Announcements go here -->
-    <!-- Breadcrumbs go here -->
+    <?php the_content(); ?>
 
-    <main class="lbh-main-wrapper " id="main-content" role="main">
-      <div class="lbh-container">
-        <!-- Main content components go here -->
-      </div>
-    </main>
+<?php endwhile; endif; ?>
 
-    <!-- Put your path to the LBHFrontend JS File in the src attribute here -->
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/main.js"></script>
-    <?php wp_footer(); ?>
-
-  </body>
-</html> 
+<?php get_footer(); ?>

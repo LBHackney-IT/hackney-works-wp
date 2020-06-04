@@ -4,7 +4,7 @@ WordPress theme for Hackney Works.
 
 ## Developing locally
 
-You need a Wordpress website up and running. Clone this repo into the wp-content/themes folder.
+You need a Wordpress website up and running. Clone this repo into the `wp-content/themes` folder.
 
 Then, activate it through the WP admin dashboard.
 
@@ -17,7 +17,13 @@ npm run dev
 
 It will watch for changes.
 
-You can use moden JavaScript syntax and any imports supported by Parcel.
+You can use moden JavaScript syntax (including JSX) and any imports supported by Parcel.
+
+### Editor blocks
+
+The theme includes several custom blocks for the WP editor. 
+
+They're defined in `/src/js/blocks` and compiled into a second JS bundle that's included on the admin screens only.
 
 ## Using it in production
 

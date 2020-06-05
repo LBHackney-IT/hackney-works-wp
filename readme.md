@@ -21,10 +21,19 @@ You can use moden JavaScript syntax (including JSX) and any imports supported by
 
 ### Editor blocks
 
-The theme includes several custom blocks for the WP editor. 
+The theme includes several custom blocks for the WP editor.
 
 They're defined in `/src/js/blocks` and compiled into a second JS bundle that's included on the admin screens only.
 
 ## Using it in production
 
 Make sure that you run `npm run build` to create production JS and SCSS before deploying it to a live site.
+
+## Configuration
+
+It's intended to be used with [ACF's Google Map field](https://www.advancedcustomfields.com/resources/google-map/). It needs a Google API key to be set. You can do it with a line like this in `wp-config.php`:
+
+```
+define("GOOGLE_API_KEY", "your_api_key_here");
+```
+

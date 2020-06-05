@@ -1,7 +1,7 @@
 <?php
 
 // Add customiser controls
-function add_customizer_stuff( $wp_customize ) {
+function lbh_add_customizer_stuff( $wp_customize ) {
     $wp_customize->add_section("announcement", array(
         "title" => "Announcement",
         "description" => "Alert users to important, time-sensitive information."
@@ -34,4 +34,4 @@ function add_customizer_stuff( $wp_customize ) {
         "label" => "Body"
     ));
 }
-add_action( "customize_register", "add_customizer_stuff" );
+add_action( "customize_register", "lbh_add_customizer_stuff" );

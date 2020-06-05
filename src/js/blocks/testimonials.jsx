@@ -2,17 +2,17 @@ const { registerBlockType } = window.wp.blocks
 const { PlainText, InnerBlocks } = window.wp.blockEditor
 
 const icon = 
-    <svg width="188" height="71" viewBox="0 0 188 71" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect y="51" width="49" height="20" rx="8" fill="#212121"/>
-        <rect x="139" y="51" width="49" height="20" rx="8" fill="#212121"/>
-        <rect x="69" y="51" width="49" height="20" rx="8" fill="#212121"/>
-        <circle cx="24.5" cy="15.5" r="15.5" fill="#212121"/>
-        <circle cx="163.5" cy="15.5" r="15.5" fill="#212121"/>
-        <circle cx="93.5" cy="15.5" r="15.5" fill="#212121"/>
+    <svg width="199" height="101" viewBox="0 0 199 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="71" width="128" height="20" rx="8" fill="#212121"/>
+        <rect x="71" y="32" width="64" height="20" rx="8" fill="#212121"/>
+        <circle cx="25" cy="27" r="25" fill="#212121"/>
+        <circle cx="68.8513" cy="90.4998" r="9.85135" fill="#212121"/>
+        <circle cx="99.4999" cy="90.4998" r="9.85135" fill="#212121"/>
+        <circle cx="130.149" cy="90.4998" r="9.85135" fill="#212121"/>
     </svg>
 
-registerBlockType( 'lbh/selling-points', {
-    title: "Selling points",
+registerBlockType( 'lbh/testimonials', {
+    title: "Testimonials slider",
     icon: icon,
     category: "hackney",
     attributes: {
@@ -30,7 +30,7 @@ registerBlockType( 'lbh/selling-points', {
                 placeholder="Headline..."
                 onChange={value => setAttributes({title: value})} 
             />
-            <InnerBlocks allowedBlocks={['lbh/selling-point']} />
+            <InnerBlocks allowedBlocks={['lbh/testimonial']} />
         </div>
     ,
 

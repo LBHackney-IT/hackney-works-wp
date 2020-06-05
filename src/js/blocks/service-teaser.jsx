@@ -4,7 +4,7 @@ const { PlainText, URLInput, RichText } = window.wp.blockEditor
 registerBlockType( "lbh/service-teaser", {
     title: "Service teaser",
     icon: "info",
-    category: "common",
+    category: "hackney",
     parent: [ "lbh/service-teasers" ],
     attributes: {
         title: {
@@ -34,16 +34,19 @@ registerBlockType( "lbh/service-teaser", {
         <div>
             <PlainText
                 value={title} 
+                placeholder="Headline..."
                 onChange={value => setAttributes({title: value})} 
             />
             <RichText 
                 value={content} 
+                placeholder="Content..."
                 onChange={value => 
                     setAttributes({content: value})
                 }
             />
             <PlainText
                 value={callToAction} 
+                placeholder="Call to action..."
                 onChange={value => setAttributes({callToAction: value})}
             />
             <URLInput 

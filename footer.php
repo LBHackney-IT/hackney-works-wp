@@ -9,7 +9,6 @@
                     <img alt="Find yourself in Hackney" class="tagline" src="/assets/find-yourself-type-white-529e4aaa0e643f9a3b8ff3ff74f1b7c759c797d63f92f293e6b56ff38ca16612.svg" />
                 </a>
                 <div class='copy'>
-                    <p>Please note, this website may not compatible with Internet Explorer. Please use an alternative browser such as Chrome or Safari.</p>
                     All content is available under the <a target="_blank" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>
                 </div>
             </div>

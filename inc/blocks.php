@@ -4,7 +4,7 @@
 function lbh_load_block_scripts() {
     wp_enqueue_script(
         "blocks", 
-        get_stylesheet_directory_uri()."/dist/js/blocks.js", 
+        get_stylesheet_directory_uri()."/dist/js/blocks/index.js", 
         array("wp-blocks", "wp-element", "wp-block-editor", "wp-components")
     );
 }

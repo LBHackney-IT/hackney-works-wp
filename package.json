@@ -4,10 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "watch:js": "parcel watch src/js/main.js src/js/blocks.js -d dist/js",
+        "watch:js": "parcel watch src/js/main.js src/js/blocks/index.js -d dist/js",
         "watch:sass": "gulp",
         "dev": "run-p watch:js watch:sass",
-        "build:js": "parcel build src/js/main.js src/js/blocks.js -d dist/js",
+        "build:js": "parcel build src/js/main.js src/js/blocks/index.js -d dist/js",
         "build:sass": "gulp build",
         "build": "run-p build:js build:sass"
     },

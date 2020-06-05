@@ -1,5 +1,3 @@
-// import "./blocks.scss"
-
 const { registerBlockType } = window.wp.blocks
 const { PlainText, MediaUpload, RichText } = window.wp.blockEditor
 const { Button } = window.wp.components

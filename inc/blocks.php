@@ -1,17 +1,14 @@
 <?php
 
+add_theme_support('editor-styles');
+add_editor_style( "/dist/css/editor.css" );
+
 // Add editor blocks
 function lbh_load_block_scripts() {
     wp_enqueue_script(
         "blocks", 
         get_stylesheet_directory_uri()."/dist/js/blocks/index.js", 
         array("wp-blocks", "wp-element", "wp-block-editor", "wp-components")
-    );
-
-    wp_enqueue_style(
-        'editor-styles',
-        get_stylesheet_directory_uri()."/dist/css/editor.css",
-        array( 'wp-edit-blocks' )
     );
 }
 add_action("enqueue_block_editor_assets", "lbh_load_block_scripts");

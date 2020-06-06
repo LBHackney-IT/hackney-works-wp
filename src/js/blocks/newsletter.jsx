@@ -31,7 +31,11 @@ registerBlockType( 'lbh/newsletter', {
     ,
 
     save: ({ attributes: { title } }) => 
-            <form method="get" action="https://public.govdelivery.com/accounts/UKHACKNEYCOUNCIL/subscriber/qualify">
+            <form 
+                method="get" 
+                action="https://public.govdelivery.com/accounts/UKHACKNEYCOUNCIL/subscriber/qualify"  
+                target="_blank"
+            >
                 <h2>{title}</h2>
                 <label for="email">Email</label>
                 <input 

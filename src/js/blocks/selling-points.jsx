@@ -1,5 +1,5 @@
 const { registerBlockType } = window.wp.blocks
-const { PlainText, InnerBlocks } = window.wp.blockEditor
+const { InnerBlocks, RichText } = window.wp.blockEditor
 
 const icon = 
     <svg width="188" height="71" viewBox="0 0 188 71" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,14 +23,17 @@ registerBlockType( 'lbh/selling-points', {
         }
     },
 
-    edit: ({ attributes: { title }, setAttributes }) => 
-        <div>
-            <PlainText
+    edit: ({ attributes: { title }, setAttributes, className }) => 
+        <div className={className}>
+            <RichText
                 value={title}
+                tagName="h2"
+                allowedFormats={[]}
                 placeholder="Headline..."
                 onChange={value => setAttributes({title: value})} 
             />
             <InnerBlocks allowedBlocks={['lbh/selling-point']} />
+            <a href="https://fontawesome.com/icons?d=gallery&m=free" target="blank">Icon class reference</a>
         </div>
     ,
 

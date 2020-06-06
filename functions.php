@@ -5,10 +5,17 @@ require "inc/customizer.php";
 
 function lbh_load_scripts_and_styles() {
     wp_enqueue_style("main", get_stylesheet_directory_uri()."/dist/css/main.css");
+    wp_enqueue_style("fontawesome", get_stylesheet_directory_uri()."/assets/fontawesome/css/all.min.css");
     wp_enqueue_style("fonts", "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
     wp_enqueue_script("main", get_stylesheet_directory_uri()."/dist/js/main.js");
 }
 add_action("wp_enqueue_scripts", "lbh_load_scripts_and_styles");
+
+function lbh_load_admin_scripts_and_styles() {
+    wp_enqueue_style("fontawesome", get_stylesheet_directory_uri()."/assets/fontawesome/css/all.min.css");
+}
+add_action("admin_enqueue_scripts", "lbh_load_admin_scripts_and_styles");
+
 
 function lbh_register_menus() {
     register_nav_menus(

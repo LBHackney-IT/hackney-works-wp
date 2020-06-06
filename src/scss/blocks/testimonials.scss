@@ -1,0 +1,51 @@
+.wp-block[data-type='lbh/testimonials']{
+    max-width: $wide;
+}
+
+.wp-block-lbh-testimonials{
+    margin: 40px auto;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid #efefef;       
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .rich-text{
+        margin-top: 0px;
+    }
+    .block-editor-inner-blocks{
+        width: 100%;
+        max-width: 500px;
+        .block-editor-block-list__layout{
+            .wp-block{
+                width: 100%;
+            }
+        }
+    }
+}
+
+.wp-block-lbh-testimonial{
+    padding: 25px;
+    background: white;
+    border: 1px solid #efefef;
+    @media screen and (min-width: 350px){
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        column-gap: 35px;
+    }
+    .image-area{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    img{
+        border-radius: 100%;
+        margin-bottom: 10px;
+    }
+    .rich-text:first-of-type{
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+}

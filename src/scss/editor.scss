@@ -1,5 +1,12 @@
 // Editor styles here
 body,
 .editor-post-title__block .editor-post-title__input {
-    font-family: "Work Sans", Arial, sans-serif;
+    font-family: "Open Sans", Arial, sans-serif;
 }
+
+$wide: 1280px;
+
+@import "blocks/hero";
+@import "blocks/selling-points";
+@import "blocks/service-teasers";
+@import "blocks/testimonials";

@@ -30,10 +30,12 @@ registerBlockType( "lbh/service-teaser", {
         }
     },
  
-    edit: ({ attributes: { title, content, callToAction, url }, setAttributes }) => 
-        <div>
-            <PlainText
+    edit: ({ attributes: { title, content, callToAction, url }, setAttributes, className }) => 
+        <div className={className}>
+            <RichText
                 value={title} 
+                tagName="h2"
+                allowedFormats={[]}
                 placeholder="Headline..."
                 onChange={value => setAttributes({title: value})} 
             />
@@ -44,20 +46,22 @@ registerBlockType( "lbh/service-teaser", {
                     setAttributes({content: value})
                 }
             />
-            <PlainText
-                value={callToAction} 
-                placeholder="Call to action..."
-                onChange={value => setAttributes({callToAction: value})}
-            />
-            <URLInput 
-                value={url} 
-                onChange={value => setAttributes({url: value})}
-            />
+            <div className="call-to-action-area">
+                <PlainText
+                    value={callToAction} 
+                    placeholder="Call to action message..."
+                    onChange={value => setAttributes({callToAction: value})}
+                />
+                <URLInput 
+                    value={url} 
+                    onChange={value => setAttributes({url: value})}
+                />
+            </div>
         </div>
     ,
  
     save: ({ attributes: { title, content, callToAction, url }}) => 
-        <div class="column is-one-third">
+        <div>
             <h2>{title}</h2>
             <RichText.Content tagName="div" value={content}/>
             <a href={url}>{callToAction}</a>

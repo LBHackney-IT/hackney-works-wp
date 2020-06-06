@@ -5,7 +5,9 @@ sass.compiler = require("node-sass")
 
 task("build", () => {
     return src("./src/scss/*.scss")
-        .pipe(sass().on("error", sass.logError))
+        .pipe(sass({
+            includePaths: ["node_modules"]
+        }).on("error", sass.logError))
         .pipe(dest("./dist/css"))
 });
 

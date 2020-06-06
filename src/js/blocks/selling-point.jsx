@@ -1,5 +1,5 @@
 const { registerBlockType } = window.wp.blocks
-const { PlainText } = window.wp.blockEditor
+const { PlainText, RichText } = window.wp.blockEditor
 
 registerBlockType( "lbh/selling-point", {
     title: "Selling point",
@@ -19,17 +19,20 @@ registerBlockType( "lbh/selling-point", {
         }
     },
  
-    edit: ({ attributes: { title, iconClass }, setAttributes }) => 
-        <div>
-            {iconClass && <i class={iconClass}></i>}
+    edit: ({ attributes: { title, iconClass }, setAttributes, className }) => 
+        <div className={className}>
+            <div className="icon-holder">
+                {iconClass && <i class={iconClass}></i>}
+            </div>
             <PlainText
                 value={iconClass} 
                 placeholder="Icon class..."
                 onChange={value => setAttributes({iconClass: value})} 
             />
-            <PlainText
+            <RichText
                 value={title} 
-                placeholder="Content..."
+                allowedFormats={[]}
+                placeholder="Selling point content..."
                 onChange={value => setAttributes({title: value})} 
             />
         </div>

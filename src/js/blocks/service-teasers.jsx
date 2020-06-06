@@ -12,8 +12,10 @@ registerBlockType( 'lbh/service-teasers', {
     title: "Service teasers",
     icon: icon,
     category: "hackney",
-    edit: () => 
-        <InnerBlocks allowedBlocks={['lbh/service-teaser']} />
+    edit: ({ className }) => 
+        <div className={className}>
+            <InnerBlocks allowedBlocks={['lbh/service-teaser']} />
+        </div>
     ,
     save: () => {
         return (

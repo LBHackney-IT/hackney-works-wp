@@ -1,0 +1,77 @@
+.wp-block[data-type='lbh/selling-points']{
+    max-width: $wide;
+}
+
+.wp-block-lbh-selling-points{
+    margin: 40px auto;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid #efefef;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .rich-text{
+        margin-top: 0px;
+        text-align: center;
+    }
+    .block-editor-inner-blocks{
+        width: 100%;
+        .block-editor-block-list__layout{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            width: 100%;
+            .wp-block{
+                max-width: 150px;
+                width: 100%;
+                margin: 17px;
+            }
+        }
+    }
+    .block-list-appender{
+        margin: 17px;
+        &__toggle{
+            height: 150px;
+            width: 150px;
+        }
+    }
+    a{
+        font-size: 0.9rem;
+    }
+}
+
+
+.wp-block-lbh-selling-point{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    .icon-holder{
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100px;
+        margin-bottom: 10px;
+        background: black;
+    }
+    i{
+        font-size: 2rem;
+        color: white;
+    }
+    .block-editor-plain-text{
+        margin-bottom: 10px;
+        font-size: 0.8rem;
+        max-width: 100px;
+        text-align: center;
+    }
+    .rich-text{
+        width: 100%;
+        text-align: center;
+    }
+}

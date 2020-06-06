@@ -1,5 +1,5 @@
 const { registerBlockType } = window.wp.blocks
-const { PlainText, InnerBlocks } = window.wp.blockEditor
+const { RichText, InnerBlocks } = window.wp.blockEditor
 
 const icon = 
     <svg width="199" height="101" viewBox="0 0 199 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,11 +23,13 @@ registerBlockType( 'lbh/testimonials', {
         }
     },
 
-    edit: ({ attributes: { title }, setAttributes }) => 
-        <div>
-            <PlainText
+    edit: ({ attributes: { title }, setAttributes, className }) => 
+        <div className={className}>
+            <RichText
                 value={title}
                 placeholder="Headline..."
+                tagName="h2"
+                allowedFormats={[]}
                 onChange={value => setAttributes({title: value})} 
             />
             <InnerBlocks allowedBlocks={['lbh/testimonial']} />

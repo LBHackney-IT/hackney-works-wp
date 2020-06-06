@@ -1,5 +1,5 @@
 const { registerBlockType } = window.wp.blocks
-const { PlainText, MediaUpload, RichText } = window.wp.blockEditor
+const { MediaUpload, RichText } = window.wp.blockEditor
 const { Button } = window.wp.components
 
 const icon = 
@@ -30,27 +30,29 @@ registerBlockType( "lbh/hero", {
         }
     },
  
-    edit: ({ attributes: { title, content, background }, setAttributes }) => 
-        <div>
-            <PlainText
+    edit: ({ attributes: { title, content, background }, setAttributes, className }) => 
+        <div className={className}>
+            <img src={background} aria-hidden="true"/>
+            <RichText
                 value={title} 
+                tagName="h1"
                 placeholder="Headline..."
+                allowedFormats={[]}
                 onChange={value => setAttributes({title: value})} 
             />
             <RichText 
                 value={content} 
-                placeholder="Content..."
+                placeholder="Introductory content..."
                 onChange={value => 
                     setAttributes({content: value})
                 }
             />
-            <img src={background}/>
             <MediaUpload
                 allowedTypes={["image"]}
                 value={background}
                 onSelect={media => setAttributes({background: media.url})}
                 render={({ open }) =>
-                    <Button onClick={open}>Open</Button>
+                    <Button onClick={open}>Choose background image...</Button>
                 }
             />
         </div>

@@ -1,5 +1,5 @@
 const { registerBlockType } = window.wp.blocks
-const { PlainText, MediaUpload } = window.wp.blockEditor
+const { RichText, PlainText, MediaUpload } = window.wp.blockEditor
 const { Button } = window.wp.components
 
 registerBlockType( "lbh/testimonial", {
@@ -18,44 +18,63 @@ registerBlockType( "lbh/testimonial", {
             source: "text",
             selector: "cite"
         },
-        image: {
-            attribute: "src",
-            selector: "img"
+        imageId: {
+            type: 'number'
+        },
+        imageUrl: {
+            type: 'string',
+            source: 'attribute',
+            selector: 'img',
+            attribute: 'src'
+        },
+        imageAlt: {
+            type: 'string',
+            source: 'attribute',
+            selector: 'img',
+            attribute: 'alt'
         }
     },
  
-    edit: ({ attributes: { message, citation, image }, setAttributes }) => 
-        <div>
-            {image && <img src={image.url}/>}
-            <MediaUpload
-                allowedTypes={["image"]}
-                value={image}
-                onSelect={media => {
-                    console.log(media)
-                    setAttributes({image: media})
-                }}
-                render={({ open }) =>
-                    <Button onClick={open}>Open</Button>
-                }
-            />
-
-            <PlainText
-                value={message} 
-                placeholder="Message..."
-                onChange={value => setAttributes({message: value})} 
-            />
-            <PlainText
-                value={citation} 
-                placeholder="Citation..."
-                onChange={value => setAttributes({citation: value})} 
-            />
-
+    edit: ({ attributes: { message, citation, imageId, imageUrl, imageAlt }, setAttributes, className }) => 
+        <div className={className}>
+            <div className="image-area">
+                {imageUrl && <img src={imageUrl} aria-hidden="true" alt=""/>}
+                <MediaUpload
+                    allowedTypes={["image"]}
+                    value={imageId}
+                    onSelect={media => {
+                        console.log(media)
+                        setAttributes({
+                            imageId: media.id,
+                            imageUrl: media.url,
+                            imageAlt: media.alt
+                        })
+                    }}
+                    render={({ open }) =>
+                        <Button onClick={open}>Choose image...</Button>
+                    }
+                />
+            </div>
+            <div className="quote-area">
+                <RichText
+                    value={message} 
+                    allowedFormats={[]}
+                    placeholder="Message..."
+                    onChange={value => setAttributes({message: value})} 
+                />
+                <RichText
+                    value={citation} 
+                    allowedFormats={[]}
+                    placeholder="Citation..."
+                    onChange={value => setAttributes({citation: value})} 
+                />
+            </div>
         </div>
     ,
  
-    save: ({ attributes: { message, citation, image }}) => 
+    save: ({ attributes: { message, citation, imageAlt, imageUrl }}) => 
         <li>
-            <img src={image.url} alt={image.alt}/>
+            <img src={imageUrl} alt={imageAlt}/>
             <blockquote>
                 <q>{message}</q>
                 <cite>{citation}</cite>

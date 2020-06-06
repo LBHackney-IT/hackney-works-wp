@@ -13,7 +13,7 @@
             <div class='site-header' role='banner'>
                 <nav class='nav container'>
                     <div class='nav-left'>
-                        <a class="nav-item is-brand bold" href="/hackney_works">Hackney Works</a>
+                        <a class="nav-item is-brand bold" href="<?php echo get_bloginfo("url"); ?>">Hackney Works</a>
                     </div>
                     <span class='nav-toggle'>
                         <span></span>

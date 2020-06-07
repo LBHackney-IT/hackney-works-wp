@@ -25,14 +25,14 @@ registerBlockType( "lbh/hero", {
             selector: "section div"
         },
         background: {
-            attribute: "style",
-            selector: "section"
+            type: "string"
         }
     },
  
     edit: ({ attributes: { title, content, background }, setAttributes, className }) => 
         <div className={className}>
-            <img src={background} aria-hidden="true"/>
+            {console.log(background)}
+            <img src={background} aria-hidden="true" alt=""/>
             <RichText
                 value={title} 
                 tagName="h1"

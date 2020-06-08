@@ -37,7 +37,7 @@ function lbh_register_opportuntunities_block() {
 add_action("init", "lbh_register_opportuntunities_block");
 
 function fetch_opportunities(){
-    $req = curl_init(API_HOST . "/opportunities");
+    $req = curl_init(API_HOST . "/opportunities?category=" .$_GET["category"]);
     curl_setopt($req, CURLOPT_SSL_VERIFYPEER, FALSE);
     curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
     $res = curl_exec($req);

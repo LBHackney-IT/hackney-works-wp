@@ -20,8 +20,7 @@ function lbh_block_category( $categories, $post ) {
         array(
             array(
                 "slug" => "hackney",
-                "title" => "Hackney",
-                // "icon"  => "wordpress",
+                "title" => "Hackney"
             ),
         ),
         $categories
@@ -37,18 +36,39 @@ function lbh_register_opportuntunities_block() {
 }
 add_action("init", "lbh_register_opportuntunities_block");
 
+function fetch_opportunities(){
+    $req = curl_init(API_HOST . "/opportunities");
+    curl_setopt($req, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
+    $res = curl_exec($req);
+    curl_close($req);
+    return json_decode($res);
+}
+
 function lbh_render_oppportunities_block($attributes) {
+    $opportunities = array_slice(fetch_opportunities(), 0, 4);
     ob_start();
-
-
-
-
-
     ?>
         <div>
             <h2><?php echo $attributes['title']; ?></h2>
             <div><?php echo $attributes['content']; ?></div>
-            <p>Loading opportunities...</p>
+            <ul>
+            <?php 
+                if($opportunities): 
+                $i = 0;
+                while($i < count($opportunities)):
+
+            ?>
+                <li>
+                    <h3><?php echo $opportunities[$i]->title ?></h3>
+                    <p><?php echo $opportunities[$i]->actable_type ?></p>
+                </li>
+            <?php 
+                $i++;
+                endwhile; 
+                endif;
+            ?>
+            </ul>
         </div>
     <?php
     $output = ob_get_contents();

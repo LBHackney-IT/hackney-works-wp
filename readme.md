@@ -37,3 +37,8 @@ It's intended to be used with [ACF's Google Map field](https://www.advancedcusto
 define("GOOGLE_API_KEY", "your_api_key_here");
 ```
 
+It also calls an API for opportunity data:
+
+```
+define("API_HOST", "");
+```

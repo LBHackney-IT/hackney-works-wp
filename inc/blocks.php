@@ -36,15 +36,6 @@ function lbh_register_opportuntunities_block() {
 }
 add_action("init", "lbh_register_opportuntunities_block");
 
-function fetch_opportunities(){
-    $req = curl_init(API_HOST . "/opportunities?category=" .$_GET["category"]);
-    curl_setopt($req, CURLOPT_SSL_VERIFYPEER, FALSE);
-    curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
-    $res = curl_exec($req);
-    curl_close($req);
-    return json_decode($res);
-}
-
 function lbh_render_oppportunities_block($attributes) {
     $opportunities = array_slice(fetch_opportunities(), 0, 4);
     ob_start();

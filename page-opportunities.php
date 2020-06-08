@@ -10,6 +10,13 @@ $opportunities = fetch_opportunities();
 
     <h1><?php the_title(); ?></h1>
 
+    <a href="?">All</a>
+    <a href="?type=jobs">Jobs</a>
+    <a href="?type=apprenticeships">Apprenticeships</a>
+    <a href="?type=placements">Placements</a>
+    <a href="?type=events">Events</a>    
+    <a href="?type=training">Training</a>
+
     <ul>
     <?php 
         if($opportunities): 

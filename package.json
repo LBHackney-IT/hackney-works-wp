@@ -14,10 +14,8 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.13.0"
-    },
     "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.13.0",
         "govuk-frontend": "^3.6.0",
         "gulp": "^4.0.2",
         "gulp-cli": "^2.2.1",

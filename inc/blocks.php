@@ -37,8 +37,13 @@ function lbh_register_opportuntunities_block() {
 }
 add_action("init", "lbh_register_opportuntunities_block");
 
-function lbhrender_oppportunities_block($attributes) {
+function lbh_render_oppportunities_block($attributes) {
     ob_start();
+
+
+
+
+
     ?>
         <div>
             <h2><?php echo $attributes['title']; ?></h2>

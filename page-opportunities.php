@@ -18,21 +18,20 @@ $opportunities = fetch_opportunities();
     <a href="?type=training">Training</a>
 
     <ul>
-    <?php 
-        if($opportunities): 
-        $i = 0;
-        while($i < count($opportunities)):
-
-    ?>
-        <li>
-            <h3><?php echo $opportunities[$i]->title ?></h3>
-            <p><?php echo $opportunities[$i]->actable_type ?></p>
-        </li>
-    <?php 
-        $i++;
-        endwhile; 
-        endif;
-    ?>
+        <?php 
+            if($opportunities): 
+            $i = 0;
+            while($i < count($opportunities)):
+        ?>
+            <li>
+                <h3><?php echo $opportunities[$i]->title ?></h3>
+                <p><?php echo $opportunities[$i]->actable_type ?></p>
+            </li>
+        <?php 
+            $i++;
+            endwhile; 
+            endif;
+        ?>
     </ul>
 
     <?php the_content(); ?>

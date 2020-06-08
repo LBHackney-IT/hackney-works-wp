@@ -11,6 +11,9 @@ function fetch_opportunities(){
     if(get_query_var("type")){
         $url = $url . "?type=" . get_query_var("type");
     }
+    if(get_query_var("page")){
+        $url = $url . "?page=" . get_query_var("page");
+    }
     $req = curl_init($url);
     curl_setopt($req, CURLOPT_SSL_VERIFYPEER, FALSE);
     curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);

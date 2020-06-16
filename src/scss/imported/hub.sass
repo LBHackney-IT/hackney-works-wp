@@ -1,0 +1,47 @@
+#hubs
+  .map
+    border: 1px solid $grey-lighter
+    border-top-left-radius: $radius-large
+    border-bottom-left-radius: $radius-large
+    +mobile
+      border-top-right-radius: $radius-large
+      border-bottom-left-radius: 0
+  .columns
+    margin: 0
+    .image
+      background-size: cover
+      border-top-right-radius: $radius-large
+      border-bottom-right-radius: $radius-large
+      +mobile
+        border-top-right-radius: 0
+        border-bottom-left-radius: $radius-large
+      &#hub_staff_1
+        background-image: image-url('people/staff-hoxton.jpg')
+      &#hub_staff_2
+        background-image: image-url('people/staff-woodbury.jpg')
+      &#hub_staff_3
+        background-image: image-url('people/staff-homerton.jpg')
+      &#hub_staff_4
+        background-image: image-url('people/staff-support.jpg')
+      +mobile
+        height: 300px
+
+.hubs.top.box
+  margin-top: 1.5em
+
+body.hubs
+  background-color: whitesmoke
+
+.is-one-third-tablet
+  @media (min-width:500px) and (max-width:880px)
+    width: 33%
+    display: inline-block
+    height: 400px !important
+    background-position: center
+    border-radius: $radius-large !important
+
+
+.is-two-thirds-tablet
+  @media (min-width:500px) and (max-width:880px)
+    width: 65%
+    display: inline-block

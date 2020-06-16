@@ -1,0 +1,145 @@
+body.apprenticeships,
+body.hackney100,
+body.support.static,
+body.employers.static {
+  .lines {
+    border-top-color: $color__hackney-apprentices;
+    border-bottom-color: rgba($color__hackney-apprentices, 0.2);
+    &:after {
+      background: rgba($color__hackney-apprentices, 0.55);
+    }
+  }
+  footer {
+    .lines {
+      border-top-color: rgba($color__hackney-apprentices, 0.2);
+      border-bottom-color: $color__hackney-apprentices;
+    }
+  }
+  p a {
+    color: $color__hackney-apprentices;
+    font-weight: 600;
+    &:hover {
+      color: #4a4a4a;
+    }
+  }
+  #apprenticeships_image {
+    img {
+      max-width: 80%;
+      @include mobile {
+        max-width: 50%;
+      }
+    }
+  }
+  .is-primary {
+    background-color: $color__hackney-apprentices;
+  }
+  .info_block {
+    text-align: center;
+    padding: 75px 1em 55px 1em;
+    font-size: 18px;
+    h2 {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .is-two-thirds p {
+      text-align: left;
+    }
+  }
+  .points {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+    .icon_circle {
+      background-color: $color__hackney-apprentices;
+    }
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+  }
+  #newsletter {
+    padding-bottom: 0;
+  }
+}
+.white_block {
+  background-color: #fff;
+  margin-bottom: 75px;
+  margin-top: 10px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+
+  @include mobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+body.apprenticeships {
+  .hide_hackney_link {
+    display: none;
+  }
+
+  .award_banner {
+    text-align: center;
+    img {
+      max-width: 250px;
+    }
+  }
+  .full-width.hero {
+    background: linear-gradient(135deg, rgba(111,184,67,0.80) 0%, rgba(111,184,67,0.92) 100%);
+  }
+  .testimonial {
+    .image {
+      margin-top: 40px;
+    }
+  }
+}
+
+
+.accordion {
+  .accord-single {
+    margin-bottom: 10px;
+
+    .fa {
+      vertical-align: middle;
+      -webkit-transition: 0.3s ease-in-out;
+      -moz-transition: 0.3s ease-in-out;
+      -o-transition: 0.3s ease-in-out;
+      transition: 0.3s ease-in-out;
+    }
+
+    &.open {
+      .fa {
+        transform: rotate(45deg);
+      }
+    }
+  }
+  .accord-toggle {
+    cursor: pointer;
+  }
+  .accord-cont {
+    display: none;
+  }
+  .accord-cont.default {
+    display: block;
+  }
+}
+
+
+.sup_page_content {
+  margin: 25px auto;
+  font-size: 18px;
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  &.center, .center {
+    text-align: center;
+  }
+}
+

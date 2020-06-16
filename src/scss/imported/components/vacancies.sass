@@ -1,0 +1,33 @@
+.featured-vacancy
+  text-align: left
+  &.ui-droppable-hover
+    background-color: #ccc
+    color: #ccc
+    h3
+      color: #ccc
+
+  .job_information
+    font-size: 18px
+    min-height: 110px
+    +mobile
+      min-height: auto
+      font-size: 16px
+    p
+      margin-bottom: 5px !important
+      &:last-of-type
+        margin-bottom: 20px !important
+  .job_description
+    font-size: 15px
+  .box
+    height: 100%
+
+.ui-draggable
+  cursor: move /* fallback if grab cursor is unsupported */
+  cursor: grab
+  cursor: -moz-grab
+  cursor: -webkit-grab
+
+.ui-draggable:active, .ui-draggable-dragging
+  cursor: grabbing
+  cursor: -moz-grabbing
+  cursor: -webkit-grabbing

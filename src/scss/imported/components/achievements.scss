@@ -1,0 +1,46 @@
+.achievement-container {
+  margin-bottom: 5px;
+}
+
+.achievement {
+  .icon_cont, .context {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .icon {
+    background-color: $hackney-brand;
+    color: $white;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 100%;
+    margin: 5px;
+  }
+  .context {
+    max-width: 170px;
+    text-align: left;
+    p {
+      margin-bottom: 0 !important;
+      font-weight: bold;
+      line-height: 18px;
+    }
+    .sub {
+      font-weight: normal;
+      margin-top: 6px;
+    }
+  }
+}
+
+#misc_overview {
+  .achievement {
+    text-align: left;
+    .context {
+      max-width: 73%;
+    }
+  }
+}
+
+.linked_achievement {
+  margin-bottom: 20px;
+  line-height: 50px
+}

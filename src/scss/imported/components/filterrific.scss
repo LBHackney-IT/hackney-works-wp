@@ -1,0 +1,24 @@
+
+@media all and (max-width: 880px) {
+  #filterrific_filter {
+    .column {
+      width: 49%;
+      display: inline-block;
+      input, select, .select {
+        width: 100% !important;
+      }
+    }
+  }
+  #client_filters {
+    #fix-line-hieght {
+      .button {
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+
+.filterrific_spinner {
+  display: block;
+  text-align: center;
+}

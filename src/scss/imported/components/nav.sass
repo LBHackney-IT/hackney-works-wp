@@ -1,0 +1,149 @@
+$nav-height: 3.25rem !default
+
+// Components
+
+.nav-toggle
+  +hamburger($nav-height)
+  // Responsiveness
+  right: 0
+  position: absolute
+  +tablet
+    display: none
+  &:hover
+    span
+      background-color: $black !important
+
+.nav-item
+  align-items: center
+  display: flex
+  flex-grow: 0
+  flex-shrink: 0
+  font-size: $size-normal
+  justify-content: center
+  line-height: 1.5
+  padding: 0.5rem 0.75rem
+  a
+    flex-grow: 1
+    flex-shrink: 0
+  img
+    max-height: 1.75rem
+  .tag
+    &:first-child:not(:last-child)
+      margin-right: 0.5rem
+    &:last-child:not(:first-child)
+      margin-left: 0.5rem
+  // Responsiveness
+  +mobile
+    justify-content: flex-start
+
+input.nav-item, .nav-item input
+  background: transparent
+  border: none
+  height: 100%
+  &:focus
+    outline: 0
+  &:hover
+    cursor: pointer
+.nav-item a, a.nav-item, input.nav-item, .nav-item input
+  color: $text-light
+  &:hover, &.current
+    color: $link-hover
+  // Modifiers
+  &.is-active
+    color: $link-active
+  &.is-tab
+    padding-bottom: calc(0.75rem - 1px)
+    padding-left: 1.2rem
+    padding-right: 1.2rem
+    padding-top: calc(0.75rem - 1px)
+    &:hover, &.current
+      background-color: $primary
+      color: $white
+    &.is-active
+      border-bottom: 3px solid $primary
+      color: $primary
+      padding-bottom: calc(0.75rem - 3px)
+  // Responsiveness
+  +desktop
+    &.is-brand
+      padding-left: 0
+
+// Containers
+
+.nav-left,
+.nav-right
+  +overflow-touch
+  align-items: stretch
+  display: flex
+  flex-grow: 1
+  flex-shrink: 0
+  max-width: 100%
+  overflow: auto
+  +widescreen
+    flex-basis: 0
+
+.nav-left
+  justify-content: flex-start
+  white-space: nowrap
+  max-width: 330px
+
+.nav-right
+  justify-content: flex-end
+
+.nav-center
+  align-items: stretch
+  display: flex
+  flex-grow: 0
+  flex-shrink: 0
+  justify-content: center
+  margin-left: auto
+  margin-right: auto
+
+.nav-menu
+  // Responsiveness
+  +mobile
+    a
+      color: $black !important
+      text-shadow: none !important
+    &.nav-right
+      background-color: $white
+      box-shadow: 0 4px 7px rgba($black, 0.1)
+      left: 0
+      display: none
+      right: 0
+      top: 100%
+      position: absolute
+      .nav-item
+        border-top: 1px solid rgba($border, 0.5)
+        padding: 0.75rem
+      &.is-active
+        display: block
+
+// Main container
+
+.nav
+  align-items: stretch
+  display: flex
+  height: $nav-height
+  position: relative
+  text-align: center
+  z-index: 10
+  & > .container
+    align-items: stretch
+    display: flex
+    min-height: $nav-height
+    width: 100%
+  // Modifiers
+  &.has-shadow
+    box-shadow: 0 2px 3px rgba($black, 0.1)
+
+
+
+.nav-toggle
+  width: 125px
+  span
+    left: 25%
+  .txt
+    top: 14px
+    position: relative
+    margin-left: 25px

@@ -17,9 +17,9 @@ registerBlockType( 'lbh/service-teasers', {
             <InnerBlocks allowedBlocks={['lbh/service-teaser']} />
         </div>
     ,
-    save: () => {
+    save: ({ className }) => {
         return (
-            <div>
+            <div id="other_pages" className={`full-width columns ${className}`}>
                 <InnerBlocks.Content />
             </div>
         );

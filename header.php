@@ -13,8 +13,9 @@
             <div class='site-header' role='banner'>
                 <nav class='nav container'>
                     <div class='nav-left'>
-                        <a class="nav-item is-brand bold" href="<?php echo get_bloginfo("url"); ?>">Hackney Works</a>
+                        <a class="nav-item is-brand bold" href="<?php echo get_bloginfo("url"); ?>"><?php echo get_bloginfo("name"); ?></a>
                     </div>
+
                     <span class='nav-toggle'>
                         <span></span>
                         <span></span>
@@ -23,13 +24,22 @@
                             Menu
                         </div>
                     </span>
+    
                     <?php 
                         wp_nav_menu( array( 
+                            'container' => false,
                             'theme_location' => 'header-menu',
-                            'menu_class' => 'nav-right nav-menu',
-                            'container' => ''
-                        ) ); 
+                            'menu_class' => 'nav-right nav-menu'
+                        ));
+
                     ?>
                 </nav>
-                <div class='lines'></div>
+                <?php if(!is_page_template("page-blank.php")): ?>
+                    <div class='lines'></div>
+                <? endif; ?>
             </div>
+
+            <main class="main section" id="main" role="main">
+                <div class="container content is-multiline">
+
+                <?php get_template_part("announcement"); ?>

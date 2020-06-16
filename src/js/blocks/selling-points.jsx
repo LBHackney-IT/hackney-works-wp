@@ -37,12 +37,12 @@ registerBlockType( 'lbh/selling-points', {
         </div>
     ,
 
-    save: ({ attributes: { title } }) => 
-        <div>
+    save: ({ attributes: { title }, className }) => 
+        <div className={`container points ${className}`}>
             <h2>{title}</h2>
-            <ul>
+            <div class="columns">
                 <InnerBlocks.Content />
-            </ul>
+            </div>
         </div>
     ,
 })

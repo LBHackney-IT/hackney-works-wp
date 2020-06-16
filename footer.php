@@ -1,14 +1,17 @@
+            </div>
+        </main>
     </div>
     <footer class='front_page_footer'>
         <div class='lines'></div>
         <div class='container columns'>
             <div class='logo column'>
                 <a href='https://hackney.gov.uk' target='_blank'>
-                    <img alt="Hackney Council" src="/assets/hackney_logo_white-75c397ebd932a949cbdb0850d2e1fae157ef47a610830d4469df4dd7cd21b18d.png" />
+                    <img alt="Hackney Council" src="<?php echo get_stylesheet_directory_uri() ?>/assets/hackney_logo_white.png" />
                     <br>
-                    <img alt="Find yourself in Hackney" class="tagline" src="/assets/find-yourself-type-white-529e4aaa0e643f9a3b8ff3ff74f1b7c759c797d63f92f293e6b56ff38ca16612.svg" />
+                    <img alt="Find yourself in Hackney" class="tagline" src="<?php echo get_stylesheet_directory_uri() ?>/assets/find-yourself-type-white.svg" />
                 </a>
                 <div class='copy'>
+                    <p>This website may not be compatible with Internet Explorer. Please use an alternative browser such as Chrome or Safari.</p>
                     All content is available under the <a target="_blank" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>
                 </div>
             </div>

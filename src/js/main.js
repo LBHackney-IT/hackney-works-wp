@@ -9,7 +9,7 @@ import "./imported/clients-needing-appointment"
 import "./imported/eligibility"
 import "./imported/featured-vacancies"
 import "./imported/filterrific-browser-history"
-import "./imported/form-helper"
+// import "./imported/form-helper"
 // import "./imported/hub-maps.js.erb"
 import "./imported/mobile-nav"
 import "./imported/parralax"
@@ -22,3 +22,9 @@ import "./imported/slider"
 import "./imported/upload"
 import "./imported/validate"
 import "./imported/warn-unsaved"
+
+import { initMaps } from "./_maps"
+
+window.addEventListener("DOMContentLoaded", () => {
+    initMaps()
+})

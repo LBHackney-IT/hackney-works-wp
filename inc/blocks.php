@@ -37,29 +37,42 @@ function lbh_register_opportuntunities_block() {
 add_action("init", "lbh_register_opportuntunities_block");
 
 function lbh_render_oppportunities_block($attributes) {
-    $opportunities = array_slice(fetch_opportunities(), 0, 4);
+    $opportunities = array_slice(fetch_opportunities(), 0, 3);
     ob_start();
     ?>
-        <div>
+        <div id="featured_opps">
             <h2><?php echo $attributes['title']; ?></h2>
-            <div><?php echo $attributes['content']; ?></div>
-            <ul>
-            <?php 
-                if($opportunities): 
-                $i = 0;
-                while($i < count($opportunities)):
+            <p class="large"><?php echo $attributes['content']; ?></p>
+            <br/>
+            <div class="container">
+                <div class="opportunity_list columns">
+                    <?php 
+                        if($opportunities): 
+                        $i = 0;
+                        while($i < count($opportunities)):
 
-            ?>
-                <li>
-                    <h3><?php echo $opportunities[$i]->title ?></h3>
-                    <p><?php echo $opportunities[$i]->actable_type ?></p>
-                </li>
-            <?php 
-                $i++;
-                endwhile; 
-                endif;
-            ?>
-            </ul>
+                    ?>
+                        <div class="single_opportunity column is-one-third">
+                            <div class="box">
+                                <div class="opportunity_tags">
+                                    <div class="tag">
+                                        <?php echo $opportunities[$i]->actable_type ?>
+                                    </div>
+                                </div>
+                                <div class="opportunity_title"><?php echo $opportunities[$i]->actable->title ?></div>
+                                <p class="opportunity_description"><?php echo $opportunities[$i]->actable->short_description ?></p>
+                            </div>
+                        </div>
+                    <?php 
+                        $i++;
+                        endwhile; 
+                        endif;
+                    ?>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <a class="button is-primary" href="/opportunities">View all opportunities</a>
         </div>
     <?php
     $output = ob_get_contents();

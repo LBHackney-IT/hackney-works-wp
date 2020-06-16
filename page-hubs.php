@@ -9,14 +9,22 @@ $query = new WP_Query( array('post_type' => 'hub' ) );
 
     <h1><?php the_title(); ?></h1>
 
-    <?php if($query->have_posts()): while($query->have_posts()): $query->the_post(); ?>
-        <h2><?php the_title(); ?></h2>
-        <p><?php echo get_field('location')["address"]; ?></p>
-        <?php edit_post_link(); ?>
-        <hr/>
-    <?php endwhile; endif; wp_reset_postdata(); ?>
+    <br/>
 
-    <?php the_content(); ?>
+    <div id="hubs">
+        <?php if($query->have_posts()): while($query->have_posts()): $query->the_post(); ?>
+            <div class="box hub">
+                <h2><?php the_title(); ?></h2>
+                <p><?php echo get_field('location')["address"]; ?></p>
+                <div class="map-holder" data-latitude="<?php echo get_field('location')["lat"]; ?>" data-longitude="<?php echo get_field('location')["lng"]; ?>" data-zoom="15">Loading map...</div>
+                <?php edit_post_link(); ?>
+            </div>
+        <?php endwhile; endif; wp_reset_postdata(); ?>
+    </div>
+
+    <div class="box top hubs">
+        <?php the_content(); ?>
+    </div
 
 <?php endwhile; endif; ?>
 

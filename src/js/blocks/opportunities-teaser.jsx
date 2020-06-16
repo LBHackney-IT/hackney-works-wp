@@ -1,5 +1,5 @@
 const { registerBlockType } = window.wp.blocks
-const { PlainText, RichText } = window.wp.blockEditor
+const { RichText } = window.wp.blockEditor
 
 const icon =
     <svg width="211" height="104" viewBox="0 0 211 104" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,10 +25,11 @@ registerBlockType( "lbh/opportunities-teaser", {
         }
     },
  
-    edit: ({ attributes: { title, content }, setAttributes }) => 
-        <div>
-            <PlainText
+    edit: ({ attributes: { title, content }, className, setAttributes }) => 
+        <div className={className}>
+            <RichText
                 value={title} 
+                tagName="h2"
                 placeholder="Headline..."
                 onChange={value => setAttributes({title: value})} 
             />
@@ -39,6 +40,7 @@ registerBlockType( "lbh/opportunities-teaser", {
                     setAttributes({content: value})
                 }
             />
+            <p><em><small>Latest opportunities here</small></em></p>
         </div>
     ,
  

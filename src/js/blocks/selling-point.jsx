@@ -38,10 +38,12 @@ registerBlockType( "lbh/selling-point", {
         </div>
     ,
  
-    save: ({ attributes: { title, iconClass }}) => 
-        <li>
-            <i aria-hidden="true" class={iconClass}></i>
+    save: ({ attributes: { title, iconClass }, className}) => 
+        <div className={`column point ${className}`}>
+            <div class="icon_circle">
+                <i aria-hidden="true" class={iconClass}></i>
+            </div>
             <p>{title}</p>
-        </li>
+        </div>
     ,
 })

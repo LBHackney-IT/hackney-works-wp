@@ -20,7 +20,7 @@ registerBlockType( "lbh/service-teaser", {
         content: {
             type: "string",
             source: "html",
-            selector: "div div"
+            selector: "div p"
         },
         url: {
             type: "string",
@@ -60,11 +60,11 @@ registerBlockType( "lbh/service-teaser", {
         </div>
     ,
  
-    save: ({ attributes: { title, content, callToAction, url }}) => 
-        <div>
+    save: ({ attributes: { title, content, callToAction, url }, className }) => 
+        <div className={`column is-one-third`}>
             <h2>{title}</h2>
-            <RichText.Content tagName="div" value={content}/>
-            <a href={url}>{callToAction}</a>
+            <RichText.Content tagName="p" value={content}/>
+            <a class="button" href={url}>{callToAction}</a>
         </div>
     ,
 })

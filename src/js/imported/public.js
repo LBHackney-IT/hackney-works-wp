@@ -37,7 +37,7 @@ $(document).ready(function() {
 
   $(".validate").validate();
 
-  $("form").handleFormElements();
+  // $("form").handleFormElements();
 
   $("form[method=post]").warnUnsaved();
 

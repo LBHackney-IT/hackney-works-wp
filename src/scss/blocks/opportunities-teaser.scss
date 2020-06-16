@@ -1,0 +1,21 @@
+.wp-block[data-type='lbh/opportunities-teaser']{
+    max-width: $wide;
+}
+
+.wp-block-lbh-opportunities-teaser{
+    margin: 40px auto;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid #efefef;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .rich-text{
+        margin-top: 0px;
+        text-align: center;
+    }
+    .rich-text:last-of-type{
+        max-width: 500px;
+    }
+}

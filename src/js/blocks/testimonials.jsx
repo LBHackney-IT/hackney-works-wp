@@ -36,12 +36,18 @@ registerBlockType( 'lbh/testimonials', {
         </div>
     ,
 
-    save: ({ attributes: { title } }) => 
-        <div>
-            <h2>{title}</h2>
-            <ul>
-                <InnerBlocks.Content />
-            </ul>
+    save: ({ attributes: { title }, className }) => 
+        <div id="testimonials" className="full-width hero">
+            <div class="bg_img">
+                <img class="parralax_me" id="parralax_me2" src="/wp-content/themes/hackney-works-wp/assets/canal.jpg" alt="Canal"/>
+            </div>
+            <div class="container">
+                <h2>{title}</h2>
+                <div class="slider">
+                    <InnerBlocks.Content />
+                    <div class="slide_indicator"></div>
+                </div>
+            </div>
         </div>
     ,
 })

@@ -42,4 +42,6 @@
             <main class="main section" id="main" role="main">
                 <div class="container content is-multiline">
 
-                <?php get_template_part("announcement"); ?>
+                <?php if(!is_page_template("page-blank.php")): ?>
+                    <?php get_template_part("announcement"); ?>
+                <? endif; ?>

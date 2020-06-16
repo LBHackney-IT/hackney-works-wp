@@ -15,14 +15,10 @@ registerBlockType( "lbh/hero", {
     category: "hackney",
     attributes: {
         title: {
-            type: "string",
-            source: "text",
-            selector: "h1"
+            type: "string"
         },
         content: {
-            type: "string",
-            source: "html",
-            selector: "section div"
+            type: "string"
         },
         background: {
             type: "string"
@@ -58,10 +54,5 @@ registerBlockType( "lbh/hero", {
         </div>
     ,
  
-    save: ({ attributes: { title, content, background }}) => 
-            <section style={`background-image: url('${background}');`}>
-                <h1>{title}</h1>
-                <RichText.Content tagName="div" value={content}/>
-            </section>
-    ,
+    save: () => null
 })

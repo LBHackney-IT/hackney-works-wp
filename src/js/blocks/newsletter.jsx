@@ -1,5 +1,5 @@
 const { registerBlockType } = window.wp.blocks
-const { PlainText } = window.wp.blockEditor
+const { RichText } = window.wp.blockEditor
 
 const icon = 
     <svg width="199" height="114" viewBox="0 0 199 114" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,35 +17,57 @@ registerBlockType( 'lbh/newsletter', {
             type: "string",
             source: "text",
             selector: "h2"
+        },
+        content: {
+            type: "string",
+            multiline: "p"
         }
     },
 
-    edit: ({ attributes: { title }, setAttributes }) => 
-        <div>
-            <PlainText
-                value={title}
+    edit: ({ attributes: { title, content }, className, setAttributes }) => 
+        <div className={className}>
+            <RichText
+                value={title} 
+                tagName="h2"
                 placeholder="Headline..."
                 onChange={value => setAttributes({title: value})} 
             />
+            <RichText 
+                value={content} 
+                placeholder="Introduction..."
+                onChange={value => 
+                    setAttributes({content: value})
+                }
+            />
+            <p><em><small>Sign-up form here</small></em></p>
         </div>
     ,
 
-    save: ({ attributes: { title } }) => 
+    save: ({ attributes: { title, content } }) => 
+        <div className="container" id="newsletter">
+            <br/>
+            <br/>
+            <h2>{title}</h2>
+            <p class="about">{content}</p>
             <form 
                 method="get" 
                 action="https://public.govdelivery.com/accounts/UKHACKNEYCOUNCIL/subscriber/qualify"  
                 target="_blank"
+                className="email_subscribe"
             >
-                <h2>{title}</h2>
-                <label for="email">Email</label>
+                {/* <label for="email">Email</label> */}
                 <input 
+                    class="input"
+                    id="newsletter_email"
                     type="email" 
                     id="email" 
                     name="email" 
                     placeholder="Your email address..." 
                     required
                 />
-                <button>Subscribe</button>
+
+                <button class="button" id="subscribe">Subscribe</button>
             </form>
+        </div>
     ,
 })

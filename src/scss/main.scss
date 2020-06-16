@@ -54,6 +54,11 @@
 
 
 .page-template-page-blank{
+
+    #main{
+        padding-top: 0px;
+    }
+    
     .site-header {
         padding-top: 7px;
         background: transparent;
@@ -124,5 +129,14 @@
     }
     &:nth-of-type(3){
         background-color: #BE3A34;
+    }
+}
+
+#main {
+    .has-text-align-left, 
+    .has-text-align-center{
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

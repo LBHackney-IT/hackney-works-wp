@@ -11,12 +11,12 @@ registerBlockType( "lbh/testimonial", {
         message: {
             type: "string",
             source: "text",
-            selector: "q"
+            selector: "p"
         },
         citation: {
             type: "string",
             source: "text",
-            selector: "cite"
+            selector: "span"
         },
         imageId: {
             type: 'number'
@@ -73,12 +73,14 @@ registerBlockType( "lbh/testimonial", {
     ,
  
     save: ({ attributes: { message, citation, imageAlt, imageUrl }}) => 
-        <li>
-            <img src={imageUrl} alt={imageAlt}/>
-            <blockquote>
-                <q>{message}</q>
-                <cite>{citation}</cite>
-            </blockquote>
-        </li>
+        <div className="testimonial clickable">
+            <div class="image">
+                <img src={imageUrl} alt={imageAlt}/>
+            </div>
+            <div class="quote">
+                <p>{message}</p>
+                <span>{citation}</span>
+            </div>
+        </div>
     ,
 })

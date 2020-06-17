@@ -18,13 +18,15 @@ import "./imported/public"
 import "./imported/remove-advisors"
 import "./imported/show-achievement"
 import "./imported/show-others"
-import "./imported/slider"
+// import "./imported/slider"
 import "./imported/upload"
 import "./imported/validate"
 import "./imported/warn-unsaved"
 
 import { initMaps } from "./_maps"
+import { initSliders } from "./_sliders"
 
 window.addEventListener("DOMContentLoaded", () => {
     initMaps()
+    initSliders()
 })

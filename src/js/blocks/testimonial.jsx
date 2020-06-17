@@ -75,7 +75,7 @@ registerBlockType( "lbh/testimonial", {
     save: ({ attributes: { message, citation, imageAlt, imageUrl }}) => 
         <div className="testimonial clickable">
             <div class="image">
-                <img src={imageUrl} alt={imageAlt}/>
+                {imageUrl && <img src={imageUrl} alt={imageAlt}/>}
             </div>
             <div class="quote">
                 <p>{message}</p>

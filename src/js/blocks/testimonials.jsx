@@ -45,7 +45,6 @@ registerBlockType( 'lbh/testimonials', {
                 <h2>{title}</h2>
                 <div class="slider">
                     <InnerBlocks.Content />
-                    <div class="slide_indicator"></div>
                 </div>
             </div>
         </div>

@@ -26,7 +26,7 @@
         "parcel-bundler": "^1.12.4",
         "sass": "^1.26.7",
         "jquery": "^3.5.1",
-        "jquery-ui": "1.10.x"
+        "jquery-ui": "1.12.x"
     },
     "dependencies": {
         "slick-carousel": "^1.8.1"

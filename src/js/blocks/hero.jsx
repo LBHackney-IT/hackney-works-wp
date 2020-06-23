@@ -5,8 +5,8 @@ const { Button } = window.wp.components
 const icon = 
     <svg width="199" height="104" viewBox="0 0 199 104" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="199" height="30" rx="8" fill="#212121"/>
-        <rect y="52" width="144" height="20" rx="8" fill="#212121"/>
-        <rect y="84" width="75" height="20" rx="8" fill="#212121"/>
+        <rect x="27" y="52" width="144" height="20" rx="8" fill="#212121"/>
+        <rect x="62" y="84" width="75" height="20" rx="8" fill="#212121"/>
     </svg>
 
 registerBlockType( "lbh/hero", {

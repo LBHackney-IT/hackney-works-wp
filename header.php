@@ -6,7 +6,7 @@
         <title><?php if(is_home()) echo get_bloginfo('name'); else echo get_the_title() . " | " . get_bloginfo('name'); ?></title>
         <?php wp_head(); ?>
     </head>
-    <body class='<?php body_class(); ?>'>
+    <body <?php body_class(get_field("colour_scheme")); ?>
 
         <div id='main-site-wrapper'>
 

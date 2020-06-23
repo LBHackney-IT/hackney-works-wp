@@ -1,5 +1,5 @@
 import "./hero.jsx"
-
+import "./single-testimonial.jsx"
 import "./button.jsx"
 
 import "./service-teaser.jsx"

@@ -1,5 +1,6 @@
 <?php
 
+add_theme_support( 'wp-block-styles' );
 add_theme_support( 'align-wide' );
 add_theme_support('editor-styles');
 add_editor_style( "/dist/css/editor.css" );
@@ -101,7 +102,11 @@ function lbh_render_hero_block($attributes) {
             </div>
             <div class="lines"></div>
         </div>
-        <?php if(is_page_template("page-blank.php")): ?>
+        <?php if(is_page_template(array(
+                    "page-blank.php",
+                    "page-blank-green.php",
+                    "page-blank-red.php"
+                ))): ?>
             <?php get_template_part("announcement"); ?>
         <? endif; ?>
     <?php

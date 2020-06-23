@@ -57,11 +57,9 @@
 
 
 .page-template-page-blank{
-
     #main{
         padding-top: 0px;
     }
-    
     .site-header {
         padding-top: 7px;
         background: transparent;
@@ -125,7 +123,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -30px;
     margin-bottom: 80px;
 }
 
@@ -153,11 +150,11 @@
 
 // sliders
 .slider {
+    margin-bottom: 25px;
     .ui-slider-handle{
         display: none;
     }
     .image{
-        margin-right: 25px;
         img{
             object-fit: cover;
             width: 80px;
@@ -166,6 +163,10 @@
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
     }
+}
+#testimonials .image{
+    width: auto;
+    margin-right: 25px;
 }
 .content ul.slick-dots{
     bottom: -65px;
@@ -176,4 +177,35 @@
 .slick-dots li.slick-active button:before{
     color: white;
     font-size: 40px;
+}
+
+#main .container.content.is-multiline > p,
+#main .container.content.is-multiline > ul,
+#main .container.content.is-multiline > ol{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+}
+
+#main .container.content.is-multiline > h2,
+#main .container.content.is-multiline > h3,
+#main .container.content.is-multiline > h4,
+#main .container.content.is-multiline > h5{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main .container.content.is-multiline > ul,
+#main .container.content.is-multiline > ol{
+    padding-left: 25px;
+    li{
+        padding-left: 10px;
+    }
+}
+
+.wp-block-embed{
+    display: flex;
+    justify-content: center;
 }

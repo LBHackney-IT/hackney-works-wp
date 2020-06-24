@@ -36,7 +36,7 @@
                 </nav>
                 <?php if(!is_page_template("page-blank.php")): ?>
                     <div class='lines'></div>
-                <? endif; ?>
+                <?php endif; ?>
             </div>
 
             <main class="main section" id="main" role="main">
@@ -44,4 +44,4 @@
 
                 <?php if(!is_page_template("page-blank.php")): ?>
                     <?php get_template_part("announcement"); ?>
-                <? endif; ?>
+                <?php endif; ?>

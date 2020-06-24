@@ -2,4 +2,4 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html/wp-content/themes/hackneyworkstheme
+    destination: /var/www/html/wp-content/themes/hackney-works-wp

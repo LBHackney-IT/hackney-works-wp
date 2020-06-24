@@ -21,6 +21,7 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - run: rm -r src node_modules 
       - run: zip -r app.zip ./* 
       - aws-s3/copy:
           from: /home/circleci/project/app.zip

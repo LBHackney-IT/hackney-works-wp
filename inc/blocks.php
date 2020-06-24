@@ -108,7 +108,7 @@ function lbh_render_hero_block($attributes) {
                     "page-blank-red.php"
                 ))): ?>
             <?php get_template_part("announcement"); ?>
-        <? endif; ?>
+        <?php endif; ?>
     <?php
     $output = ob_get_contents();
     ob_end_clean();

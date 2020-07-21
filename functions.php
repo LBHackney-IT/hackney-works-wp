@@ -1,6 +1,7 @@
 <?php
 
 require "inc/customizer.php";
+require "inc/custom-fields.php";
 
 function lbh_load_scripts_and_styles() {
     wp_enqueue_style("main", get_stylesheet_directory_uri()."/dist/css/main.css");
@@ -43,6 +44,24 @@ function lbh_custom_post_types_init() {
         "show_in_rest" => true,
         "supports" => array("title", "thumbnail")
     ));
+
+    register_post_type("intake", array(
+        "label" => __("Intakes"),
+        "public" => true,
+        "menu_icon" => "dashicons-groups",
+        "show_in_nav_menus" => true,
+        "show_in_rest" => true,
+        "supports" => array("title")
+    ));
+
+    register_post_type("testimonial", array(
+        "label" => __("Testimonials"),
+        "public" => true,
+        "menu_icon" => "dashicons-format-quote",
+        "show_in_nav_menus" => true,
+        "show_in_rest" => true,
+        "supports" => array("title", "editor", "thumbnail")
+    ));
 }
 add_action("init", "lbh_custom_post_types_init");
 
@@ -62,6 +81,7 @@ function lbh_create_custom_taxonomies() {
         "add_new_item" => "Add New Course Provider",
         "separate_items_with_commas" => "Separate multiple providers with commas",
         "choose_from_most_used" => "Choose from the most used providers",
+        "not_found" => "No providers found"
     ),
     "hierarchical" => false,
     'show_ui' => true,
@@ -70,3 +90,19 @@ function lbh_create_custom_taxonomies() {
   ));
 }
 add_action('init', 'lbh_create_custom_taxonomies', 0 );
+
+// Configure ACF Google Maps field
+function lbh_acf_init() {
+    acf_update_setting('google_api_key', GOOGLE_API_KEY);
+}
+add_action('acf/init', 'lbh_acf_init');
+
+// Don't use the gutenberg editor for testimonials
+function lbh_disable_gutenberg_posts( $current_status, $post_type ) {
+    $disabled_post_types = array( 'testimonial' );
+    if ( in_array( $post_type, $disabled_post_types, true ) ) {
+        $current_status = false;
+    }
+    return $current_status;
+}
+add_filter( 'use_block_editor_for_post_type', 'lbh_disable_gutenberg_posts', 10, 2 );

@@ -1,7 +1,5 @@
 <?php
 
-require "inc/opportunities.php";
-require "inc/blocks.php";
 require "inc/customizer.php";
 
 function lbh_load_scripts_and_styles() {
@@ -15,6 +13,7 @@ function lbh_load_admin_scripts_and_styles() {
 }
 add_action("admin_enqueue_scripts", "lbh_load_admin_scripts_and_styles");
 
+add_theme_support( 'post-thumbnails' );
 
 function lbh_register_menus() {
     register_nav_menus(
@@ -35,5 +34,27 @@ function lbh_custom_post_types_init() {
         "show_in_nav_menus"     => true,
         "supports" => array("title")
     ));
+
+    register_post_type("course", array(
+        "label" => __("Courses"),
+        "public" => true,
+        "menu_icon" => "dashicons-welcome-learn-more",
+        "show_in_nav_menus"     => true,
+        "show_in_rest"     => true,
+        "supports" => array("title", "thumbnail")
+    ));
+
 }
 add_action("init", "lbh_custom_post_types_init");
+
+ 
+function lbh_create_custom_taxonomies() { 
+  register_taxonomy('curriculum_areas', 'course', array(
+    "hierarchical" => true,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array('slug' => 'topic'),
+  ));
+}
+add_action('init', 'lbh_create_custom_taxonomies', 0 );

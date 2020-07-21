@@ -47,6 +47,9 @@ function lbh_announcement_options() {
                 <table class="form-table">
 
                     <tr valign="top">
+                        <th scope="row">
+                            Visibility
+                        </th>
                         <td>
                             <input type="checkbox" name="show_announcement" id="show_announcement" <?php if(get_option('show_announcement')): ?>checked<?php endif; ?> "/>
                             <label for="show_announcement">Show announcement?</label>
@@ -64,7 +67,7 @@ function lbh_announcement_options() {
 
                     <tr valign="top">
                         <th scope="row">
-                            <label for="announcement_title">Content</label>
+                            <label for="announcement_content">Content</label>
                         </th>
                         <td>
                             <textarea name="announcement_content" class="regular-text" id="announcement_content" rows="4"><?php echo esc_attr( get_option('announcement_content') ); ?></textarea>

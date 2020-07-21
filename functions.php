@@ -43,15 +43,6 @@ function lbh_custom_post_types_init() {
         "show_in_rest" => true,
         "supports" => array("title", "thumbnail")
     ));
-
-    register_post_type("provider", array(
-        "label" => __("Course providers"),
-        "public" => true,
-        "menu_icon" => "dashicons-groups",
-        "show_in_nav_menus" => true,
-        "show_in_rest" => true,
-        "supports" => array("title")
-    ));
 }
 add_action("init", "lbh_custom_post_types_init");
 
@@ -59,6 +50,20 @@ add_action("init", "lbh_custom_post_types_init");
 function lbh_create_custom_taxonomies() { 
   register_taxonomy('curriculum_areas', 'course', array(
     "hierarchical" => true,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true
+  ));
+
+  register_taxonomy('providers', 'course', array(
+    "labels" => array(
+        "name" => "Providers",
+        "singular_name" => "Provider",
+        "add_new_item" => "Add New Course Provider",
+        "separate_items_with_commas" => "Separate multiple providers with commas",
+        "choose_from_most_used" => "Choose from the most used providers",
+    ),
+    "hierarchical" => false,
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true

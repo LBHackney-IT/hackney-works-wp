@@ -39,11 +39,19 @@ function lbh_custom_post_types_init() {
         "label" => __("Courses"),
         "public" => true,
         "menu_icon" => "dashicons-welcome-learn-more",
-        "show_in_nav_menus"     => true,
-        "show_in_rest"     => true,
+        "show_in_nav_menus" => true,
+        "show_in_rest" => true,
         "supports" => array("title", "thumbnail")
     ));
 
+    register_post_type("course_provider", array(
+        "label" => __("Course providers"),
+        "public" => true,
+        "menu_icon" => "dashicons-groups",
+        "show_in_nav_menus" => true,
+        "show_in_rest" => true,
+        "supports" => array("title")
+    ));
 }
 add_action("init", "lbh_custom_post_types_init");
 
@@ -53,8 +61,7 @@ function lbh_create_custom_taxonomies() {
     "hierarchical" => true,
     'show_ui' => true,
     'show_admin_column' => true,
-    'query_var' => true,
-    'rewrite' => array('slug' => 'topic'),
+    'query_var' => true
   ));
 }
 add_action('init', 'lbh_create_custom_taxonomies', 0 );

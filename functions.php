@@ -44,7 +44,7 @@ function lbh_custom_post_types_init() {
         "supports" => array("title", "thumbnail")
     ));
 
-    register_post_type("course_provider", array(
+    register_post_type("provider", array(
         "label" => __("Course providers"),
         "public" => true,
         "menu_icon" => "dashicons-groups",

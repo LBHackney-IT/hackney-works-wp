@@ -106,3 +106,26 @@ function lbh_disable_gutenberg_posts( $current_status, $post_type ) {
     return $current_status;
 }
 add_filter( 'use_block_editor_for_post_type', 'lbh_disable_gutenberg_posts', 10, 2 );
+
+// Add the custom columns to the intake post type:
+function lbh_set_intake_columns($columns) {
+    return array(
+        'title' => "Title",
+        'course' => "Parent course",
+        'date' => "Date"
+    );
+}
+add_filter( 'manage_intake_posts_columns', 'lbh_set_intake_columns' );
+
+// Add the data to the custom columns for the book post type:
+function custom_book_column( $column, $post_id ) {
+    switch ( $column ) {
+        case 'course' :
+            $parent = get_post_meta( $post_id , 'parent_course' , true );
+            echo "<a href='" . get_edit_post_link($parent) . "'>";
+            echo get_the_title($parent);
+            echo "</a>";
+            break;
+    }
+}
+add_action( 'manage_intake_posts_custom_column' , 'custom_book_column', 10, 2 );

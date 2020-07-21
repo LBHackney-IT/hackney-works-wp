@@ -2,9 +2,9 @@
 
 require "inc/options.php";
 require "inc/custom-fields.php";
-
 require "inc/post-types.php";
 require "inc/taxonomies.php";
+require "inc/api.php";
 
 function lbh_load_scripts_and_styles() {
     wp_enqueue_style("main", get_stylesheet_directory_uri()."/dist/css/main.css");

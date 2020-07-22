@@ -1,7 +1,7 @@
 <?php
 
 require "inc/options.php";
-require "inc/custom-fields.php";
+// require "inc/custom-fields.php";
 require "inc/post-types.php";
 require "inc/taxonomies.php";
 require "inc/api.php";

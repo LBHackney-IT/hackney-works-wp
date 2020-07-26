@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm-run-all build:sass --parallel dev:*",
     "dev:parcel": "parcel watch src/js/index.js -d dist/js",
-    "dev:sass": "node-sass --watch src/scss/index.scss dist/css/index.css",
+    "dev:sass": "node-sass src/scss/index.scss dist/css/index.css --watch src/scss",
     "build": "npm-run-all build:*",
     "build:parcel": "parcel build src/js/index.js -d dist/js",
     "build:sass": "node-sass src/scss/index.scss dist/css/index.css"

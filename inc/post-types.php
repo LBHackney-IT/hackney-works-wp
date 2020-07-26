@@ -15,10 +15,7 @@ function lbh_custom_post_types_init() {
         "menu_icon" => "dashicons-welcome-learn-more",
         "show_in_nav_menus" => true,
         "show_in_rest" => true,
-        "supports" => array("title", "thumbnail"),
-        show_in_graphql => true,
-        graphql_single_name => "course",
-        graphql_plural_name => "courses"
+        "supports" => array("title", "thumbnail")
     ));
 
     register_post_type("intake", array(

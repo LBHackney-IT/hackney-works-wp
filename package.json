@@ -1,0 +1,30 @@
+{
+  "name": "hackney-works-wp",
+  "version": "1.0.0",
+  "description": "WordPress theme for Hackney Works.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm-run-all build:sass --parallel dev:*",
+    "dev:parcel": "parcel watch src/js/index.js -d dist/js",
+    "dev:sass": "node-sass --watch src/scss/index.scss dist/css/index.css",
+    "build": "npm-run-all build:*",
+    "build:parcel": "parcel build src/js/index.js -d dist/js",
+    "build:sass": "node-sass src/scss/index.scss dist/css/index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wearefuturegov/hackney-works-wp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wearefuturegov/hackney-works-wp/issues"
+  },
+  "homepage": "https://github.com/wearefuturegov/hackney-works-wp#readme",
+  "dependencies": {
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4"
+  }
+}

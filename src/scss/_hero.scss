@@ -16,7 +16,7 @@
         background-size: cover;
         background-position: top;
         // mix-blend-mode: multiply;
-        opacity: 0.3;
+        opacity: 0.4;
     }
 
     &__content{
@@ -30,14 +30,11 @@
         font-weight: 800;
         font-size: 2.2rem;
         line-height: 1;        
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
         @media screen and (min-width: 700px){
-            font-size: 3rem
+            font-size: 3.5rem
         }
         @media screen and (min-width: 1200px){
-            font-size: 4rem
+            font-size: 5rem
         }
     }
 

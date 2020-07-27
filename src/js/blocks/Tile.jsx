@@ -32,10 +32,13 @@ registerBlockType( "lbh/tile", {
             <MediaUpload
                 allowedTypes={["image"]}
                 value={imageSrc}
-                onSelect={media => setAttributes({
-                    imageSrc: media.url,
-                    imageAlt: media.alt
-                })}
+                onSelect={media => {
+                    console.log(media)
+                    setAttributes({
+                        imageSrc: media.url,
+                        imageAlt: media.alt
+                    })
+                }}
                 render={({ open }) =>
                     <Button onClick={open}>Choose image...</Button>
                 }

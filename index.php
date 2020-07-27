@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?php wp_title(); ?></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?php wp_head(); ?>
-    </head>
-    <body <?php body_class() ?>>
-        Test
-        
-        <?php wp_footer(); ?>
-    </body>
-</html>
+<?php get_header(); ?>
+
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
+
+<section class="hero <?php if(has_post_thumbnail()){ echo "hero--with-image"; } ?>">
+    <?php if(has_post_thumbnail()): ?>
+        <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
+    <?php endif; ?>
+    <div class="container container--narrow hero__content">
+        <h1 class="hero__title"><?php the_title(); ?></h1>
+        <p class="hero__excerpt"><?php echo get_the_excerpt(); ?></p>
+    </div>
+</section>
+
+<article class="page-content">
+    <div class="container container--narrow">
+        <?php the_content(); ?>
+    </div>
+</article>
+
+<?php endwhile; else: ?>
+
+<p>Nothing to show</p>
+
+<?php endif; ?>
+
+<?php get_footer(); ?>

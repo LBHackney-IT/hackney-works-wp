@@ -1,10 +1,24 @@
 .page-content{
     background: $pale;
-    padding: 45px 25px;
+    padding: 35px 25px;
     color: $grey1;
+    @media screen and (min-width: 700px){
+        padding: 55px 25px;
+    }
+
+    .container > *:first-child{
+        margin-top: 0px;
+    }
 
     h2, h3, h4, h5, h6{
+        margin-top: 45px;
         text-align: center;
+        font-weight: 700;
+        margin-bottom: 25px;
+        @media screen and (min-width: 700px){
+            margin-top: 65px;
+            margin-bottom: 30px;
+        }
     }
 
     p, li{
@@ -13,6 +27,18 @@
         @media screen and (min-width: 700px){
             font-size: 1.1rem;
         }
+    }
+
+    p, ol, ul{
+        margin-bottom: 25px;
+        @media screen and (min-width: 700px){
+            margin-bottom: 30px;
+        }
+    }
+
+    li{
+        margin-bottom: 10px;
+        padding-left: 10px;
     }
 
     a{
@@ -26,6 +52,27 @@
             color: $grey1;
             background: $focus;
             outline: 3px solid $focus;
+        }
+    }
+
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+
+    .wp-block-buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wp-block-button{
+        &:last-of-type{
+            margin-right: 0px;
+        }
+        &__link{
+            @include button;
         }
     }
 }

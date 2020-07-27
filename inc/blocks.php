@@ -4,9 +4,9 @@
 // // add_theme_support( 'wp-block-styles' );
 // add_editor_style( "/dist/css/editor.css" );
 
-
-// add_theme_support( 'disable-custom-colors' );
-// add_theme_support( 'disable-custom-font-sizes' );
+add_theme_support( 'editor-color-palette' );
+add_theme_support( 'disable-custom-colors' );
+add_theme_support( 'disable-custom-font-sizes' );
 
 // Add editor blocks
 function lbh_load_block_scripts() {

@@ -1,10 +1,10 @@
 .hero{
-    padding: 75px 25px;
+    padding: 85px 35px;
     text-align: center;
     position: relative;
     color: $grey1;
     @media screen and (min-width: 700px){
-        padding: 105px 25px;
+        padding: 105px 35px;
     }
 
     &__background{
@@ -14,7 +14,7 @@
         width: 100%;
         height: 100%;
         background-size: cover;
-        background-position: center;
+        background-position: top;
         mix-blend-mode: multiply;
     }
 
@@ -27,38 +27,54 @@
         margin: 0;
         text-transform: uppercase;
         font-weight: 800;
-        font-size: 2rem;
-        line-height: 1;
+        font-size: 2.2rem;
+        line-height: 1;        
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
         @media screen and (min-width: 700px){
             font-size: 3rem
+        }
+        @media screen and (min-width: 1200px){
+            font-size: 4rem
         }
     }
 
     &__excerpt{
         margin: 0;
-        margin-top: 20px;
+        margin-top: 15px;
         line-height: 1.5;
         color: $grey2;
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
         @media screen and (min-width: 700px){
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
     }
 
+    &__call-to-action{
+        margin-top: 30px;
+        @include button;
+    }
+
     &--with-image{
-        background: transparentize($grey1, 0.5);
+        background: transparentize($grey1, 0.3);
         color: white;
         @media screen and (min-width: 1000px){
-            padding: 150px 25px;
+            padding: 170px 25px;
         }
         @media screen and (min-width: 1500px){
             padding: 200px 25px;
         }
 
-        &__title{
+        .hero__title{
             text-shadow: 0px 0px 20px transparentize($grey1, 0.25);
         }
     
-        &__excerpt{
+        .hero__excerpt{
+            color: white;
             text-shadow: 0px 0px 20px transparentize($grey1, 0.25);
         }
     }

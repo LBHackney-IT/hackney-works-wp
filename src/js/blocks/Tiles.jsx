@@ -19,9 +19,10 @@ registerBlockType( 'lbh/tiles', {
     ,
     save: ({ className }) => {
         return (
-            <div id="other_pages" className={`full-width columns ${className}`}>
-                Test
-                <InnerBlocks.Content />
+            <div className="tiles">
+                <div className="container">
+                    <InnerBlocks.Content />
+                </div>
             </div>
         );
     },

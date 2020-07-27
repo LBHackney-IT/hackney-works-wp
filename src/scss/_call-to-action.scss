@@ -1,0 +1,24 @@
+.call-to-action{
+    background: $blue3;
+    padding: 50px 25px;
+    text-align: center;
+
+    &__title{
+        margin: 0;
+        margin-bottom: 15px;
+        font-size: 2rem;
+    }
+
+    &__message{
+        margin: 0;
+        line-height: 1.5;
+        @media screen and (min-width: 700px) {
+            font-size: 1.1rem;
+        }
+    }
+
+    &__button{
+        margin-top: 25px;
+        @include button;
+    }
+}

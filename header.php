@@ -9,8 +9,14 @@
 </head>
 <body <?php body_class() ?>>
 
-<header class="site-header">
+<section class="beta-banner">
+    <div class="container">
+        <strong>Beta</strong> 
+        <p>This is a brand new service — <a href="#">your feedback</a> helps us improve it.
+    </div>    
+</section>
 
+<header class="site-header">
     <div class="site-header__masthead">
         <div class="container">
             <?php the_custom_logo(); ?>

@@ -6,11 +6,14 @@
     <?php if(has_post_thumbnail()): ?>
         <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
     <?php endif; ?>
-    <div class="container container--narrow hero__content">
+    <div class="hero__content">
         <h1 class="hero__title"><?php the_title(); ?></h1>
         <?php if(has_excerpt()): ?>
             <p class="hero__excerpt"><?php echo get_the_excerpt(); ?></p>
         <?php endif; ?>
+
+        <a href="#" class="button hero__call-to-action">Find a course</a>
+
     </div>
 </section>
 
@@ -25,5 +28,7 @@
 <p>Nothing to show</p>
 
 <?php endif; ?>
+
+<?php get_template_part("call-to-action"); ?>
 
 <?php get_footer(); ?>

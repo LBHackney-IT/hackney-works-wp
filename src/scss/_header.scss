@@ -18,7 +18,7 @@
     }
 
     &__masthead{
-        padding: 20px 25px;
+        padding: 15px 25px;
         background: $blue1;
     }
 
@@ -29,7 +29,7 @@
     }
 
     .custom-logo{
-        max-width: 100%;
+        max-width: 350px;
         height: auto;
     }
 
@@ -60,11 +60,12 @@
     }
 
     &__navigation{
-        padding: 2px 25px;
+        padding: 10px 25px;
         background: $blue3;
     }
 
     &__main-menu{
+        margin: 0;
         list-style: none;
         padding-left: 0;
         li{

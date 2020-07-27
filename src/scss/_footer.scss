@@ -33,16 +33,28 @@
 
     &__copyright{   
         background: $grey2;
-        padding: 15px 25px;
+        padding: 20px 25px;
 
         p{
             font-size: 0.9rem;
             margin: 0;
+            color: $pale;
+        }
+
+        a{
+            color: $pale;
+            &:hover{
+                text-decoration: none;
+            }
+            &:focus{
+                color: $grey1;
+                background: $focus;
+                outline: 3px solid $focus;
+            }
         }
     }
 
-    .container{
-
+    &__columns{
         .site-footer__menu{
             margin-top: 35px;
         }

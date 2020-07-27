@@ -1,7 +1,9 @@
 @import "vars";
 
 *{
+    box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
 }
 
+@import "normalize/normalize.css";
 @import "header";

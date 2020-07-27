@@ -8,7 +8,9 @@
     <?php endif; ?>
     <div class="container container--narrow hero__content">
         <h1 class="hero__title"><?php the_title(); ?></h1>
-        <p class="hero__excerpt"><?php echo get_the_excerpt(); ?></p>
+        <?php if(has_excerpt()): ?>
+            <p class="hero__excerpt"><?php echo get_the_excerpt(); ?></p>
+        <?php endif; ?>
     </div>
 </section>
 

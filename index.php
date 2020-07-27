@@ -15,7 +15,7 @@
         <?php endif; ?>
 
         <?php if(get_field("call_to_action")): ?>
-            <a href="<?php get_the_permalink(get_field("call_to_action")) ?>" class="button hero__call-to-action">
+            <a href="<?php echo get_the_permalink(get_field("call_to_action")) ?>" class="button hero__call-to-action">
                 <?php if(get_field("call_to_action_text")){
                     echo get_field("call_to_action_text");
                 } else {

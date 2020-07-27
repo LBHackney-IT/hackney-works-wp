@@ -3,8 +3,13 @@
 require "inc/options.php";
 // require "inc/custom-fields.php";
 require "inc/post-types.php";
+require "inc/blocks.php";
 require "inc/taxonomies.php";
 require "inc/api.php";
+
+
+add_editor_style( 'dist/css/editor.css' );
+
 
 function lbh_load_scripts_and_styles() {
     wp_enqueue_style("main", get_stylesheet_directory_uri()."/dist/css/index.css");

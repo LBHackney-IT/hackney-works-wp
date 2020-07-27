@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm-run-all build:sass --parallel dev:*",
-    "dev:parcel": "parcel watch src/js/index.js -d dist/js",
-    "dev:sass": "node-sass src/scss/index.scss dist/css/index.css --watch src/scss",
+    "dev:parcel": "parcel watch src/js/index.js src/js/blocks/index.js -d dist/js",
+    "dev:sass": "node-sass --watch src/scss -o dist/css",
     "build": "npm-run-all build:*",
-    "build:parcel": "parcel build src/js/index.js -d dist/js",
-    "build:sass": "node-sass src/scss/index.scss dist/css/index.css"
+    "build:parcel": "parcel build src/js/index.js src/js/blocks/index.js -d dist/js",
+    "build:sass": "node-sass src/scss -o dist/css"
   },
   "repository": {
     "type": "git",

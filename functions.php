@@ -13,12 +13,14 @@ function lbh_load_scripts_and_styles() {
 }
 add_action("wp_enqueue_scripts", "lbh_load_scripts_and_styles");
 
+add_theme_support( 'custom-logo' );
 add_theme_support( 'post-thumbnails' );
 
 function lbh_register_menus() {
     register_nav_menus(
         array(
             "header-menu" => __( "Header area" ),
+            "top-header-menu" => __( "Top header area" ),
             "footer-left-menu" => __( "Left footer area" ),
             "footer-right-menu" => __( "Right footer area" )
         )

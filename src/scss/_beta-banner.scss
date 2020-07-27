@@ -1,7 +1,7 @@
 .beta-banner{
     padding: 10px 25px;
-    background: $blue2;
-    color: white;
+    background: $focus;
+    color: $grey1;
 
     .container{
         font-size: 0.9rem;
@@ -16,25 +16,25 @@
     }
 
     a{
-        color: white;
+        color: $grey1;
         &:hover{
             text-decoration: none;
         }
-        &:focus{
-            background: $focus;
-            color: $grey1;
-            outline: 3px solid $focus;
-        }
         &:active{
             color: $grey1;
+        }
+        &:focus{
+            background: $grey1;
+            color: $focus;
+            outline: 3px solid $grey1;
         }
     }
 
     strong{
         padding: 0px 5px;
         font-weight: bold;
-        color: $blue2;
-        background: white;
+        color: $focus;
+        background: $grey1;
         text-transform: uppercase;
         margin-right: 10px;
     }

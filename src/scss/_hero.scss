@@ -15,7 +15,8 @@
         height: 100%;
         background-size: cover;
         background-position: top;
-        mix-blend-mode: multiply;
+        // mix-blend-mode: multiply;
+        opacity: 0.3;
     }
 
     &__content{
@@ -60,7 +61,7 @@
     }
 
     &--with-image{
-        background: transparentize($grey1, 0.3);
+        background: $grey1;
         color: white;
         @media screen and (min-width: 1000px){
             padding: 170px 25px;

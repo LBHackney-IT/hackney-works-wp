@@ -12,7 +12,8 @@
 function lbh_load_block_scripts() {
 
     wp_enqueue_style("main", get_stylesheet_directory_uri()."/dist/css/editor.css");
-
+    wp_enqueue_style("fonts", "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+    
     wp_enqueue_script(
         "blocks", 
         get_stylesheet_directory_uri()."/dist/js/blocks/index.js", 

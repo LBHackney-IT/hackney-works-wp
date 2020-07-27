@@ -8,10 +8,10 @@ jobs:
       name: node/default
     steps:
       - checkout
-      # - node/with-cache:
-      #     steps:
-      #       - run: npm install
-      #       - run: npm run build
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm run build
       - persist_to_workspace:
           root: /home/circleci/project
           paths: .
@@ -21,7 +21,7 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      # - run: rm -r src node_modules 
+      - run: rm -r src node_modules 
       - run: zip -r app.zip ./* 
       - aws-s3/copy:
           from: /home/circleci/project/app.zip

@@ -31,3 +31,14 @@ function lbh_acf_init() {
     acf_update_setting('google_api_key', GOOGLE_API_KEY);
 }
 add_action('acf/init', 'lbh_acf_init');
+
+
+function lo_custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'lo_custom_excerpt_length', 999 );
+
+function lo_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'lo_excerpt_more');

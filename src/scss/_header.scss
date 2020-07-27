@@ -60,7 +60,7 @@
     }
 
     &__navigation{
-        padding: 5px 25px;
+        padding: 2px 25px;
         background: $blue3;
     }
 
@@ -70,6 +70,7 @@
         li{
             display: inline-block;
             margin-right: 10px;
+            padding: 3px 0px;
             &:last-of-type{
                 margin-right: 0px;
             }

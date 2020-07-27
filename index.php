@@ -2,8 +2,10 @@
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<section class="hero">
-    <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
+<section class="hero <?php if(has_post_thumbnail()){ echo "hero--with-image"; } ?>">
+    <?php if(has_post_thumbnail()): ?>
+        <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
+    <?php endif; ?>
     <div class="container container--narrow hero__content">
         <h1 class="hero__title"><?php the_title(); ?></h1>
         <p class="hero__excerpt"><?php echo get_the_excerpt(); ?></p>

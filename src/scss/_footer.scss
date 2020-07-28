@@ -1,6 +1,10 @@
 .site-footer{
     color: white;
 
+    img{
+        max-width: 170px;
+    }
+
     &__navigation{
         background: $grey1;
         padding: 45px 25px;
@@ -32,7 +36,7 @@
     }
 
     &__copyright{   
-        background: $grey2;
+        background: darken($grey1, 2);
         padding: 20px 25px;
 
         p{

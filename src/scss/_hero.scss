@@ -1,11 +1,8 @@
 .hero{
-    padding: 90px 35px;
+    padding: 90px 35px 35px 35px;
     text-align: center;
     position: relative;
     color: $grey1;
-    @media screen and (min-width: 700px){
-        padding: 105px 35px;
-    }
 
     &__background{
         position: absolute;
@@ -15,8 +12,8 @@
         height: 100%;
         background-size: cover;
         background-position: center;
-        // mix-blend-mode: multiply;
-        opacity: 0.4;
+        // mix-blend-mode: overlay;
+        opacity: 0.5;
     }
 
     &__content{
@@ -61,11 +58,13 @@
     &--with-image{
         background: $grey1;
         color: white;
+        padding: 90px 35px;
+
         @media screen and (min-width: 1000px){
-            padding: 170px 25px;
+            padding: 170px 35px;
         }
         @media screen and (min-width: 1500px){
-            padding: 200px 25px;
+            padding: 200px 35px;
         }
 
         .hero__title{

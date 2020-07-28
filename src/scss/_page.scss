@@ -75,4 +75,63 @@
             @include button;
         }
     }
+
+    figure{
+        margin: 0;
+        margin-bottom: 25px;
+        @media screen and (min-width: 700px){
+            margin-bottom: 30px;
+        }
+
+        figcaption{
+            color: $grey2;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    }
+
+    iframe{
+        max-width: 100%;
+    }
+
+    .wp-block-embed{
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .wp-block-table{
+
+        table{
+            background: white;
+            border-collapse: collapse;
+        }
+
+        td, th{
+            padding: 10px;
+            border: 1px solid $blue2;
+        }
+
+        th{
+            text-align: left;
+            background: $blue2;
+            color: white;
+        }
+
+        tr:nth-of-type(even){
+            background: $blue3;
+        }
+
+
+    }
+
+
 }

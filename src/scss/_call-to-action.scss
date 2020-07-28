@@ -2,6 +2,9 @@
     background: $blue3;
     padding: 50px 25px;
     text-align: center;
+    @media screen and (min-width: 700px) {
+        padding: 70px 25px;
+    }
 
     &__title{
         margin: 0;

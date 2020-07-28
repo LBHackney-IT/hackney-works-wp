@@ -30,11 +30,15 @@ body{
     width: 1px;
   }
 
+@import "node_modules/slick-carousel/slick/slick.scss";
+@import "node_modules/slick-carousel/slick/slick-theme.scss";
+
 @import "beta-banner";
 @import "header";
 @import "mini-search";
 @import "hero";
 @import "page";
 @import "tiles";
+@import "testimonials";
 @import "call-to-action";
 @import "footer";

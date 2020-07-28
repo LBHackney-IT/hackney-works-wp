@@ -38,6 +38,8 @@
 
 <?php endif; ?>
 
+<?php get_template_part("testimonials"); ?>
+
 <?php get_template_part("call-to-action"); ?>
 
 <?php get_footer(); ?>

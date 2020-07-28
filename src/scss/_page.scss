@@ -1,12 +1,15 @@
 .page-content{
     background: $pale;
     padding: 35px 25px;
-    color: $grey1;
     @media screen and (min-width: 700px){
         padding: 55px 25px;
     }
+}
 
-    .container > *:first-child{
+.content-area{
+    color: $grey1;
+
+    & > *:first-child{
         margin-top: 0px;
     }
 
@@ -49,9 +52,11 @@
             text-decoration: underline;
         }
         &:focus{
-            color: $grey1;
             background: $focus;
             outline: 3px solid $focus;
+        }
+        &:active{
+            color: $grey1;
         }
     }
 
@@ -109,7 +114,6 @@
     }
 
     .wp-block-table{
-
         table{
             background: white;
             border-collapse: collapse;
@@ -132,9 +136,6 @@
                 background: $blue3;
             }
         }
-
-
     }
-
 
 }

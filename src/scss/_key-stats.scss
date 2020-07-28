@@ -1,0 +1,38 @@
+.key-stats{
+    text-align: center;
+    padding-left: 0px;
+    list-style: none;
+    margin: 0 auto 55px auto;
+
+    @media screen and (min-width: 700px){
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__stat{
+        margin-bottom: 35px;
+        &:last-of-type{
+            margin-bottom: 0px;
+        }
+        @media screen and (min-width: 700px){
+            margin-bottom: 0px;
+            flex: 1;
+            width: 33.33%;
+        }
+
+        p{
+            margin: 0;
+        }
+
+        p:first-of-type{
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            @media screen and (min-width: 700px){
+                font-size: 2rem;
+            }
+        }
+        p:last-of-type{
+            font-size: 0.9rem;
+        }
+    }
+}

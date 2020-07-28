@@ -48,6 +48,21 @@
             margin-top: 20px;
             font-size: 1.4rem;
         }
+
+        a{
+            color: $blue1;
+            font-weight: bold;
+            &:hover{
+                text-decoration: none;
+            }
+            &:focus{
+                background: $focus;
+                outline: 3px solid $focus;
+            }
+            &:active{
+                color: $grey1;
+            }
+        }
     }
 
     &__call-to-action{
@@ -76,6 +91,17 @@
         .hero__excerpt{
             color: white;
             text-shadow: 0px 0px 20px transparentize($grey1, 0.25);
+
+            a{
+                color: white;
+                &:active{
+                    color: white;
+                }
+                &:focus{
+                    text-shadow: none;
+                    color: $grey1;
+                }
+            }
         }
     }
 }

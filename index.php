@@ -4,7 +4,7 @@
 
 <section class="hero <?php if(has_post_thumbnail()){ echo "hero--with-image"; } ?>">
     
-<?php if(has_post_thumbnail()): ?>
+    <?php if(has_post_thumbnail()): ?>
         <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
     <?php endif; ?>
 
@@ -27,7 +27,7 @@
 </section>
 
 <article class="page-content">
-    <div class="container container--narrow">
+    <div class="content-area container container--narrow">
         <?php the_content(); ?>
     </div>
 </article>

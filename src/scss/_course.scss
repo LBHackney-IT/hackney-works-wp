@@ -1,0 +1,48 @@
+.apply-form{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 400px;
+    margin: 0px auto 55px auto;
+
+    &__field{
+        width: 100%;
+        margin-right: 10px;
+    }
+
+    &__label{
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 7px;
+    }
+
+    &__select{
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+        border: 1px solid $grey3;
+        border-radius: 5px;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-right: 40px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: 27px;
+        background-image: url("data:image/svg+xml,%3Csvg width='34' height='22' viewBox='0 0 34 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='34' height='22' fill='white'/%3E%3Cpath d='M15.1453 8.73105L10.1823 13.3632C9.79811 13.7218 9.20189 13.7218 8.81768 13.3632L3.8547 8.73106C3.19118 8.11177 3.6294 7 4.53702 7H14.463C15.3706 7 15.8088 8.11177 15.1453 8.73105Z' fill='%230B0C0C'/%3E%3C/svg%3E%0A");
+        @media screen and (min-width: 700px){
+            font-size: 1.1rem;
+        }
+        &:focus{
+            outline: none;
+            box-shadow: 0px 0px 0px 3px $focus;
+        }
+    }
+
+    &__button{
+        @include button;
+        min-width: initial;
+    }
+}

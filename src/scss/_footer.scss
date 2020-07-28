@@ -1,12 +1,13 @@
 .site-footer{
     color: white;
+    background: $grey0;
 
     img{
         max-width: 170px;
     }
 
     &__navigation{
-        background: $grey1;
+        // background: $grey1;
         padding: 45px 25px;
     }
 
@@ -36,7 +37,8 @@
     }
 
     &__copyright{   
-        background: $grey0;
+        // background: $grey0;
+        border-top: 1px solid $grey2;
         padding: 20px 25px;
 
         p{

@@ -3,7 +3,7 @@
 // Add customiser controls
 function lbh_add_customizer_cta( $wp_customize ) {
     $wp_customize->add_section("cta", array(
-        "title" => "Call to action",
+        "title" => "Call to Action",
         "description" => "The call to action at the bottom of most pages."
     ));
 

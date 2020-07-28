@@ -42,7 +42,7 @@
     }
 
     a{
-        color: $blue2;
+        color: $blue1;
         font-weight: bold;
         text-decoration: none;
         &:hover{
@@ -117,17 +117,20 @@
 
         td, th{
             padding: 10px;
-            border: 1px solid $blue2;
+            border: 1px solid $blue1;
         }
 
         th{
             text-align: left;
-            background: $blue2;
+            background: $blue1;
             color: white;
         }
 
-        tr:nth-of-type(even){
-            background: $blue3;
+        tr{
+            background: $pale;
+            &:nth-of-type(even){
+                background: $blue3;
+            }
         }
 
 

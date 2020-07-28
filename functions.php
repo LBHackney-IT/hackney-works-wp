@@ -1,12 +1,11 @@
 <?php
 
-require "inc/options.php";
-// require "inc/custom-fields.php";
-require "inc/post-types.php";
-require "inc/blocks.php";
-require "inc/taxonomies.php";
-require "inc/api.php";
+require "inc/customizer/announcement.php";
+require "inc/customizer/call-to-action.php";
 
+require "inc/post-types.php";
+require "inc/taxonomies.php";
+require "inc/blocks.php";
 
 add_editor_style( 'dist/css/editor.css' );
 

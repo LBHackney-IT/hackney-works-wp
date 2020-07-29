@@ -28,7 +28,8 @@ function lbh_register_menus() {
             "header-menu" => __( "Header area" ),
             "top-header-menu" => __( "Top header area" ),
             "footer-left-menu" => __( "Left footer area" ),
-            "footer-right-menu" => __( "Right footer area" )
+            "footer-right-menu" => __( "Right footer area" ),
+            "popular-courses-menu" => __( "Popular courses" )
         )
     );
 }
@@ -50,3 +51,24 @@ function lo_excerpt_more($more) {
     return '...';
 }
 add_filter('excerpt_more', 'lo_excerpt_more');
+
+
+
+
+function lbh_query_vars($qvars) {
+    $qvars[] = 'keywords';
+    return $qvars;
+}
+add_filter( 'query_vars', 'lbh_query_vars' );
+
+
+function truncate($text, $length){
+    if ($length >= \strlen($text)) {
+        return $text;
+    }
+    return preg_replace(
+        "/^(.{1,$length})(\s.*|$)/s",
+        '\\1...',
+        $text
+    );
+}

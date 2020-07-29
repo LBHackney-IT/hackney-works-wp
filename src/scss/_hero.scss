@@ -1,5 +1,5 @@
 .hero{
-    padding: 90px 35px;
+    padding: 90px 25px;
     text-align: center;
     position: relative;
     color: $grey0;
@@ -73,12 +73,11 @@
     &--with-image{
         background: $grey1;
         color: white;
-        // padding: 90px 35px;
         @media screen and (min-width: 1000px){
-            padding: 170px 35px;
+            padding: 170px 25px;
         }
         @media screen and (min-width: 1500px){
-            padding: 200px 35px;
+            padding: 200px 25px;
         }
 
         .hero__title{
@@ -102,6 +101,14 @@
                     color: $grey1;
                 }
             }
+        }
+    }
+
+
+    &--course-search{
+        padding: 90px 25px;
+        .hero__background{
+            background-position: top;
         }
     }
 }

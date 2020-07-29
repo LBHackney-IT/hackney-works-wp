@@ -1,0 +1,183 @@
+.layout-sidebar-left{
+    @media screen and (min-width: 700px){
+        display: flex;
+        flex-direction: row;
+    }
+    &__sidebar{
+        margin-bottom: 35px;
+        @media screen and (min-width: 700px){
+            width: 300px;
+            margin-right: 35px;
+            margin-bottom: 0px;
+        }
+    }
+
+    &__main{
+        flex: 1;
+    }
+}
+
+.results-count{
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.course-search{
+    position: relative;
+    background: white;
+    padding: 25px;
+    color: $grey1;
+    text-align: left;
+    border-radius: 5px;
+    margin-top: 55px;
+    @media screen and (min-width: 700px){
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 35px;
+    }
+
+    &__form{
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        margin-bottom: 25px;
+        @media screen and (min-width: 700px){
+            margin-bottom: 0px;
+        }
+    }
+
+    &__field{
+        flex: 1;
+    }
+
+    &__label{
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    &__input{
+        min-width: 100%;
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+        border: 1px solid $grey3;
+        border-radius: 5px;
+        padding-right: 40px;
+        @media screen and (min-width: 700px){
+            font-size: 1.1rem;
+        }
+        &:focus{
+            outline: none;
+            box-shadow: 0px 0px 0px 3px $focus;
+        }
+        &::placeholder{
+            color: transparentize($grey2, 0.5);
+        }
+    }
+
+    &__button{
+        @include button;
+        margin-left: 10px;
+        min-width: initial;
+    }
+
+
+    &__popular{
+        @media screen and (min-width: 700px){
+            margin-left: 40px;
+            padding-left: 40px;
+            border-left: 1px solid $grey3;
+        }
+    }
+
+    &__popular-title{
+        margin: 0;
+        margin-bottom: 15px;
+        font-weight: normal;
+        font-size: 1rem;
+        @media screen and (min-width: 700px){
+            font-size: 1.1rem;
+        }
+    }
+
+    &__menu{
+        padding-left: 0;
+        list-style: none;
+        margin-bottom: 0px;
+
+        li{
+            margin-bottom: 7px;
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+        }
+
+        a{
+            color: $blue1;
+            font-weight: 600;
+            @media screen and (min-width: 700px){
+                font-size: 1.1rem;
+            }
+            &:hover{
+                text-decoration: none;
+            }
+            &:focus{
+                background: $focus;
+                outline: 3px solid $focus;
+            }
+            &:active{
+                color: $grey1;
+            }
+        }
+    }
+}
+
+
+.course-results{
+    list-style: none;
+    padding-left: 0px;
+
+    &__card{
+        padding: 25px;
+        background: white;
+        border: 1px solid $grey3;
+        border-radius: 5px;
+        width: 100%;
+        margin-bottom: 25px;
+        &:last-of-type{
+            margin-bottom: 0px;
+        }
+        @media screen and (min-width: 700px){
+            padding: 35px;
+        }
+    }
+
+    &__title{
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+    &__link{
+        color: $grey1;
+        text-decoration: none;
+    }
+
+    &__tags{
+        a{
+            background: $blue3;
+            padding: 5px 15px;
+            color: $blue2;
+            border-radius: 100px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-right: 5px;
+            &:last-of-type{
+                margin-right: 0px;
+            }
+        }
+    }
+
+}

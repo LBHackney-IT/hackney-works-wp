@@ -17,12 +17,14 @@ if(get_query_var("topic")){
     $tax_query = null;
 }
 
-$search = new WP_Query(array(
+$search = new WP_Query();
+$search->parse_query(array(
     "per_page" => "-1",
     "post_type" => "course",
     "s" => get_query_var("keywords"),
     "tax_query" => $tax_query
 ));
+relevanssi_do_query( $search );
 
 get_header();
 

@@ -53,10 +53,10 @@ function lo_excerpt_more($more) {
 add_filter('excerpt_more', 'lo_excerpt_more');
 
 
-
-
+// Add query vars for course search
 function lbh_query_vars($qvars) {
     $qvars[] = 'keywords';
+    $qvars[] = 'topic';
     return $qvars;
 }
 add_filter( 'query_vars', 'lbh_query_vars' );

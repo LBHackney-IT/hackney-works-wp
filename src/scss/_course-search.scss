@@ -7,7 +7,7 @@
         margin-bottom: 35px;
         @media screen and (min-width: 700px){
             width: 300px;
-            margin-right: 35px;
+            margin-right: 55px;
             margin-bottom: 0px;
         }
     }
@@ -83,12 +83,12 @@
         min-width: initial;
     }
 
-
     &__popular{
         @media screen and (min-width: 700px){
             margin-left: 40px;
             padding-left: 40px;
             border-left: 1px solid $grey3;
+            min-width: 200px;
         }
     }
 
@@ -134,12 +134,12 @@
     }
 }
 
-
 .course-results{
     list-style: none;
     padding-left: 0px;
 
     &__card{
+        position: relative;
         padding: 25px;
         background: white;
         border: 1px solid $grey3;
@@ -152,32 +152,200 @@
         @media screen and (min-width: 700px){
             padding: 35px;
         }
+        &:focus-within{
+            box-shadow: 0px 0px 0px 3px $focus;
+        }
+        &:hover .course-results__link{
+            color: $blue2;
+        }
     }
 
     &__title{
         margin: 0;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     &__link{
         color: $grey1;
         text-decoration: none;
-    }
-
-    &__tags{
-        a{
-            background: $blue3;
-            padding: 5px 15px;
-            color: $blue2;
-            border-radius: 100px;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 0.9rem;
-            margin-right: 5px;
-            &:last-of-type{
-                margin-right: 0px;
-            }
+        &:before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        &:focus,
+        &:active{
+            outline: none;
         }
     }
 
+    p{
+        line-height: 1.5;
+        margin: 0;
+        margin-bottom: 15px;
+        @media screen and (min-width: 700px){
+            font-size: 1.1rem;
+        }
+    }
+
+    &__tags{
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: -5px;
+    }
+
+    &__tag{
+        background: $blue3;
+        padding: 5px 15px;
+        color: $blue2;
+        border-radius: 100px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        &:last-of-type{
+            margin-right: 0px;
+        }
+    }
+
+}
+
+
+.course-filter{
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    &__toggle{
+        background: $blue1;
+        color: white;
+        padding: 15px 25px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        &:after{
+            content: "";
+            background-image: url("data:image/svg+xml,%3Csvg width='23' height='14' viewBox='0 0 23 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2L11.5 12L21 2' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            display: block;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 10px;
+            width: 15px;
+        }
+        &[aria-expanded='true']{
+            border-radius: 5px 5px 0px 0px;
+            &:after{
+                background-image: url("data:image/svg+xml,%3Csvg width='23' height='14' viewBox='0 0 23 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21 12L11.5 2L2 12' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            }
+        }
+        @media screen and (min-width: 700px){
+            font-size: 1.1rem;
+        }
+        &:focus{
+            outline: 0;
+            box-shadow: 0px 0px 0px 3px $focus;
+        }
+        &:hover{
+            background: darken($blue1, 5);
+            text-decoration: none;
+        }
+        &:active{
+            color: white;
+            background: darken($blue1, 10);
+            text-decoration: none;
+        }
+    }
+
+    &__body{
+        background: white;
+        padding: 25px;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    &__field{
+        position: relative;
+        margin-bottom: 10px;
+        &:last-of-type{
+            margin-bottom: 0px;
+        }
+        @media screen and (min-width: 700px){
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        input{
+            width: 27px;
+            height: 27px;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+
+        label{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            cursor: pointer;
+            &:before{
+                content: "";
+                display: inline-block;
+                width: 27px;
+                height: 27px;
+                background: darken($pale, 4);
+                border-radius: 5px;
+                margin-right: 20px;
+            }
+        }
+
+        input:checked + label{
+            &:before{
+                background: $blue1;
+            }
+            &:after{
+                content: "";
+                display: block;
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                left: 6px;
+                top: 6px;
+                background-image: url("data:image/svg+xml,%3Csvg width='19' height='14' viewBox='0 0 19 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 7.5L7 12.5L17.5 2' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        input:focus + label{
+            &:before{
+                box-shadow: 0px 0px 0px 3px $focus;
+            }
+        }
+    }
+}
+
+.no-results{
+    color: $grey2;
+    text-align: center;
+    font-size: 1.1rem;
+    @media screen and (min-width: 700px){
+        font-size: 1.2rem;
+    }
 }

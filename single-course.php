@@ -58,12 +58,16 @@ $intakes = new WP_Query(array(
             <p>Teaching method</p>
         </li>
         <li class="key-stats__stat">
-            <p><?php the_field("level"); ?></p>
+            <?php if(get_field("level")): ?>
+                <p><?php the_field("level"); ?></p>
+            <?php else: ?>
+                <p>Beginners</p>
+            <?php endif; ?>
             <p>Skill level</p>
         </li>
         <li class="key-stats__stat">
             <p>Free</p>
-            <p>For eligible learners</p>
+            <p>For Hackney residents</p>
         </li>
     </ul>
 
@@ -98,6 +102,12 @@ $intakes = new WP_Query(array(
 <article class="page-content">
     <div class="content-area container container--narrow">
         <?php endif;?>
+
+        <h2>Course dates and times</h2>
+
+        <?php foreach($intakes->get_posts() as $intake): ?>
+            <?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?>
+        <?php endforeach; ?>
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
             <h2>Who you'll learn with</h2>

@@ -30,7 +30,7 @@
     text-align: left;
     border-radius: 5px;
     margin-top: 55px;
-    @media screen and (min-width: 700px){
+    @media screen and (min-width: 900px){
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -40,16 +40,20 @@
     &__form{
         flex: 1;
         display: flex;
-        flex-direction: row;
-        align-items: flex-end;
+        flex-direction: column;
         margin-bottom: 25px;
-        @media screen and (min-width: 700px){
-            margin-bottom: 0px;
+        @media screen and (min-width: 400px){
+            flex-direction: row;
+            align-items: flex-end;
         }
     }
 
     &__field{
         flex: 1;
+        margin-bottom: 15px;
+        @media screen and (min-width: 400px){
+            margin-bottom: 0px;
+        }
     }
 
     &__label{
@@ -79,12 +83,14 @@
 
     &__button{
         @include button;
-        margin-left: 10px;
-        min-width: initial;
+        @media screen and (min-width: 400px){
+            min-width: initial;
+            margin-left: 10px;
+        }
     }
 
     &__popular{
-        @media screen and (min-width: 700px){
+        @media screen and (min-width: 900px){
             margin-left: 40px;
             padding-left: 40px;
             border-left: 1px solid $grey3;

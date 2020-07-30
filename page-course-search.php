@@ -104,7 +104,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                     <?php while($search->have_posts()): $search->the_post(); ?>
                     <li class="course-results__card">
                         <h2 class="course-results__title"><a class="course-results__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                        <?php echo truncate(get_field("description"), 150); ?>
+                        <?php echo truncate(get_field("description"), 130); ?>
                         <ul class="course-results__tags">
                             <?php if(get_the_terms(null, "curriculum_areas")): foreach(get_the_terms(null, "curriculum_areas") as $term): ?>
                                 <li class="course-results__tag"><?php echo $term->name ?></li>

@@ -54,7 +54,7 @@
             color: $blue1;
             font-weight: bold;
             text-decoration: none;
-            border-bottom: 2px solid white;
+            border-bottom: 2px solid $blue1;
             &:hover{
                 border-bottom: none;
             }
@@ -97,6 +97,7 @@
 
             a{
                 color: white;
+                border-color: white;
                 &:active{
                     color: white;
                     border-color: white;

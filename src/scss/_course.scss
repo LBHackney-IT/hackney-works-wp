@@ -47,6 +47,14 @@
     &__button{
         @include button;
         min-width: initial;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img{
+            display: inline-block;
+            margin-left: 15px;
+            height: 15px;
+        }
     }
 }
 
@@ -88,4 +96,78 @@
             padding: 35px;
         }
     }
+}
+
+.online-course-warning{
+    padding: 35px 25px;
+    // background: transparentize($focus, 0.2);
+    background: $focus;
+    color: $grey1;
+
+    &__inner{
+        @media screen and (min-width: 600px){
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    }
+
+    &__icon{
+        margin-bottom: 15px;
+        width: 80px;
+        @media screen and (min-width: 600px){
+            width: 100px;
+            margin-right: 55px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__content{
+        flex: 1;
+    }
+
+
+    &__title{
+        margin: 0;
+        margin-bottom: 15px;
+        font-weight: 600;
+        strong{
+            font-weight: 700;
+        }
+    }
+
+    details{
+        line-height: 1.5;
+    }
+
+    summary{
+        // font-weight: bold;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+        &:focus{
+            background: $grey1;
+            color: $focus;
+            outline: 3px solid $grey1;
+        }
+    }
+
+    a{
+        font-weight: bold;
+        cursor: pointer;
+        color: $grey1;
+        text-decoration: underline;
+        &:hover{
+            text-decoration: none;
+        }
+        &:focus{
+            background: $grey1;
+            color: $focus;
+            outline: 3px solid $grey1;
+        }
+    }
+
+
+
 }

@@ -42,21 +42,28 @@ $intakes = new WP_Query(array(
                 <?php endforeach; ?>
             </select>
         </div>
-        <button class="apply-form__button">Apply</button>
+        <button class="apply-form__button">
+            Apply
+            <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
+        </button>
     </form>
 
     <ul class="key-stats container">
         <li class="key-stats__stat">
-            <p>Online</p>
-            <p>Course format</p>
+            <?php if(get_field("delivered_online")): ?>
+                <p>Online</p>
+            <?php else: ?>
+                <p>In person</p>
+            <?php endif; ?>
+            <p>Teaching method</p>
         </li>
         <li class="key-stats__stat">
-            <p>Big number</p>
-            <p>Caption</p>
+            <p><?php the_field("level"); ?></p>
+            <p>Skill level</p>
         </li>
         <li class="key-stats__stat">
-            <p>Big number</p>
-            <p>Caption</p>
+            <p>Free</p>
+            <p>For eligible learners</p>
         </li>
     </ul>
 
@@ -67,6 +74,30 @@ $intakes = new WP_Query(array(
 
         <h2>Entry requirements</h2>
         <?php the_field("entry_requirements") ?>
+
+        <?php if(get_field("delivered_online")): ?>
+    </div>
+</article>
+
+<section class="online-course-warning">
+    <div class="container container--narrow online-course-warning__inner">
+        <img class="online-course-warning__icon" src="<?php echo get_stylesheet_directory_uri() . "/assets/video-call.svg" ?>" alt="" aria-hidden="true"/>
+        <div class="online-course-warning__content">
+            <h2 class="online-course-warning__title">This online course is taught using <strong><?php the_field("online_tool") ?></strong></h2>
+            <details>
+                <summary>Not sure about this?</summary>
+                <p>Our courses are normally taught in person. To keep people safe during the coronavirus pandemic, we're doing all our teaching online instead.</p>
+                <p>You'll need a computer or smartphone with a good internet connection.</p>
+                <p>Your tutor will send you detailed instructions before lessons start.</p>
+                <p>New to video calls? <a href="#">See our guide</a></p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<article class="page-content">
+    <div class="content-area container container--narrow">
+        <?php endif;?>
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
             <h2>Who you'll learn with</h2>

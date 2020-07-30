@@ -13,7 +13,7 @@ $intakes = new WP_Query(array(
             "value" => get_the_id()
         )                   
     ),
-))
+));
 
 ?>
 
@@ -31,22 +31,24 @@ $intakes = new WP_Query(array(
 
 
 <article class="page-content">
-    <form method="get" action="/apply" class="apply-form">
-        <div class="apply-form__field">
-            <label class="apply-form__label" for="intake">When would you like to study?</label>
-            <select id="intake" class="apply-form__select" name="intake">
-                <?php foreach($intakes->get_posts() as $intake): ?>
-                    <option value="<?php echo $intake->ID ?>">
-                        <?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <button class="apply-form__button">
-            Apply
-            <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
-        </button>
-    </form>
+    <?php if($intakes->have_posts()): ?>
+        <form method="get" action="/apply" class="apply-form">
+            <div class="apply-form__field">
+                <label class="apply-form__label" for="intake">When would you like to study?</label>
+                <select id="intake" class="apply-form__select" name="intake">
+                    <?php foreach($intakes->get_posts() as $intake): ?>
+                        <option value="<?php echo $intake->ID ?>">
+                            <?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <button class="apply-form__button">
+                Apply
+                <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
+            </button>
+        </form>
+    <?php endif; ?>
 
     <ul class="key-stats container">
         <li class="key-stats__stat">
@@ -89,7 +91,7 @@ $intakes = new WP_Query(array(
         <div class="online-course-warning__content">
             <h2 class="online-course-warning__title">This online course is taught using <strong><?php the_field("online_tool") ?></strong></h2>
             <details>
-                <summary>Not sure about this?</summary>
+                <summary>Why is this?</summary>
                 <p>Our courses are normally taught in person. To keep people safe during the coronavirus pandemic, we're doing all our teaching online instead.</p>
                 <p>You'll need a computer or smartphone with a good internet connection.</p>
                 <p>Your tutor will send you detailed instructions before lessons start.</p>
@@ -103,11 +105,53 @@ $intakes = new WP_Query(array(
     <div class="content-area container container--narrow">
         <?php endif;?>
 
-        <h2>Course dates and times</h2>
 
-        <?php foreach($intakes->get_posts() as $intake): ?>
-            <?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?>
-        <?php endforeach; ?>
+        <?php if($intakes->have_posts()): ?>
+            <h2>Course dates and times</h2>
+            <div class="intake-tabs" data-tabs>
+                <ul class="intake-tabs__tablist" role="tablist">
+                    <?php $i = 0; ?>
+                    <?php foreach($intakes->get_posts() as $intake): 
+                    $datestring = get_field("start_date", $intake);
+                    $date = DateTime::createFromFormat("M j, Y", $datestring); ?>
+                        <li class="intake-tabs__tab" role="presentation">
+                            <a 
+                                class="intake-tabs__link" 
+                                role="tab" 
+                                href="#section-<?php echo $intake->ID ?>" 
+                                id="tab-<?php echo $intake->ID ?>"
+                                aria-selected="<?php if($i !== 0){ echo "false"; } else { echo "true"; } ?>"
+                            >
+                                <?php print_r($date->format("M Y"));  ?> 
+                            </a>
+                        </li>
+                        <?php $i++ ?>
+                    <?php endforeach; ?>
+                </ul>
+                <?php $i = 0; ?>
+                <?php foreach($intakes->get_posts() as $intake): ?>
+                    <section 
+                        class="intake-tabs__tabpanel" 
+                        role="presentation" 
+                        role="tabpanel" 
+                        id="section-<?php echo $intake->ID ?>" 
+                        aria-labelledby="tab-<?php echo $intake->ID ?>" 
+                        <?php if($i !== 0){ echo "hidden"; } ?>
+                    >
+                        <h3 class="intake-tabs__title"><?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?></h3>
+                        <p><?php the_field("days", $intake) ?></p>
+                        <p><?php the_field("start_time", $intake) ?> to <?php the_field("end_time", $intake) ?></p>
+                        <p><?php the_field("description", $intake) ?></p>
+                        <a class="intake-tabs__button" href="/apply?intake=<?php echo $intake->ID ?>">
+                            Apply for these dates
+                            <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
+                        </a>
+                    </section>
+                    <?php $i++ ?>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
             <h2>Who you'll learn with</h2>
@@ -146,6 +190,8 @@ $intakes = new WP_Query(array(
 <?php endwhile; endif; ?>
 
 <?php get_template_part("testimonials"); ?>
+
+<?php get_template_part("similar-courses"); ?>
 
 <?php get_template_part("call-to-action"); ?>
 

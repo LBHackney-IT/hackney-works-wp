@@ -167,7 +167,88 @@
             outline: 3px solid $grey1;
         }
     }
+}
 
 
 
+.intake-tabs{
+
+    .intake-tabs__tablist{
+        margin: 0;
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .intake-tabs__tab{
+        display: inline-block;
+        padding-left: 0;
+        margin-bottom: 0px;
+    }
+
+    .intake-tabs__link{
+        display: block;
+        font-weight: 600;
+        font-size: 1rem;
+        color: $grey1;
+        padding: 10px 15px;
+        border-radius: 5px 5px 0px 0px;
+        border: 1px solid transparent;
+        &:focus{
+            background: inherit;
+            outline: none;
+            box-shadow: 0px 0px 0px 3px $focus;
+        }
+        &[aria-selected='true']{
+            background: white;
+            border: 1px solid $grey3;
+            border-bottom: 1px solid white;
+            cursor: inherit;
+            pointer-events: none;
+        }
+        @media screen and (min-width: 600px){
+            padding: 15px 25px;
+        }
+    }
+
+    &__tabpanel{
+        margin-top: -1px;
+        background: white;
+        border: 1px solid $grey3;
+        border-radius: 0px 0px 5px 5px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @media screen and (min-width: 700px){
+            padding: 35px;
+        }
+        &[hidden]{
+            display: none;
+        }
+    }
+
+    p{
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .intake-tabs__title{
+        text-align: left;
+        margin: 0 0 15px 0;
+    }
+
+    .intake-tabs__button{
+        @include button;
+        margin-top: 25px;
+        min-width: initial;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        align-self: flex-end;
+        img{
+            display: inline-block;
+            margin-left: 15px;
+            height: 15px;
+        }
+    }
 }

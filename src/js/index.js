@@ -1,5 +1,6 @@
 import initTestimonials from "./_testimonials"
 import initFilters from "./_filters"
+import initTabs from "./_tabs"
 
 
 // polyfill foreach
@@ -10,4 +11,5 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 document.addEventListener("DOMContentLoaded", () => {
     initTestimonials()
     initFilters()
+    initTabs()
 })

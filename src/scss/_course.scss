@@ -49,3 +49,42 @@
         min-width: initial;
     }
 }
+
+.tutor-card{
+    border: 1px solid $grey3;
+    border-radius: 5px;
+    background: white;
+    overflow: hidden;
+    @media screen and (min-width: 500px){
+        display: flex;
+        flex-direction: row;
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+        @media screen and (min-width: 500px){
+            width: 33.33%;
+            object-fit: cover;
+        }
+    }
+
+    h3{
+        margin: 0;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    p{
+        margin: 0;
+    }
+
+    &__inner{
+        padding: 25px;
+        flex: 1;
+        align-self: center;
+        @media screen and (min-width: 500px){
+            padding: 35px;
+        }
+    }
+}

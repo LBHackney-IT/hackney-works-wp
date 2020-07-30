@@ -68,6 +68,16 @@ $intakes = new WP_Query(array(
         <h2>Entry requirements</h2>
         <?php the_field("entry_requirements") ?>
 
+        <?php if(get_field("show_tutor")): ?>
+            <h2>Who you'll learn with</h2>
+            <section class="tutor-card">
+                <img src="<?php the_field("tutor_headshot") ?>"/>
+                <div class="tutor-card__inner">
+                    <h3><?php the_field("tutor_name") ?></h3>
+                    <?php the_field("tutor_biography") ?>
+            </div>
+            </section>
+        <?php endif; ?>
     </div>
 </article>
 

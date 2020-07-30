@@ -53,8 +53,10 @@
         a{
             color: $blue1;
             font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px solid white;
             &:hover{
-                text-decoration: none;
+                border-bottom: none;
             }
             &:focus{
                 background: $focus;
@@ -62,6 +64,7 @@
             }
             &:active{
                 color: $grey1;
+                border-color: $grey1;
             }
         }
     }
@@ -96,10 +99,12 @@
                 color: white;
                 &:active{
                     color: white;
+                    border-color: white;
                 }
                 &:focus{
                     text-shadow: none;
                     color: $grey1;
+                    border-color: $grey1;
                 }
             }
         }

@@ -1,6 +1,21 @@
-<?php get_header(); ?>
+<?php get_header();
 
-<?php if(have_posts()): while(have_posts()): the_post(); ?>
+if(have_posts()): while(have_posts()): the_post(); 
+
+$intakes = new WP_Query(array(
+    "post_type" => "intake",
+    "meta_key" => "start_date",
+    "orderby" => "meta_value_num",
+    "order" => "ASC",
+    "meta_query" => array(
+        array(
+            "key" => "parent_course",
+            "value" => 708
+        )                   
+    ),
+))
+
+?>
 
 <section class="hero <?php if(has_post_thumbnail()){ echo "hero--with-image"; } ?>">
     
@@ -14,14 +29,17 @@
     </div>
 </section>
 
-<article class="page-content">
 
+<article class="page-content">
     <form method="get" action="/apply" class="apply-form">
         <div class="apply-form__field">
             <label class="apply-form__label" for="intake">When would you like to study?</label>
             <select id="intake" class="apply-form__select" name="intake">
-                <option value="1">January 2020 - August 2020</option>
-                <option value="1">September 2020 - December 2020</option>
+                <?php foreach($intakes->get_posts() as $intake): ?>
+                    <option value="<?php echo $intake->ID ?>">
+                        <?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
         </div>
         <button class="apply-form__button">Apply</button>
@@ -46,6 +64,9 @@
         
         <h2>About the course</h2>
         <?php the_field("description") ?>
+
+        <h2>Entry requirements</h2>
+        <?php the_field("entry_requirements") ?>
 
     </div>
 </article>

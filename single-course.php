@@ -70,21 +70,34 @@ $intakes = new WP_Query(array(
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
             <h2>Who you'll learn with</h2>
-            <section class="tutor-card">
+            <section class="media-card">
                 <?php if(get_field("tutor_headshot")):
                     echo wp_get_attachment_image( get_field("tutor_headshot"), "medium" );
                 endif; ?>
-                <div class="tutor-card__inner">
+                <div class="media-card__inner">
                     <h3><?php the_field("tutor_name") ?></h3>
                     <?php the_field("tutor_biography") ?>
-            </div>
+                </div>
             </section>
         <?php endif; ?>
 
-
-            <h2>Who provides this course</h2>
-            <?php the_terms($post, "providers"); ?>
-
+        <?php if(get_the_terms(null, "providers")): ?>
+            <h2>Who provides this course?</h2>
+            <?php foreach(get_the_terms(null, "providers") as $term): ?>
+                <section class="media-card">
+                    <div class="media-card__inner">
+                        <?php if(get_field("website_url", $term)): ?>
+                            <h3>
+                                <a href="<?php the_field("website_url", $term) ?>"><?php echo $term->name ?></a>
+                            </h3>
+                        <?php else: ?>
+                            <h3><?php echo $term->name; ?></h3>
+                        <?php endif; ?>
+                        <?php echo $term->description ?>
+                    </div>
+                </section>
+            <?php endforeach; ?>
+        <?php endif; ?>
 
     </div>
 </article>

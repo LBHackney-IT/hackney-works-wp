@@ -64,13 +64,14 @@
         .site-footer__menu{
             margin-top: 35px;
         }
-
-        @media screen and (min-width: 700px){
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-
-            .site-footer__menu{
-                margin-top: 0px;
+        @supports(display: grid){
+            @media screen and (min-width: 700px){
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+    
+                .site-footer__menu{
+                    margin-top: 0px;
+                }
             }
         }
     }

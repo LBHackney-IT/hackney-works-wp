@@ -152,17 +152,18 @@
         border-radius: 5px;
         width: 100%;
         margin-bottom: 25px;
+        transition: box-shadow 0.3s ease-out;
         &:last-of-type{
             margin-bottom: 0px;
         }
         @media screen and (min-width: 700px){
             padding: 35px;
         }
-        &:focus-within{
+        &:focus-within .course-results__link:before{
             box-shadow: 0px 0px 0px 3px $focus;
         }
-        &:hover .course-results__link{
-            color: $blue2;
+        &:hover{
+            box-shadow: 0px 10px 15px transparentize($grey2, 0.95);
         }
     }
 
@@ -182,6 +183,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border-radius: 5px;
         }
         &:focus,
         &:active{
@@ -193,9 +195,6 @@
         line-height: 1.5;
         margin: 0;
         margin-bottom: 15px;
-        // @media screen and (min-width: 700px){
-        //     font-size: 1.1rem;
-        // }
     }
 
     &__tags{

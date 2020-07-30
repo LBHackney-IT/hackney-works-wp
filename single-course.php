@@ -32,22 +32,37 @@ $intakes = new WP_Query(array(
 
 <article class="page-content">
     <?php if($intakes->have_posts()): ?>
-        <form method="get" action="/apply" class="apply-form">
-            <div class="apply-form__field">
-                <label class="apply-form__label" for="intake">When would you like to study?</label>
-                <select id="intake" class="apply-form__select" name="intake">
-                    <?php foreach($intakes->get_posts() as $intake): ?>
-                        <option value="<?php echo $intake->ID ?>">
-                            <?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+        <?php if($intakes->found_posts > 1): ?>
+            <form method="get" action="/apply" class="apply-form">
+                <div class="apply-form__field">
+                    <label class="apply-form__label" for="intake">When would you like to study?</label>
+                    <select id="intake"class="apply-form__select" name="intake">
+                        <?php foreach($intakes->get_posts() as $intake): ?>
+                            <option value="<?php echo $intake->ID ?>">
+                                <?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <button class="apply-form__button">
+                    Apply
+                    <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
+                </button>
+            </form>
+        <?php else: 
+        $intake = $intakes->get_posts()[0] ?>
+        <form method="get" action="/apply" class="apply-form apply-form--single">
+            <input name="intake" type="hidden" value="<?php echo $intake->ID ?>"/>
+            <div class="apply-form__details">
+                <p>This course runs:</p>
+                <p><?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?></p>
             </div>
             <button class="apply-form__button">
                 Apply
                 <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
             </button>
         </form>
+        <?php endif; ?>
     <?php endif; ?>
 
     <ul class="key-stats container">
@@ -60,11 +75,7 @@ $intakes = new WP_Query(array(
             <p>Teaching method</p>
         </li>
         <li class="key-stats__stat">
-            <?php if(get_field("level")): ?>
-                <p><?php the_field("level"); ?></p>
-            <?php else: ?>
-                <p>Beginners</p>
-            <?php endif; ?>
+            <p><?php the_field("level"); ?></p>
             <p>Skill level</p>
         </li>
         <li class="key-stats__stat">
@@ -75,11 +86,18 @@ $intakes = new WP_Query(array(
 
     <div class="content-area container container--narrow">
         
-        <h2>About the course</h2>
+        <h2>What you'll learn</h2>
         <?php the_field("description") ?>
 
-        <h2>Entry requirements</h2>
-        <?php the_field("entry_requirements") ?>
+        <?php if(get_field("entry_requirements")): ?>
+            <h2>Entry requirements</h2>
+            <?php the_field("entry_requirements") ?>
+        <?php endif; ?>
+
+        <?php if(get_field("accreditation_details")): ?>
+            <h2>Accreditation</h2>
+            <?php the_field("accreditation_details") ?>
+        <?php endif; ?>
 
         <?php if(get_field("delivered_online")): ?>
     </div>
@@ -91,7 +109,7 @@ $intakes = new WP_Query(array(
         <div class="online-course-warning__content">
             <h2 class="online-course-warning__title">This online course is taught using <strong><?php the_field("online_tool") ?></strong></h2>
             <details>
-                <summary>Why is this?</summary>
+                <summary>What does this mean for me?</summary>
                 <p>Our courses are normally taught in person. To keep people safe during the coronavirus pandemic, we're doing all our teaching online instead.</p>
                 <p>You'll need a computer or smartphone with a good internet connection.</p>
                 <p>Your tutor will send you detailed instructions before lessons start.</p>
@@ -105,9 +123,8 @@ $intakes = new WP_Query(array(
     <div class="content-area container container--narrow">
         <?php endif;?>
 
-
+        <h2>Course dates and times</h2>
         <?php if($intakes->have_posts()): ?>
-            <h2>Course dates and times</h2>
             <div class="intake-tabs" data-tabs>
                 <ul class="intake-tabs__tablist" role="tablist">
                     <?php $i = 0; ?>
@@ -150,8 +167,10 @@ $intakes = new WP_Query(array(
                     <?php $i++ ?>
                 <?php endforeach; ?>
             </div>
+        <?php else: ?>
+            <p>All spaces on this course are filled right now. We offer new spaces throughout the year, so check back soon.</p>
+            <p>You can also <a href="#">email us to register your interest</a> in this course.</p>
         <?php endif; ?>
-
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
             <h2>Who you'll learn with</h2>

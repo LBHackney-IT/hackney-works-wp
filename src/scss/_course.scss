@@ -9,6 +9,31 @@
         margin-bottom: 75px;
     }
 
+    &--single{
+        align-items: center;
+        background: white;
+        padding: 25px;
+        border: 1px solid $grey3;
+        border-radius: 5px;
+    }
+
+    &__details{
+        margin-right: 20px;
+        color: $grey1;
+        flex: 1;
+        p{
+            margin: 0;
+        }
+        p:first-of-type{
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        p:last-of-type{
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    }
+
     &__field{
         width: 100%;
         margin-right: 10px;
@@ -27,6 +52,7 @@
         border: 1px solid $grey3;
         border-radius: 5px;
         cursor: pointer;
+        background: white;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -100,7 +126,6 @@
 
 .online-course-warning{
     padding: 35px 25px;
-    // background: transparentize($focus, 0.2);
     background: $focus;
     color: $grey1;
 
@@ -141,7 +166,7 @@
     }
 
     summary{
-        // font-weight: bold;
+        display: inline list-item;
         cursor: pointer;
         &:hover{
             text-decoration: underline;

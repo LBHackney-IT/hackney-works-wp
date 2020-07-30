@@ -272,6 +272,9 @@
             background: darken($blue1, 10);
             text-decoration: none;
         }
+        legend{
+            color: white;
+        }
     }
 
     &__body{

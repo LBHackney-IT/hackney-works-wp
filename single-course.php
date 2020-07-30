@@ -71,7 +71,9 @@ $intakes = new WP_Query(array(
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
             <h2>Who you'll learn with</h2>
             <section class="tutor-card">
-                <img src="<?php the_field("tutor_headshot") ?>"/>
+                <?php if(get_field("tutor_headshot")):
+                    echo wp_get_attachment_image( get_field("tutor_headshot"), "medium" );
+                endif; ?>
                 <div class="tutor-card__inner">
                     <h3><?php the_field("tutor_name") ?></h3>
                     <?php the_field("tutor_biography") ?>
@@ -79,16 +81,9 @@ $intakes = new WP_Query(array(
             </section>
         <?php endif; ?>
 
-        <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
-            <h2>Who runs this course</h2>
-            <section class="tutor-card">
-                <img src="<?php the_field("tutor_headshot") ?>"/>
-                <div class="tutor-card__inner">
-                    <h3><?php the_field("tutor_name") ?></h3>
-                    <?php the_field("tutor_biography") ?>
-            </div>
-            </section>
-        <?php endif; ?>
+
+            <h2>Who provides this course</h2>
+            <?php the_terms($post, "providers"); ?>
 
 
     </div>

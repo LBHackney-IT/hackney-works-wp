@@ -6,7 +6,9 @@ $only_filters = array(
 );
 
 $topics = get_terms(array(
-    "taxonomy" => "curriculum_areas"
+    "taxonomy" => "curriculum_areas",
+    "meta_key" => "show_as_filter",
+    "meta_value" => true
 ));
 
 $tax_query = null;

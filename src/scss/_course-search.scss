@@ -317,6 +317,10 @@
             z-index: -1;
         }
 
+        &:hover label:before{
+            background: $grey3;
+        }
+
 
         label{
             display: flex;

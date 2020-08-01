@@ -27,11 +27,11 @@ const App = () => {
     return(
         <Formik
             initialValues={{
-                first_name: "test",
-                last_name: "test",
-                email: "test@email.com",
+                first_name: "",
+                last_name: "",
+                email: "",
                 phone_number: "",
-                live_in_hackney: true
+                live_in_hackney: false
             }}
             validationSchema={schema}
             onSubmit={async values => {

@@ -38,24 +38,28 @@ const App = () => {
             onSubmit={async values => {
                 try{
                     setProcessing(true)
-                    const res = await fetch(endpoint, {
-                        method: "post",
-                        headers: {
-                          'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            course_application: {
-                                ...values,
-                                intake_id: __INTAKE_ID__
-                            }
-                        })
-                    })
-                    const data = await res.json()
-                    if(res.status === 200) {
+                    // const res = await fetch(endpoint, {
+                    //     method: "post",
+                    //     headers: {
+                    //       'Content-Type': 'application/json'
+                    //     },
+                    //     body: JSON.stringify({
+                    //         course_application: {
+                    //             ...values,
+                    //             intake_id: __INTAKE_ID__
+                    //         }
+                    //     })
+                    // })
+                    // const data = await res.json()
+                    // if(res.status === 200) {
+                    //     window.location.replace(window.location.href + `/confirmation?recipient=${values.email}`)
+                    // } else {
+                    //     throw new Error
+                    // }
+
+                    setTimeout(() => {
                         window.location.replace(window.location.href + `/confirmation?recipient=${values.email}`)
-                    } else {
-                        throw new Error
-                    }
+                    }, 1000)
                 } catch(e){
                     setProcessing(false)
                     setGlobalError(true)

@@ -12,12 +12,18 @@ $course = get_field("parent_course");
             <h1 class="confirmation-panel__title">Your application is complete</h1>
             <p>You've applied for:</p>
             <p>
-                <strong><?php echo get_the_title($course); ?></strong></br/>
-                <?php the_field("start_date") ?> — <?php the_field("end_date") ?><br/>
+                <a class="confirmation-panel__course-name" href="<?php the_permalink($course); ?>"><?php echo get_the_title($course); ?></a><br/>
+                <?php the_field("start_date") ?>
+                 <?php if(get_field("end_date")): ?>
+                    — <?php the_field("end_date") ?>
+                <?php endif; ?><br/>
                 <?php the_field("days") ?><br/>
-                <?php the_field("start_time") ?> to <?php the_field("end_time") ?>
+                <?php the_field("start_time") ?> 
+                <?php if(get_field("end_time")): ?>
+                    to <?php the_field("end_time") ?>
+                <?php endif; ?>
             </p>
-            <p>Your first session will be on <strong><?php the_field("start_date") ?> at <?php the_field("start_time") ?></strong>.</p>
+            <p>Your first session will be on <strong><?php the_field("start_date") ?><?php if(get_field("start_time")){ echo "at " . get_the_field("start_time"); } ?></strong>.</p>
             <?php if(isset($_GET["recipient"])): ?>
                 <p>We've sent an email to <?php echo $_GET["recipient"] ?> with these details.</p>
             <?php endif; ?>

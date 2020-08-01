@@ -34,9 +34,6 @@ add_filter("the_title", "lbh_custom_intake_title", 10, 6);
 
 
 add_action( 'init',  function() {
-
-    flush_rewrite_rules();
-
     add_rewrite_rule( 
         'apply/([a-z0-9-]+)/confirmation/?$', 
         'index.php?intake=$matches[1]&apply_confirmation=1', 

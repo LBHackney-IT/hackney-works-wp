@@ -33,7 +33,7 @@ if(get_query_var("only") && in_array("courses-with-spaces", get_query_var("only"
 
 $search = new WP_Query();
 $search->parse_query(array(
-    "per_page" => "-1",
+    "posts_per_page" => -1,
     "post_type" => "course",
     "s" => get_query_var("keywords"),
     "tax_query" => $tax_query,

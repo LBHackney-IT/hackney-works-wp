@@ -215,6 +215,11 @@
         &:last-of-type{
             margin-right: 0px;
         }
+
+        &--filled{
+            color: white;
+            background: $blue1;
+        }
     }
 
 }
@@ -224,6 +229,14 @@
     padding: 0;
     border: 0;
     border-radius: 5px;
+    margin-bottom: 25px;
+
+    @media screen and (min-width: 700px){
+        margin-bottom: 35px;
+    }
+    &:last-of-type{
+        margin-bottom: 0px;
+    }
     &__toggle{
         background: $blue1;
         color: white;

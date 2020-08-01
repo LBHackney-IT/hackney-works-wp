@@ -8,6 +8,7 @@ require "inc/application-flow/index.php";
 require "inc/post-types.php";
 require "inc/taxonomies.php";
 require "inc/blocks.php";
+require "inc/course-search.php";
 
 add_editor_style( 'dist/css/editor.css' );
 
@@ -58,6 +59,7 @@ add_filter('excerpt_more', 'lo_excerpt_more');
 function lbh_course_search_query_vars($qvars) {
     $qvars[] = 'keywords';
     $qvars[] = 'topic';
+    $qvars[] = 'only';
     return $qvars;
 }
 add_filter( 'query_vars', 'lbh_course_search_query_vars' );

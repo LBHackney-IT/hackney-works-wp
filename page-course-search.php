@@ -1,10 +1,15 @@
 <?php
 /* Template Name: Course search */
 
+$only_filters = array(
+    "Courses with spaces"
+);
+
 $topics = get_terms(array(
     "taxonomy" => "curriculum_areas"
 ));
 
+$tax_query = null;
 if(get_query_var("topic")){
     $tax_query = array(
         array(
@@ -13,8 +18,17 @@ if(get_query_var("topic")){
             "terms"    => get_query_var("topic"),
         ),
     );
-} else {
-    $tax_query = null;
+}
+
+$meta_query = null;
+if(get_query_var("only") && in_array("courses-with-spaces", get_query_var("only"))){
+    $meta_query = array(
+        array(
+            "key" => "intake_count",
+            "value" => 0,
+            "compare" => ">"
+        )
+    );
 }
 
 $search = new WP_Query();
@@ -22,9 +36,11 @@ $search->parse_query(array(
     "per_page" => "-1",
     "post_type" => "course",
     "s" => get_query_var("keywords"),
-    "tax_query" => $tax_query
+    "tax_query" => $tax_query,
+    "meta_query" => $meta_query
 ));
 relevanssi_do_query( $search );
+
 
 get_header();
 
@@ -88,6 +104,31 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                     </div>
                 </fieldset>
 
+                <?php if(isset($only_filters)): ?>
+                    <fieldset class="course-filter" data-togglable>
+                        <button class="course-filter__toggle" aria-expanded="true">
+                            <legend class="course-filter__legend">Only show</legend>
+                        </button>
+                        <div class="course-filter__body">
+                            <?php foreach($only_filters as $option): ?>
+                                <div class="course-filter__field">
+                                    <input 
+                                        onchange="this.form.submit()" 
+                                        type="checkbox" 
+                                        name="only[]" 
+                                        value="<?php echo sanitize_title($option); ?>" 
+                                        id="<?php echo sanitize_title($option); ?>"
+                                        <?php if( get_query_var("only") && in_array(sanitize_title($option), get_query_var("only")) ){ 
+                                            echo "checked";
+                                        } ?>
+                                    />
+                                    <label for="<?php echo sanitize_title($option); ?>"><?php echo $option; ?></label>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </fieldset>
+                <?php endif; ?>
+
             </form>
         </aside>
         <main class="layout-sidebar-left__main">
@@ -106,11 +147,15 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                         <h2 class="course-results__title"><a class="course-results__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <?php echo truncate(get_field("description"), 130); ?>
                         <ul class="course-results__tags">
+                            <?php if(get_field("intake_count")): ?>
+                                <li class="course-results__tag course-results__tag--filled">Has spaces</li>
+                            <?php endif; ?>
                             <?php if(get_the_terms(null, "curriculum_areas")): foreach(get_the_terms(null, "curriculum_areas") as $term): ?>
                                 <li class="course-results__tag"><?php echo $term->name ?></li>
                             <?php endforeach; endif; ?>
                         </ul>
                     </li>
+
                     <?php endwhile; ?>
                 </ol>
             <?php else: ?>

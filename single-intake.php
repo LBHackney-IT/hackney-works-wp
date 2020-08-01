@@ -1,5 +1,6 @@
 <?php get_header(); 
 $course = get_field("parent_course");
+if(have_posts()): while(have_posts()): the_post(); 
 ?>
 
 <section class="hero">
@@ -39,4 +40,5 @@ $course = get_field("parent_course");
     __INTAKE_ID__=<?php echo get_the_ID() ?>
 </script>
 
-<?php get_footer(); ?>
+<?php endwhile; endif;
+get_footer(); ?>

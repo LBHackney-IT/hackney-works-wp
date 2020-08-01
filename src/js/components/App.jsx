@@ -49,6 +49,7 @@ const App = () => {
                     })
                 })
                 const data = await res.json()
+                if(res.status === 200) window.location.replace(window.location.href + "/confirmation")
             }}
         >
             {({errors, touched}) =>

@@ -4,8 +4,6 @@ document.querySelectorAll("[data-tabs]").forEach(filter => {
     const tabs = filter.querySelectorAll(".intake-tabs__link")
     const tabpanels = filter.querySelectorAll(".intake-tabs__tabpanel")
 
-    console.log(tabs)
-
     tabs.forEach((tab, i) => {
         tab.addEventListener("click", e => {
 

@@ -3,7 +3,7 @@
 require "inc/customizer/announcement.php";
 require "inc/customizer/call-to-action.php";
 
-require "inc/intake-customisations.php";
+require "inc/application-flow/index.php";
 
 require "inc/post-types.php";
 require "inc/taxonomies.php";

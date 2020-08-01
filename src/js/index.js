@@ -19,5 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initFilters()
     initTabs()
     // mount react app
-    render(<App/>, document.querySelector("[data-apply-form]"))
+
+    const reactRoot = document.querySelector("[data-apply-form]")
+    if(reactRoot) render(<App/>, reactRoot)
 })

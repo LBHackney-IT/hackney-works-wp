@@ -24,7 +24,10 @@ function lbh_custom_post_types_init() {
         "menu_icon" => "dashicons-groups",
         "show_in_nav_menus" => true,
         "show_in_rest" => true,
-        "supports" => array("title")
+        "supports" => false,
+        "rewrite" => array(
+            "slug" => "apply"
+        )
     ));
 
     register_post_type("testimonial", array(
@@ -52,9 +55,9 @@ add_filter( 'use_block_editor_for_post_type', 'lbh_disable_gutenberg_posts', 10,
 function lbh_set_intake_columns($columns) {
     return array(
         'title' => "Title",
-        'start_date' => "Start date",
-        'end_date' => "End date",
         'course' => "Parent course",
+        'days' => "Days",
+        'times' => "Times",
         'date' => "Date"
     );
 }
@@ -69,11 +72,11 @@ function lbh_custom_admin_columns( $column, $post_id ) {
             echo get_the_title($parent);
             echo "</a>";
             break;
-        case 'start_date' :
-            echo get_field("start_date", $post_id);
+        case "days":
+            the_field("days", $post_id);
             break;
-        case 'end_date' :
-            echo get_field("end_date", $post_id);
+        case "times":
+            echo get_field("start_time", $post_id) . " to " .  get_field("end_time", $post_id);
             break;
     }
 }

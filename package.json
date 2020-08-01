@@ -23,11 +23,16 @@
   },
   "homepage": "https://github.com/wearefuturegov/hackney-works-wp#readme",
   "dependencies": {
+    "formik": "^2.1.5",
     "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.4",
-    "slick-carousel": "^1.8.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "slick-carousel": "^1.8.1",
+    "unfetch": "^4.1.0",
+    "yup": "^0.29.2"
   }
 }

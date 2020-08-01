@@ -14,29 +14,25 @@ $intakes = new WP_Query(array(
         )                   
     ),
 ));
-
 ?>
 
 <section class="hero <?php if(has_post_thumbnail()){ echo "hero--with-image"; } ?>">
-    
     <?php if(has_post_thumbnail()): ?>
         <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
     <?php endif; ?>
-
     <div class="hero__content">
         <h1 class="hero__title"><?php the_title(); ?></h1>
         <p class="hero__excerpt">Part of <?php the_terms($post, "curriculum_areas"); ?></p>
     </div>
 </section>
 
-
 <article class="page-content">
     <?php if($intakes->have_posts()): ?>
         <?php if($intakes->found_posts > 1): ?>
-            <form method="get" action="/apply" class="apply-form">
-                <div class="apply-form__field">
-                    <label class="apply-form__label" for="intake">When would you like to study?</label>
-                    <select id="intake"class="apply-form__select" name="intake">
+            <form method="get" action="/" class="mini-apply-form">
+                <div class="mini-apply-form__field">
+                    <label class="mini-apply-form__label" for="intake">When would you like to study?</label>
+                    <select id="intake" class="mini-apply-form__select" name="p">
                         <?php foreach($intakes->get_posts() as $intake): ?>
                             <option value="<?php echo $intake->ID ?>">
                                 <?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?>
@@ -44,24 +40,24 @@ $intakes = new WP_Query(array(
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <button class="apply-form__button">
+                <button class="mini-apply-form__button">
                     Apply
                     <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
                 </button>
             </form>
         <?php else: 
         $intake = $intakes->get_posts()[0] ?>
-        <form method="get" action="/apply" class="apply-form apply-form--single">
-            <input name="intake" type="hidden" value="<?php echo $intake->ID ?>"/>
-            <div class="apply-form__details">
-                <p>This course runs:</p>
-                <p><?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?></p>
-            </div>
-            <button class="apply-form__button">
-                Apply
-                <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
-            </button>
-        </form>
+            <form method="get" action="/" class="mini-apply-form mini-apply-form--single">
+                <input name="p" type="hidden" value="<?php echo $intake->ID ?>"/>
+                <div class="mini-apply-form__details">
+                    <p>This course runs:</p>
+                    <p><?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?></p>
+                </div>
+                <button class="mini-apply-form__button">
+                    Apply
+                    <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
+                </button>
+            </form>
         <?php endif; ?>
     <?php endif; ?>
 
@@ -123,7 +119,7 @@ $intakes = new WP_Query(array(
     <div class="content-area container container--narrow">
         <?php endif;?>
 
-        <h2>Course dates and times</h2>
+        <h2>Apply for this course</h2>
         <?php if($intakes->have_posts()): ?>
             <div class="intake-tabs" data-tabs>
                 <ul class="intake-tabs__tablist" role="tablist">
@@ -159,7 +155,7 @@ $intakes = new WP_Query(array(
                         <p><?php the_field("days", $intake) ?></p>
                         <p><?php the_field("start_time", $intake) ?> to <?php the_field("end_time", $intake) ?></p>
                         <p><?php the_field("description", $intake) ?></p>
-                        <a class="intake-tabs__button" href="/apply?intake=<?php echo $intake->ID ?>">
+                        <a class="intake-tabs__button" href="<?php echo get_the_permalink($intake); ?>">
                             Apply for these dates
                             <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
                         </a>

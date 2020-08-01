@@ -3,7 +3,7 @@
 require "inc/customizer/announcement.php";
 require "inc/customizer/call-to-action.php";
 
-require "inc/application-flow/index.php";
+require "inc/intake-customisations.php";
 
 require "inc/post-types.php";
 require "inc/taxonomies.php";
@@ -56,12 +56,12 @@ add_filter('excerpt_more', 'lo_excerpt_more');
 
 
 // Add query vars for course search
-function lbh_query_vars($qvars) {
+function lbh_course_search_query_vars($qvars) {
     $qvars[] = 'keywords';
     $qvars[] = 'topic';
     return $qvars;
 }
-add_filter( 'query_vars', 'lbh_query_vars' );
+add_filter( 'query_vars', 'lbh_course_search_query_vars' );
 
 
 function truncate($text, $length){

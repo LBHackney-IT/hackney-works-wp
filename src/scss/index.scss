@@ -35,6 +35,23 @@ body{
     width: 1px;
 }
 
+@keyframes spin{
+    from{
+        transform: rotate(0deg)
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}
+
+.spinner{
+    margin: 40px auto;
+    width: 100px;
+    display: block;
+    animation: spin 1.5s infinite;
+    animation-timing-function: linear;
+}
+
 @import "node_modules/slick-carousel/slick/slick.scss";
 @import "node_modules/slick-carousel/slick/slick-theme.scss";
 
@@ -52,3 +69,5 @@ body{
 @import "course";
 @import "course-search";
 @import "similar-courses";
+
+@import "apply";

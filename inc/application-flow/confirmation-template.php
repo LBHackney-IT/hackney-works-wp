@@ -23,7 +23,7 @@ $course = get_field("parent_course");
                     to <?php the_field("end_time") ?>
                 <?php endif; ?>
             </p>
-            <p>Your first session will be on <strong><?php the_field("start_date") ?><?php if(get_field("start_time")){ echo "at " . get_the_field("start_time"); } ?></strong>.</p>
+            <p>Your first session will be on <strong><?php the_field("start_date") ?><?php if(get_field("start_time")){ echo "at " . the_field("start_time"); } ?></strong>.</p>
             <?php if(isset($_GET["recipient"])): ?>
                 <p>We've sent an email to <?php echo $_GET["recipient"] ?> with these details.</p>
             <?php endif; ?>

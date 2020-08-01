@@ -25,7 +25,7 @@ add_filter( 'wp_unique_post_slug', 'lbh_custom_intake_slug', 10, 6 );
 
 // rewrite title as date range
 function lbh_custom_intake_title($title, $id){
-    if(get_post($id)->post_type === "intake"){
+    if(get_post($id) && get_post($id)->post_type === "intake"){
         return get_field("start_date", $id) . " — " . get_field("end_date", $id);
     }
     return $title; 

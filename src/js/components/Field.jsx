@@ -9,6 +9,7 @@ const FlexibleField = ({
     type,
     errors,
     optional,
+    hint,
     ...props
 }) =>
     type === "checkbox" ?
@@ -24,6 +25,7 @@ const FlexibleField = ({
                 {optional && <span className="apply-form__optional">Optional</span>}
             </label>
             <Field type={type} name={name} id={id || name} {...props}/>
+            {hint && <p className="apply-form__hint">{hint}</p>}
             {errors && <p className="apply-form__error">{errors}</p>}
         </div>
         

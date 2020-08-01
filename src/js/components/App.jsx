@@ -23,6 +23,7 @@ const schema = Yup.object().shape({
 
 const App = () => {
     const [processing, setProcessing] = useState(false)
+    const [globalError, setGlobalError] = useState(false)
 
     return(
         <Formik
@@ -35,21 +36,30 @@ const App = () => {
             }}
             validationSchema={schema}
             onSubmit={async values => {
-                setProcessing(true)
-                const res = await fetch(endpoint, {
-                    method: "post",
-                    headers: {
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        course_application: {
-                            ...values,
-                            intake_id: __INTAKE_ID__
-                        }
+                try{
+                    setProcessing(true)
+                    const res = await fetch(endpoint, {
+                        method: "post",
+                        headers: {
+                          'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            course_application: {
+                                ...values,
+                                intake_id: __INTAKE_ID__
+                            }
+                        })
                     })
-                })
-                const data = await res.json()
-                if(res.status === 200) window.location.replace(window.location.href + "/confirmation")
+                    const data = await res.json()
+                    if(res.status === 200) {
+                        window.location.replace(window.location.href + `/confirmation?recipient=${values.email}`)
+                    } else {
+                        throw new Error
+                    }
+                } catch(e){
+                    setProcessing(false)
+                    setGlobalError(true)
+                }
             }}
         >
             {({errors, touched}) =>
@@ -73,6 +83,7 @@ const App = () => {
                         label="Phone number" 
                         name="phone_number" 
                         optional
+                        hint="We'll use this to send you text updates about your application"
                         errors={touched.phone_number ? errors.phone_number : null} 
                     />
 
@@ -91,6 +102,7 @@ const App = () => {
                     >
                         Finish & Apply
                     </button>
+                    {globalError && <p className="apply-form__error">There was an error send your application. Please refresh the page and try again, or contact us if the problem continues.</p>}
                 </Form>
             }
         </Formik>

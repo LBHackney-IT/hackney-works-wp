@@ -178,6 +178,13 @@
         }
     }
 
+    &__hint{
+        margin: 0;
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: $grey2;
+    }
+
     &__error{
         margin: 0;
         margin-top: 10px;
@@ -193,6 +200,7 @@
 
     &__button{
         @include button;
+        width: 100%;
         &--processing{
             pointer-events: none;
             background-image: 

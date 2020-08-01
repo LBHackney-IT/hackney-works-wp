@@ -1,5 +1,5 @@
 .hero{
-    padding: 90px 25px;
+    padding: 70px 25px;
     text-align: center;
     position: relative;
     color: $grey0;
@@ -77,6 +77,8 @@
     &--with-image{
         background: $grey1;
         color: white;
+        padding: 90px 25px;
+        
         @media screen and (min-width: 1000px){
             padding: 170px 25px;
         }

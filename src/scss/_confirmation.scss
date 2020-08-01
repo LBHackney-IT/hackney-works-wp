@@ -1,0 +1,55 @@
+.confirmation-panel{
+    background: white;
+    padding: 25px;
+    border-radius: 5px;
+    color: $grey1;
+    line-height: 1.5;
+
+    @media screen and (min-width: 700px){
+        padding: 35px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 35px;
+        font-size: 1.1rem;
+    }
+
+    &__title{
+        margin: 0;
+        margin-bottom: 25px;    
+        // @media screen and (min-width: 700px){
+        //     font-size: 2.5rem;
+        // }
+
+    }
+
+    h2{
+        margin-top: 35px;
+        font-size: 1.3rem;
+    }
+
+
+    &__icon{
+        width: 70px;
+        margin-bottom: 15px;
+        @media screen and (min-width: 700px){
+            width: 80px;
+        }
+    }
+
+    a{
+        color: $blue1;
+        font-weight: bold;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+        &:focus{
+            background: $focus;
+            outline: 3px solid $focus;
+        }
+        &:active{
+            color: $grey1;
+        }
+    }
+
+}

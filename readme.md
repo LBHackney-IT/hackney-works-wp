@@ -2,11 +2,20 @@
 
 WordPress theme for Hackney Works.
 
+It makes heavy use of custom post types and taxonomies, particularly:
+
+- `courses`, which can belong to curriculum areas and providers.
+- `intakes`, which belong to courses
+
 ## Developing locally
 
 You need a Wordpress website up and running. Clone this repo into the `wp-content/themes` folder.
 
 Then, activate it through the WP admin dashboard.
+
+**It expects Advanced Custom Fields to be installed.**
+
+You'll need to import a copy of the ACF config before you can use the theme as intended.
 
 To make changes to JS and SCSS files you'll need to start up the [Parcel](https://parceljs.org) bundler and Gulp:
 
@@ -42,3 +51,5 @@ It also calls an API for opportunity data:
 ```
 define("API_HOST", "");
 ```
+
+Down

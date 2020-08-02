@@ -201,7 +201,8 @@
     &__button{
         @include button;
         width: 100%;
-        &--processing{
+        &--processing,
+        &--processing:focus{
             pointer-events: none;
             background-image: 
             repeating-linear-gradient(

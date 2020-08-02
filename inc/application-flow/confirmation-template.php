@@ -16,7 +16,7 @@ $course = get_field("parent_course");
                 <?php the_field("start_date") ?>
                  <?php if(get_field("end_date")): ?>
                     — <?php the_field("end_date") ?>
-                <?php endif; ?><br/>b
+                <?php endif; ?><br/>
                 <?php the_field("start_time") ?> 
                 <?php if(get_field("end_time")): ?>
                     to <?php the_field("end_time") ?>

@@ -76,11 +76,13 @@
 
     &__button{
         @include button;
-        min-width: 0;
+        text-align: center;
         display: flex;
         flex-direction: row;
+        justify-content: center;
         align-items: center;
-        min-width: min-content;
+        // BEWARE: ie fix
+        max-width: 140px;
         img{
             display: inline-block;
             margin-left: 15px;

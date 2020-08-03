@@ -1,4 +1,5 @@
-import 'react-app-polyfill/ie11'
+import "regenerator-runtime/runtime"
+import "react-app-polyfill/ie11"
 
 import initTestimonials from "./_testimonials"
 import initFilters from "./_filters"

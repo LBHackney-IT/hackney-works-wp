@@ -82,16 +82,16 @@ $intakes = new WP_Query(array(
 
     <div class="content-area container container--narrow">
         
-        <h2>What you'll learn</h2>
+        <h2 class="centred">What you'll learn</h2>
         <?php the_field("description") ?>
 
         <?php if(get_field("entry_requirements")): ?>
-            <h2>Entry requirements</h2>
+            <h2 class="centred">Entry requirements</h2>
             <?php the_field("entry_requirements") ?>
         <?php endif; ?>
 
         <?php if(get_field("accreditation_details")): ?>
-            <h2>Accreditation</h2>
+            <h2 class="centred">Accreditation</h2>
             <?php the_field("accreditation_details") ?>
         <?php endif; ?>
 
@@ -119,7 +119,7 @@ $intakes = new WP_Query(array(
     <div class="content-area container container--narrow">
         <?php endif;?>
 
-        <h2>Apply for this course</h2>
+        <h2 class="centred">Apply for this course</h2>
         <?php if($intakes->have_posts()): ?>
             <div class="intake-tabs" data-tabs>
                 <ul class="intake-tabs__tablist" role="tablist">
@@ -169,7 +169,7 @@ $intakes = new WP_Query(array(
         <?php endif; ?>
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
-            <h2>Who you'll learn with</h2>
+            <h2 class="centred">Who you'll learn with</h2>
             <section class="media-card">
                 <?php if(get_field("tutor_headshot")):
                     echo wp_get_attachment_image( get_field("tutor_headshot"), "medium" );
@@ -182,7 +182,7 @@ $intakes = new WP_Query(array(
         <?php endif; ?>
 
         <?php if(get_the_terms(null, "providers")): ?>
-            <h2>Who provides this course?</h2>
+            <h2 class="centred">Who provides this course?</h2>
             <?php foreach(get_the_terms(null, "providers") as $term): ?>
                 <section class="media-card">
                     <div class="media-card__inner">

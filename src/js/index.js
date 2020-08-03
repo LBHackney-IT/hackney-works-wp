@@ -1,5 +1,6 @@
 import "promise-polyfill/src/polyfill"
 import "regenerator-runtime/runtime"
+import "./_polyfills"
 
 import initTestimonials from "./_testimonials"
 import initFilters from "./_filters"
@@ -20,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initFilters()
     initTabs()
     // mount react app
-
     const reactRoot = document.querySelector("[data-apply-form]")
     if(reactRoot) render(<App/>, reactRoot)
 })

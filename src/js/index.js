@@ -1,4 +1,5 @@
-import 'regenerator-runtime/runtime'
+import "promise-polyfill/src/polyfill"
+import "regenerator-runtime/runtime"
 
 import initTestimonials from "./_testimonials"
 import initFilters from "./_filters"

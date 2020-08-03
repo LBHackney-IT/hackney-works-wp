@@ -39,28 +39,31 @@ const App = () => {
             onSubmit={async values => {
                 try{
                     setProcessing(true)
-                    const res = await fetch(endpoint, {
-                        method: "post",
-                        headers: {
-                          'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            course_application: {
-                                ...values,
-                                intake_id: __INTAKE_ID__
-                            }
-                        })
-                    })
-                    const data = await res.json()
-                    if(res.status === 200) {
-                        window.location.replace(window.location.href + `/confirmation?recipient=${values.email}`)
-                    } else {
-                        throw new Error
-                    }
 
-                    // setTimeout(() => {
+                    // const res = await fetch(endpoint, {
+                    //     method: "post",
+                    //     headers: {
+                    //       'Content-Type': 'application/json'
+                    //     },
+                    //     body: JSON.stringify({
+                    //         course_application: {
+                    //             ...values,
+                    //             intake_id: __INTAKE_ID__
+                    //         }
+                    //     })
+                    // })
+                    // const data = await res.json()
+                    // if(res.status === 200) {
                     //     window.location.replace(window.location.href + `/confirmation?recipient=${values.email}`)
-                    // }, 1000)
+                    // } else {
+                    //     throw new Error
+                    // }
+
+                    // MOCK RESPONSE
+                    setTimeout(() => {
+                        window.location.replace(window.location.href + `/confirmation?recipient=${values.email}`)
+                    }, 1000)
+
                 } catch(e){
                     setProcessing(false)
                     setGlobalError(true)
@@ -107,7 +110,7 @@ const App = () => {
                     >
                         Finish & apply
                     </button>
-                    {globalError && <p className="apply-form__error">There was an error send your application. Please refresh the page and try again, or contact us if the problem continues.</p>}
+                    {globalError && <p className="apply-form__error">There was an error sending your application. Please refresh the page and try again, or contact us if the problem continues.</p>}
                 </Form>
             }
         </Formik>

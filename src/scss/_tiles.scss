@@ -8,10 +8,14 @@
     padding: 0px 25px;
 
     .container{
-        @media screen and (min-width: 700px) {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 25px;
+        max-width: 600px;
+        @supports(display: grid){
+            max-width: inherit;
+            @media screen and (min-width: 700px) {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 25px;
+            }
         }
     }
 
@@ -30,9 +34,11 @@
         img{
             display: block;
             border-radius: 5px 5px 0px 0px;
-            height: 200px;
             width: 100%;
-            object-fit: cover;
+            @supports(object-fit: cover){
+                object-fit: cover;
+                height: 200px;
+            }
         }
     }
 

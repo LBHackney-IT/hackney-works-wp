@@ -10,7 +10,7 @@
     .container{
         max-width: 600px;
         @supports(display: grid){
-            max-width: inherit;
+            max-width: 1200px;
             @media screen and (min-width: 700px) {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;

@@ -202,6 +202,10 @@
         margin: 0;
         list-style: none;
         padding-left: 0;
+        margin-bottom: 10px;
+        @media screen and (min-width: 500px){
+            margin-bottom: 0px;
+        }
     }
 
     .intake-tabs__tab{
@@ -216,7 +220,7 @@
         font-size: 1rem;
         color: $grey1;
         padding: 10px 15px;
-        border-radius: 5px 5px 0px 0px;
+        border-radius: 5px;
         border: 1px solid transparent;
         &:focus{
             background: inherit;
@@ -226,12 +230,16 @@
         &[aria-selected='true']{
             background: white;
             border: 1px solid $grey3;
-            border-bottom: 1px solid white;
             cursor: inherit;
             pointer-events: none;
         }
-        @media screen and (min-width: 600px){
+
+        @media screen and (min-width: 500px){
             padding: 15px 25px;
+            border-radius: 5px 5px 0px 0px;
+            &[aria-selected='true']{
+                border-bottom: 1px solid white;
+            }
         }
     }
 
@@ -239,11 +247,14 @@
         margin-top: -1px;
         background: white;
         border: 1px solid $grey3;
-        border-radius: 0px 0px 5px 5px;
+        border-radius: 5px;
         padding: 25px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        @media screen and (min-width: 500px){
+            border-radius: 0px 0px 5px 5px;
+        }
         @media screen and (min-width: 700px){
             padding: 35px;
         }

@@ -59,6 +59,9 @@ if(have_posts()): while(have_posts()): the_post(); ?>
             <div class="course-search__field">
                 <label for="query" class="course-search__label">Search by keyword</label>
                 <input id="query" placeholder="eg. improve IT skills" type="search" name="keywords" class="course-search__input" value="<?php echo get_query_var("keywords"); ?>"/>
+                <?php if(get_query_var("keywords")): ?>
+                    <a class="course-search__clear" href="<?php the_permalink(); ?>"><img src="<?php echo get_stylesheet_directory_uri() . "/assets/cross.svg" ?>" alt="Clear search"/></a>
+                <?php endif; ?>
             </div>
             <button class="course-search__button">Search</button>
         </form>

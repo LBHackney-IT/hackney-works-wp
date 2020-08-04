@@ -193,7 +193,7 @@ $intakes = new WP_Query(array(
                         <?php else: ?>
                             <h3><?php echo $term->name; ?></h3>
                         <?php endif; ?>
-                        <?php echo $term->description ?>
+                        <p><?php echo $term->description ?></p>
                     </div>
                 </section>
             <?php endforeach; ?>

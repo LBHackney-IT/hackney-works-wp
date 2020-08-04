@@ -62,7 +62,7 @@ registerBlockType( "lbh/tile", {
  
     save: ({ attributes: { title, content, imageSrc, imageAlt }, className }) => 
         <div className="tiles__tile">
-            <img src={imageSrc} alt={imageAlt}/>
+            <img loading="lazy" src={imageSrc} alt={imageAlt}/>
             <div class="tiles__inner">
                 <h3>{title}</h3>
                 <RichText.Content tagName="p" value={content}/>

@@ -2,7 +2,7 @@
     <div class="site-footer__navigation">
 
         <div class="container site-footer__columns">
-            <img src="<?php echo get_stylesheet_directory_uri() . "/assets/footer-logo.png" ?>" alt="Hackney Council"/>
+            <img loading="lazy" src="<?php echo get_stylesheet_directory_uri() . "/assets/footer-logo.png" ?>" alt="Hackney Council"/>
             
             <?php wp_nav_menu(array(
                 "theme_location" => "footer-left-menu",

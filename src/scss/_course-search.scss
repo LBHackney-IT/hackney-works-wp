@@ -88,7 +88,14 @@
         right: 0;
         bottom: 0;
         border-radius: 0px 5px 5px 0px;
-        padding: 10px;
+        padding: 10.5px;
+        @media screen and (min-width: 700px){
+            padding: 11.5px;
+        
+        }
+        &:hover{
+            background: $grey3;
+        }
         &:focus{
             outline: none;
             box-shadow: 0px 0px 0px 3px $focus;

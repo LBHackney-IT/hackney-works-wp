@@ -68,9 +68,11 @@ function lbh_custom_admin_columns( $column, $post_id ) {
     switch ( $column ) {
         case 'course' :
             $parent = get_post_meta( $post_id , 'parent_course' , true );
-            echo "<a href='" . get_edit_post_link($parent) . "'>";
-            echo get_the_title($parent);
-            echo "</a>";
+            if(get_post($parent)){
+                echo "<a href='" . get_edit_post_link($parent) . "'>";
+                echo get_the_title($parent);
+                echo "</a>";
+            }
             break;
         case "days":
             the_field("days", $post_id);

@@ -35,7 +35,7 @@ $intakes = new WP_Query(array(
                     <select id="intake" class="mini-apply-form__select" name="p">
                         <?php foreach($intakes->get_posts() as $intake): ?>
                             <option value="<?php echo $intake->ID ?>">
-                                <?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?>
+                                <?php echo get_the_title($intake); ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
@@ -51,7 +51,7 @@ $intakes = new WP_Query(array(
                 <input name="p" type="hidden" value="<?php echo $intake->ID ?>"/>
                 <div class="mini-apply-form__details">
                     <p>This course runs:</p>
-                    <p><?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?></p>
+                    <p><?php echo get_the_title($intake); ?></p>
                 </div>
                 <button class="mini-apply-form__button">
                     Apply
@@ -151,7 +151,7 @@ $intakes = new WP_Query(array(
                         aria-labelledby="tab-<?php echo $intake->ID ?>" 
                         <?php if($i !== 0){ echo "hidden"; } ?>
                     >
-                        <h3 class="intake-tabs__title"><?php the_field("start_date", $intake) ?> — <?php the_field("end_date", $intake) ?></h3>
+                        <h3 class="intake-tabs__title"><?php echo get_the_title($intake); ?></h3>
                         <p><?php the_field("days", $intake) ?></p>
                         <p><?php the_field("start_time", $intake) ?> to <?php the_field("end_time", $intake) ?></p>
                         <p><?php the_field("description", $intake) ?></p>

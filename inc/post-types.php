@@ -81,3 +81,14 @@ function lbh_custom_admin_columns( $column, $post_id ) {
     }
 }
 add_action( 'manage_intake_posts_custom_column' , 'lbh_custom_admin_columns', 10, 2 );
+
+
+
+// rewrite content as the custom field value
+function lbh_custom_course_content($content){
+    if(get_post() && get_post()->post_type === "course"){
+        return get_field("description");
+    }
+    return $content; 
+}
+add_filter("the_content", "lbh_custom_course_content", 10, 6);

@@ -1,0 +1,252 @@
+.search-box{
+    position: relative;
+    background: $pale;
+    padding: 25px;
+    color: $grey1;
+    text-align: left;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 55px;
+    margin-bottom: 35px;
+    @media screen and (min-width: 400px){
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    &__field{
+        position: relative;
+        flex: 1;
+        margin-bottom: 15px;
+        @media screen and (min-width: 400px){
+            margin-bottom: 0px;
+        }
+    }
+
+    &__label{
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    &__input{
+        min-width: 100%;
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+        border: 1px solid $grey3;
+        border-radius: 5px;
+        padding-right: 40px;
+        -webkit-appearance: none;
+        @media screen and (min-width: 700px){
+            font-size: 1.1rem;
+        }
+        &:focus{
+            outline: none;
+            box-shadow: 0px 0px 0px 3px $focus;
+        }
+        &::placeholder{
+            color: transparentize($grey2, 0.5);
+        }
+    }
+
+    &__clear{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-radius: 0px 5px 5px 0px;
+        padding: 10.5px;
+        @media screen and (min-width: 700px){
+            padding: 11.5px;
+        
+        }
+        &:hover{
+            background: $grey3;
+        }
+        &:focus{
+            outline: none;
+            box-shadow: 0px 0px 0px 3px $focus;
+        }
+        img{
+            display: block;
+        }
+    }
+
+    // hide little xes on mobile chrome
+    input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+    input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+    &__button{
+        @include button;
+        @media screen and (min-width: 400px){
+            min-width: initial;
+            margin-left: 10px;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+.search-results{
+    list-style: none;
+    padding-left: 0px;
+
+    &__card{
+        position: relative;
+        padding: 25px;
+        background: white;
+        border: 1px solid $grey3;
+        border-radius: 5px;
+        width: 100%;
+        margin-bottom: 25px;
+        transition: box-shadow 0.3s ease-out;
+        &:last-of-type{
+            margin-bottom: 0px;
+        }
+        @media screen and (min-width: 700px){
+            padding: 35px;
+        }
+        &:focus-within .search-results__link:before{
+            box-shadow: 0px 0px 0px 3px $focus;
+        }
+        &:hover{
+            box-shadow: 0px 10px 15px transparentize($grey2, 0.95);
+        }
+    }
+
+    &__title{
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    &__link{
+        color: $blue1;
+        text-decoration: none;
+        &:before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+        &:focus,
+        &:active{
+            outline: none;
+        }
+    }
+
+    p{
+        line-height: 1.5;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+}
+
+
+
+.page-navigation{
+    margin-top: 35px;
+    border-top: 1px solid $grey3;
+
+    &__list{
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__item{
+        padding: 15px 10px;
+        position: relative;
+        padding-left: 40px;
+        @media screen and (min-width: 700px){
+            width: 50%;
+            flex: 1;
+        }
+
+        &:focus-within{
+            background-color: $focus;
+        }
+        &:before{
+            content: "";
+            display: block;
+            position: absolute;
+            height: 18px;
+            width: 18px;
+            left: 10px;
+            top: 15px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position:center;
+            background-image: url("data:image/svg+xml,%3Csvg width='43' height='35' viewBox='0 0 43 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19.3779 3.66026L8.04186 15.1133L39.7999 15.1133C43.2257 15.1133 43.2257 20.4258 39.7999 20.4258L8.51486 20.4258L19.8509 31.1678C21.8587 32.9373 18.7884 36.1248 16.7806 34.3553L0.487559 18.8903C-0.102281 18.3004 -0.219471 17.1208 0.487559 16.5309L16.1906 0.592854C18.0812 -1.29775 21.3859 1.77256 19.3781 3.66316L19.3779 3.66026Z' fill='%23D8DDDE'/%3E%3C/svg%3E%0A");
+        }
+
+        &--next{
+            &:before{
+                background-image: url("data:image/svg+xml,%3Csvg width='43' height='35' viewBox='0 0 43 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.9915 31.2132L34.3275 19.7602L2.56952 19.7602C-0.856278 19.7602 -0.856278 14.4477 2.56952 14.4477L33.8545 14.4477L22.5185 3.70571C20.5107 1.93621 23.581 -1.25129 25.5888 0.518215L41.8818 15.9832C42.4717 16.5731 42.5889 17.7527 41.8818 18.3426L26.1788 34.2806C24.2882 36.1712 20.9835 33.1009 22.9913 31.2103L22.9915 31.2132Z' fill='%23D8DDDE'/%3E%3C/svg%3E%0A");
+            }
+            @media screen and (min-width: 700px){
+                padding-left: 0px;
+                text-align: right;
+                padding-right: 40px;
+                &:before{
+                    left: auto;
+                    right: 10px;
+                }
+            }
+        }
+    }
+
+    &__link{
+        display: block;
+        text-decoration: none;
+        color: $blue1;
+        &:before{
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        span{
+            display: block;
+            &:first-of-type{
+                font-size: 1.2rem;
+                font-weight: bold;
+                line-height: 1;
+                margin-bottom: 7px;
+            }
+        }
+        &:hover span:first-of-type{
+            text-decoration: underline;
+        }
+        &:focus{
+            background: none !important;
+            outline: none !important;
+        }
+        &:active span,
+        &:focus span{
+            color: $grey2;
+        }
+
+
+    }
+}

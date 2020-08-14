@@ -15,7 +15,7 @@ function lbh_custom_post_types_init() {
         "menu_icon" => "dashicons-welcome-learn-more",
         "show_in_nav_menus" => true,
         "show_in_rest" => true,
-        "supports" => array("title", "thumbnail")
+        "supports" => array("title", "thumbnail", "revisions")
     ));
 
     register_post_type("intake", array(
@@ -24,7 +24,7 @@ function lbh_custom_post_types_init() {
         "menu_icon" => "dashicons-groups",
         "show_in_nav_menus" => true,
         "show_in_rest" => true,
-        "supports" => false,
+        "supports" => array("revisions"),
         "rewrite" => array(
             "slug" => "apply"
         )

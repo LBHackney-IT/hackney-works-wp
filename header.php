@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php wp_title("|", true, "right"); ?><?php echo get_bloginfo("name"); ?></title>
+    <title>
+    <?php wp_title("|", true, "right"); ?>
+    <?php echo get_bloginfo("name"); ?>
+    <?php if(get_bloginfo("description")): ?>
+        | <?php echo get_bloginfo("description"); ?>
+    <?php endif; ?>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head(); ?>
 </head>
@@ -12,7 +18,7 @@
 <section class="beta-banner">
     <div class="container">
         <strong>Beta</strong> 
-        <p>This is a brand new service — <a href="#">your feedback</a> helps us improve it.
+        <p>This is a brand new service — <a href="https://forms.gle/eGiiK9RPcvsiEtpr5">your feedback</a> helps us improve it.
     </div>    
 </section>
 

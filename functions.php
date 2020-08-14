@@ -1,6 +1,6 @@
 <?php
 
-require "inc/customizer/announcement.php";
+// require "inc/customizer/announcement.php";
 require "inc/customizer/call-to-action.php";
 
 require "inc/application-flow/index.php";

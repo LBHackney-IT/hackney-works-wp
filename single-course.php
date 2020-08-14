@@ -164,8 +164,7 @@ $intakes = new WP_Query(array(
                 <?php endforeach; ?>
             </div>
         <?php else: ?>
-            <p>All spaces on this course are filled right now. We offer new spaces throughout the year, so check back soon.</p>
-            <p>You can also <a href="#">email us to register your interest</a> in this course.</p>
+            <p>We don't have times and dates for this course yet, but you can still <a href="mailto:info@learningtrust.co.uk">email us to register your interest</a>.</p>
         <?php endif; ?>
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>

@@ -387,7 +387,7 @@
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
-                @supports(transform: translateY()){
+                @supports(transform: translateY(-50%)){
                     top: 50%;
                     transform: translateY(-50%);
                 }

@@ -4,7 +4,7 @@
 $topics = get_terms(array(
     "taxonomy" => "curriculum_areas",
     "meta_key" => "show_as_filter",
-    "meta_value" => true
+    "meta_value" => "topic"
 ));
 
 $custom_only_filters = array(
@@ -13,8 +13,8 @@ $custom_only_filters = array(
 
 $only_filters = get_terms(array(
     "taxonomy" => "curriculum_areas",
-    "meta_key" => "show_as_only_filter",
-    "meta_value" => true
+    "meta_key" => "show_as_filter",
+    "meta_value" => "only"
 ));
 
 $tax_query = null;

@@ -1,13 +1,19 @@
 <?php
 /* Template Name: Course search */
 
-$only_filters = array(
-    "Courses with spaces"
-);
-
 $topics = get_terms(array(
     "taxonomy" => "curriculum_areas",
     "meta_key" => "show_as_filter",
+    "meta_value" => true
+));
+
+$custom_only_filters = array(
+    "Courses with spaces"
+);
+
+$only_filters = get_terms(array(
+    "taxonomy" => "curriculum_areas",
+    "meta_key" => "show_as_only_filter",
     "meta_value" => true
 ));
 
@@ -115,7 +121,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                             <legend class="course-filter__legend">Only show</legend>
                         </button>
                         <div class="course-filter__body">
-                            <?php foreach($only_filters as $option): ?>
+                            <?php foreach($custom_only_filters as $option): ?>
                                 <div class="course-filter__field">
                                     <input 
                                         onchange="this.form.submit()" 
@@ -130,6 +136,23 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                                     <label for="<?php echo sanitize_title($option); ?>"><?php echo $option; ?></label>
                                 </div>
                             <?php endforeach; ?>
+
+                            <?php foreach($only_filters as $option): ?>
+                                <div class="course-filter__field">
+                                    <input 
+                                        onchange="this.form.submit()" 
+                                        type="checkbox" 
+                                        name="topic[]" 
+                                        value="<?php echo $option->slug ?>" 
+                                        id="<?php echo $option->term_id ?>"
+                                        <?php if( get_query_var("topic") && in_array($option->slug, get_query_var("topic")) ){ 
+                                            echo "checked";
+                                        } ?>
+                                    />
+                                    <label for="<?php echo $option->term_id ?>"><?php echo $option->name ?></label>
+                                </div>
+                            <?php endforeach; ?>
+
                         </div>
                     </fieldset>
                 <?php endif; ?>

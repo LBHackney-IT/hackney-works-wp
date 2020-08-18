@@ -109,7 +109,7 @@ $intakes = new WP_Query(array(
                 <p>Our courses are normally taught in person. To keep people safe during the coronavirus pandemic, we're doing all our teaching online instead.</p>
                 <p>You'll need a computer or smartphone with a good internet connection.</p>
                 <p>Your tutor will send you detailed instructions before lessons start.</p>
-                <p>New to video calls? <a href="#">See our guide</a></p>
+                <p>New to video calls? <a href="/learning-online">See our guide</a></p>
             </details>
         </div>
     </div>

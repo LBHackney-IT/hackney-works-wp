@@ -6,8 +6,6 @@ jobs:
  build-and-run:
     executor:
       name: node/default
-    environment:
-      SUBMIT_APPLICATION_ENDPOINT: $SUBMIT_APPLICATION_ENDPOINT
     steps:
       - checkout
       - node/with-cache:

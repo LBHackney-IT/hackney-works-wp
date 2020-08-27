@@ -156,6 +156,16 @@
 
 }
 
+.alert{
+    padding: 25px;
+    margin-top: 0;
+    background: transparentize($focus, 0.75);
+    border-radius: 5px;
+    border: 1px solid $focus;
+    color: darken($focus, 50);
+    margin-bottom: 25px;
+}
+
 
 
 .page-navigation{

@@ -161,6 +161,9 @@ if(have_posts()): while(have_posts()): the_post(); ?>
         </aside>
         <main class="layout-sidebar-left__main">
             <?php if($search->have_posts()): ?>
+
+                <p class="alert">Because of coronavirus (COVID-19), we're changing the way we teach our courses. We're trialling a smaller number for the moment, with more coming soon.</p>
+
                 <p class="results-count">
                     <?php if($search->found_posts == 1): ?>
                         1 matching course

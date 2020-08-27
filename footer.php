@@ -27,7 +27,7 @@
     </div>
 </footer>
 
-<?php if($APPLICATION_SUBMIT_ENDPOINT): ?>
+<?php if(isset($APPLICATION_SUBMIT_ENDPOINT)): ?>
     <script>
         __APPLICATION_SUBMIT_ENDPOINT__ = "<?php echo $APPLICATION_SUBMIT_ENDPOINT ?>"
     </script>

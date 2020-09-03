@@ -164,7 +164,7 @@ $intakes = new WP_Query(array(
                 <?php endforeach; ?>
             </div>
         <?php else: ?>
-            <p>We don't have times and dates for this course yet, but you can still <a href="mailto:info@learningtrust.co.uk">email us to register your interest</a>.</p>
+            <p>We don't have times and dates for this course yet, but you can still <a href="mailto:sai.wong@hackney.gov.uk">email us to register your interest</a>.</p>
         <?php endif; ?>
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>

@@ -24,7 +24,7 @@ jobs:
       - run: rm -r src node_modules 
       - run: zip -r app-$CIRCLE_BRANCH.zip ./* 
       - aws-s3/copy:
-          from: /home/circleci/project/app.zip
+          from: /home/circleci/project/app-$CIRCLE_BRANCH.zip
           to: 's3://cicd-hackney-works-theme-artifact'
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY

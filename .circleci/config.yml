@@ -12,7 +12,6 @@ jobs:
           steps:
             - run: npm install
             - run: npm run build
-            - run: echo ${SUBMIT_APPLICATION_ENDPOINT}
       - persist_to_workspace:
           root: /home/circleci/project
           paths: .
@@ -23,7 +22,7 @@ jobs:
       - attach_workspace:
           at: .
       - run: rm -r src node_modules 
-      - run: zip -r app.zip ./* 
+      - run: zip -r app-$CIRCLE_BRANCH.zip ./* 
       - aws-s3/copy:
           from: /home/circleci/project/app.zip
           to: 's3://cicd-hackney-works-theme-artifact'
@@ -38,3 +37,9 @@ workflows:
             filters:
               branches:
                 only: master
+        - deploy2s3:
+            filters:
+              branches:
+                only: master
+            requires:
+              - build-and-run

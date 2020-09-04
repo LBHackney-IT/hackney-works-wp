@@ -12,8 +12,7 @@ jobs:
           steps:
             - run: npm install
             - run: npm run build
-            - run: echo $SUBMIT_APPLICATION_ENDPOINT
-            - command: echo ${$SUBMIT_APPLICATION_ENDPOINT}
+            - run: echo ${$SUBMIT_APPLICATION_ENDPOINT}
       - persist_to_workspace:
           root: /home/circleci/project
           paths: .

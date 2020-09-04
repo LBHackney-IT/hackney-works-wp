@@ -30,13 +30,21 @@ jobs:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           aws-region: AWS_REGION
 workflows:
-    build-and-deploy:
+    build-and-deploy-staging:
       jobs:
         - build-and-run:
             context: hackney-works-wp-staging-context
             filters:
               branches:
                 only: staging
+        - deploy2s3:
+            filters:
+              branches:
+                only: staging
+            requires:
+              - build-and-run
+    build-and-deploy-production:
+      jobs:
         - build-and-run:
             context: hackney-works-wp-production-context
             filters:
@@ -45,8 +53,6 @@ workflows:
         - deploy2s3:
             filters:
               branches:
-                only:
-                  - master
-                  - staging
+                only: master
             requires:
               - build-and-run

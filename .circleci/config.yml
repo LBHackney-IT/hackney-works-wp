@@ -22,17 +22,31 @@ jobs:
       - attach_workspace:
           at: .
       - run: rm -r src node_modules 
-      - run: zip -r app.zip ./* 
+      - run: zip -r app-$CIRCLE_BRANCH.zip ./* 
       - aws-s3/copy:
-          from: /home/circleci/project/app.zip
+          from: /home/circleci/project/app-$CIRCLE_BRANCH.zip
           to: 's3://cicd-hackney-works-theme-artifact'
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           aws-region: AWS_REGION
 workflows:
-    build-and-deploy:
+    build-and-deploy-staging:
       jobs:
         - build-and-run:
+            context: hackney-works-wp-staging-context
+            filters:
+              branches:
+                only: staging
+        - deploy2s3:
+            filters:
+              branches:
+                only: staging
+            requires:
+              - build-and-run
+    build-and-deploy-production:
+      jobs:
+        - build-and-run:
+            context: hackney-works-wp-production-context
             filters:
               branches:
                 only: master

@@ -33,6 +33,11 @@ workflows:
     build-and-deploy:
       jobs:
         - build-and-run:
+            context: hackney-works-wp-staging-context
+            filters:
+              branches:
+                only: staging
+        - build-and-run:
             context: hackney-works-wp-production-context
             filters:
               branches:
@@ -40,6 +45,8 @@ workflows:
         - deploy2s3:
             filters:
               branches:
-                only: master
+                only:
+                  - master
+                  - staging
             requires:
               - build-and-run

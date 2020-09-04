@@ -8,6 +8,7 @@
         <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
     <?php endif; ?>
 
+
     <div class="hero__content">
         <h1 class="hero__title"><?php the_title(); ?></h1>
         <?php if(has_excerpt()): ?>

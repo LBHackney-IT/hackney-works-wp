@@ -1,9 +1,9 @@
 const { registerBlockType } = window.wp.blocks
-const { RichText, MediaUpload } = window.wp.blockEditor
+const { PlainText, URLInput, RichText, MediaUpload } = window.wp.blockEditor
 const { Button } = window.wp.components
 
-registerBlockType( "lbh/tile", {
-    title: "Tile",
+registerBlockType( "lbh/tile-solid-button", {
+    title: "Tile with solid button",
     icon: "info",
     category: "hackney",
     parent: [ "lbh/tiles" ],
@@ -23,17 +23,22 @@ registerBlockType( "lbh/tile", {
             type: "string",
             source: "html",
             selector: "div p"
-        }
+        },
+        buttonHref: {
+            type: "string"
+        },
+        buttonText: {
+            type: "string"
+        },
     },
  
-    edit: ({ attributes: { title, content, imageSrc, imageAlt }, setAttributes, className }) => 
+    edit: ({ attributes: { title, content, imageSrc, imageAlt, buttonHref, buttonText }, setAttributes, className }) => 
         <div className={className}>
             {imageSrc && <img src={imageSrc} alt={imageAlt}/>}
             <MediaUpload
                 allowedTypes={["image"]}
                 value={imageSrc}
                 onSelect={media => {
-                    console.log(media)
                     setAttributes({
                         imageSrc: media.url,
                         imageAlt: media.alt
@@ -57,15 +62,31 @@ registerBlockType( "lbh/tile", {
                     setAttributes({content: value})
                 }
             />
+            <div class="button-area">
+                <RichText
+                    value={buttonText} 
+                    tagName="p"
+                    allowedFormats={[]}
+                    placeholder="Button text..."
+                    onChange={value => setAttributes({buttonText: value})} 
+                />
+            </div>
+
+            <URLInput 
+                value={buttonHref} 
+                onChange={value => setAttributes({buttonHref: value})}
+            />
+
         </div>
     ,
  
-    save: ({ attributes: { title, content, imageSrc, imageAlt }, className }) => 
+    save: ({ attributes: { title, content, imageSrc, imageAlt, buttonHref, buttonText }, className }) => 
         <div className="tiles__tile">
             <img loading="lazy" src={imageSrc} alt={imageAlt}/>
             <div class="tiles__inner">
                 <h3>{title}</h3>
                 <RichText.Content tagName="p" value={content}/>
+                <a class="tiles__button tiles__button--solid" href={buttonHref}>{buttonText}</a>
             </div>
         </div>
     ,

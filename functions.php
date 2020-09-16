@@ -15,9 +15,11 @@ add_editor_style( 'dist/css/editor.css' );
 function lbh_load_scripts_and_styles() {
     wp_enqueue_style("main", get_stylesheet_directory_uri()."/dist/css/index.css");
     wp_enqueue_style("fonts", "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+    // wp_enqueue_style("fontawesome", get_stylesheet_directory_uri()."/assets/fontawesome/css/all.min.css");
     wp_enqueue_script("main", get_stylesheet_directory_uri()."/dist/js/index.js");
 }
 add_action("wp_enqueue_scripts", "lbh_load_scripts_and_styles");
+
 
 add_theme_support( 'custom-logo' );
 add_theme_support( 'post-thumbnails' );

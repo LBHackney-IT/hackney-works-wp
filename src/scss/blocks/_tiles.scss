@@ -1,0 +1,66 @@
+.wp-block[data-type='lbh/tiles']{
+    max-width: 1000px;
+}
+
+.wp-block-lbh-tiles{
+    margin: 40px auto;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid #efefef;
+    .block-editor-inner-blocks{
+        width: 100%;
+        .block-editor-block-list__layout{
+            width: 100%;
+            @media screen and (min-width: 700px){
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 35px;
+            }
+            .wp-block{
+                width: 100%;
+            }
+        }
+    }
+
+    .block-list-appender__toggle{
+        height: 100%;
+    }
+}
+
+.wp-block-lbh-tile{
+    background: #ffffff;
+    border: 1px solid #efefef;
+    padding: 15px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-start;
+    // align-items: center;
+    // text-align: center;
+
+    img{
+        height: 170px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .components-button{
+        margin-bottom: 15px;
+    }
+
+    .rich-text{
+        margin-top: 0px;
+        margin-bottom: 15px;
+    }
+
+    .call-to-action-area{
+        max-width: 250px;
+        margin-top: 25px;
+        padding: 10px;
+        background: white;
+        border: 1px solid #efefef;
+        input{
+            width: 100%;
+        }
+    }
+
+}

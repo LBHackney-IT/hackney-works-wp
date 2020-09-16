@@ -1,0 +1,43 @@
+.page-template-default .selling-points{
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 0px 25px;
+}
+
+.selling-points{
+
+    .container{
+        max-width: 600px;
+        @supports(display: grid){
+            max-width: 1200px;
+            @media screen and (min-width: 700px) {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__point{
+        text-align: center;
+        margin: 25px 45px;
+    }
+
+    &__icon-circle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $blue1;
+        height: 65px;
+        width: 65px;
+        margin: 0 auto;
+        border-radius: 100%;
+        padding: 5px;
+        font-size: 1.8rem;
+        color: white;
+    }
+}

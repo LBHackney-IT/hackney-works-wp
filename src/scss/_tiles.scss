@@ -1,4 +1,4 @@
-.tiles{
+.page-template-default .tiles{
     width: 100vw;
     position: relative;
     left: 50%;
@@ -6,6 +6,16 @@
     margin-left: -50vw;
     margin-right: -50vw;
     padding: 0px 25px;
+}
+
+.tiles{
+    // width: 100vw;
+    // position: relative;
+    // left: 50%;
+    // right: 50%;
+    // margin-left: -50vw;
+    // margin-right: -50vw;
+    // padding: 0px 25px;
 
     .container{
         max-width: 600px;

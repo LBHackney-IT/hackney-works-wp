@@ -9,6 +9,15 @@ function lbh_custom_post_types_init() {
         "supports" => array("title")
     ));
 
+    register_post_type("event", array(
+        "label" => __("Events"),
+        "public" => true,
+        "menu_icon" => "dashicons-calendar-alt",
+        "show_in_nav_menus" => true,
+        "show_in_rest" => true,
+        "supports" => array("title", "revisions")
+    ));
+
     register_post_type("course", array(
         "label" => __("Courses"),
         "public" => true,

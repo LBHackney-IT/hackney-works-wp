@@ -152,13 +152,29 @@ $intakes = new WP_Query(array(
                         <?php if($i !== 0){ echo "hidden"; } ?>
                     >
                         <h3 class="intake-tabs__title"><?php echo get_the_title($intake); ?></h3>
+                        
                         <p><?php the_field("days", $intake) ?></p>
-                        <p><?php the_field("start_time", $intake) ?> to <?php the_field("end_time", $intake) ?></p>
+                        
+                        <?php if(get_field("start_time", $intake) && get_field("start_time", $intake)): ?>
+                            <p><?php the_field("start_time", $intake) ?> to <?php the_field("end_time", $intake) ?></p>
+                        <?php else: ?>
+                            <p>From <?php the_field("start_time", $intake) ?></p>
+                        <?php endif; ?>
+
                         <p><?php the_field("description", $intake) ?></p>
-                        <a class="intake-tabs__button" href="<?php echo get_the_permalink($intake); ?>">
-                            Apply for these dates
-                            <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
-                        </a>
+
+                        <?php if(get_field("external_application_url", $intake)): ?>
+                            <a class="intake-tabs__button" href="<?php echo get_field("external_application_url", $intake); ?>">
+                                Apply on external website
+                                <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
+                            </a> 
+                        <?php else: ?>
+                            <a class="intake-tabs__button" href="<?php echo get_the_permalink($intake); ?>">
+                                Apply for these dates
+                                <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
+                            </a>
+                        <?php endif; ?>
+                        
                     </section>
                     <?php $i++ ?>
                 <?php endforeach; ?>

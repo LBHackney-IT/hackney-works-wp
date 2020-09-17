@@ -163,18 +163,15 @@ $intakes = new WP_Query(array(
 
                         <p><?php the_field("description", $intake) ?></p>
 
-                        <?php if(get_field("external_application_url", $intake)): ?>
-                            <a class="intake-tabs__button" href="<?php echo get_field("external_application_url", $intake); ?>">
+                        <a class="intake-tabs__button" href="<?php echo get_the_permalink($intake); ?>">
+                            <?php if(get_field("external_application_url", $intake)): ?>
                                 Apply on external website
-                                <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
-                            </a> 
-                        <?php else: ?>
-                            <a class="intake-tabs__button" href="<?php echo get_the_permalink($intake); ?>">
+                            <?php else: ?>
                                 Apply for these dates
-                                <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
-                            </a>
-                        <?php endif; ?>
-                        
+                            <?php endif; ?>
+                            <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
+                        </a>
+        
                     </section>
                     <?php $i++ ?>
                 <?php endforeach; ?>

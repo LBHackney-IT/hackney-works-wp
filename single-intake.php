@@ -1,4 +1,5 @@
 <?php get_header(); 
+
 $course = get_field("parent_course");
 if(have_posts()): while(have_posts()): the_post(); 
 ?>

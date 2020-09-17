@@ -61,3 +61,11 @@ function lbh_parse_request( &$wp ) {
     }
     return;
 }
+
+add_action("template_redirect", "handle_external_applications");
+function handle_external_applications(){
+    if(get_field("external_application_url")){
+        nocache_headers();
+        wp_redirect(get_field("external_application_url"));
+    }
+}

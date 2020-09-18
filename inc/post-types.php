@@ -18,6 +18,15 @@ function lbh_custom_post_types_init() {
         "supports" => array("title", "revisions")
     ));
 
+    register_post_type("vacancy", array(
+        "label" => __("Vacancies"),
+        "public" => true,
+        "menu_icon" => "dashicons-coffee",
+        "show_in_nav_menus" => true,
+        "show_in_rest" => true,
+        "supports" => array("title", "revisions")
+    ));
+
     register_post_type("course", array(
         "label" => __("Courses"),
         "public" => true,

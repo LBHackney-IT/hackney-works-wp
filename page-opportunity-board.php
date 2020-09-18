@@ -1,10 +1,22 @@
 <?php
 /* Template Name: Opportunities board */
 
+$types = array(
+    "All" => "",
+    "Courses" => "course",
+    "Events" => "event",
+    "Vacancies" => "vacancy"
+);
+
+$type_query = array("course", "event", "vacancy");
+if(get_query_var("type")){
+    $type_query = get_query_var("type");
+}
+
 $search = new WP_Query();
 $search->parse_query(array(
     "posts_per_page" => -1,
-    "post_type" => array("course", "event", "vacancy"),
+    "post_type" => $type_query,
     "s" => get_query_var("keywords")
 ));
 relevanssi_do_query( $search );
@@ -21,6 +33,23 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
 <article class="page-content">
     <div class="container">
+
+            <form class="opportunity-filters" action="<?php the_permalink(); ?>" method="get">  
+
+                <?php foreach($types as $key => $value): ?>
+                    <div class="opportunity-filters__filter">
+                        <input 
+                            type="radio" 
+                            name="type" 
+                            value="<?php echo $value ?>" 
+                            id="type_<?php echo $value ?>" 
+                            onchange="this.form.submit()" 
+                            <?php if(get_query_var("type") === $value){ echo "checked"; } ?>
+                        />
+                        <label for="type_<?php echo $value ?>"><?php echo $key ?></label> 
+                    </div>
+                <?php endforeach; ?>
+            </form>
 
             <?php if($search->have_posts()): ?>
 
@@ -43,7 +72,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                     <?php endwhile; ?>
                 </ol>
             <?php else: ?>
-                <p class="no-results">No matching courses. Try widening your search.</p>
+                <p class="no-results">No matching opportunities. Try widening your search.</p>
             <?php endif; ?>
     </div>
 

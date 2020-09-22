@@ -62,6 +62,7 @@ function lbh_course_search_query_vars($qvars) {
     $qvars[] = 'keywords';
     $qvars[] = 'topic';
     $qvars[] = 'only';
+    $qvars[] = 'type';
     return $qvars;
 }
 add_filter( 'query_vars', 'lbh_course_search_query_vars' );

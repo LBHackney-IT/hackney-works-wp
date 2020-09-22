@@ -172,17 +172,17 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                     <?php endif; ?>
                 </p>
 
-                <ol class="course-results">
+                <ol class="card-list">
                     <?php while($search->have_posts()): $search->the_post(); ?>
-                    <li class="course-results__card">
-                        <h2 class="course-results__title"><a class="course-results__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <li class="card-list__card">
+                        <h2 class="card-list__title"><a class="card-list__link card-list__link--grey" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <?php echo truncate(get_field("description"), 130); ?>
-                        <ul class="course-results__tags">
+                        <ul class="card-list__tags">
                             <?php if(get_field("intake_count")): ?>
-                                <li class="course-results__tag course-results__tag--filled">Has spaces</li>
+                                <li class="card-list__tag card-list__tag--filled">Has spaces</li>
                             <?php endif; ?>
                             <?php if(get_the_terms(null, "curriculum_areas")): foreach(get_the_terms(null, "curriculum_areas") as $term): ?>
-                                <li class="course-results__tag"><?php echo $term->name ?></li>
+                                <li class="card-list__tag"><?php echo $term->name ?></li>
                             <?php endforeach; endif; ?>
                         </ul>
                     </li>

@@ -52,7 +52,15 @@ body{
     animation-timing-function: linear;
 }
 
-
+.alert{
+    padding: 25px;
+    margin-top: 0;
+    background: transparentize($focus, 0.75);
+    border-radius: 5px;
+    border: 1px solid $focus;
+    color: darken($focus, 50);
+    margin-bottom: 25px;
+}
 
 @import "node_modules/slick-carousel/slick/slick.scss";
 @import "node_modules/slick-carousel/slick/slick-theme.scss";
@@ -76,5 +84,9 @@ body{
 @import "apply";
 @import "confirmation";
 
-@import "search-results";
+@import "page-navigation";
 @import "with-sidebar";
+
+@import "cards";
+
+@import "opportunities-board";

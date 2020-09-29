@@ -16,6 +16,7 @@ if(get_query_var("type")){
 $search = new WP_Query();
 $search->parse_query(array(
     "posts_per_page" => 9,
+    "s" => get_query_var("keywords"),
     "post_type" => $type_query
 ));
 relevanssi_do_query( $search );

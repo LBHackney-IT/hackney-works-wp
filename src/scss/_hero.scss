@@ -112,6 +112,17 @@
         }
     }
 
+    &--with-breadcrumbs{
+        padding: 60px 25px;
+        text-align: left;
+        .hero__title{
+            margin: 0;
+            max-width: inherit;
+            @media screen and (min-width: 700px){
+                max-width: 66.67%;
+            }
+        }
+    }
 
     &--course-search{
         padding: 90px 25px;

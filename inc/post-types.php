@@ -36,6 +36,15 @@ function lbh_custom_post_types_init() {
         "supports" => array("title", "thumbnail", "revisions")
     ));
 
+    register_post_type("checklist_item", array(
+        "label" => __("Checklist items"),
+        "public" => true,
+        "menu_icon" => "dashicons-editor-ul",
+        "show_in_nav_menus" => true,
+        "show_in_rest" => true,
+        "supports" => array("title", "editor")
+    ));
+
     register_post_type("intake", array(
         "label" => __("Intakes"),
         "public" => true,
@@ -61,7 +70,7 @@ add_action("init", "lbh_custom_post_types_init");
 
 // Don't use the gutenberg editor for testimonials
 function lbh_disable_gutenberg_posts( $current_status, $post_type ) {
-    $disabled_post_types = array( 'testimonial' );
+    $disabled_post_types = array( 'testimonial', 'checklist_item' );
     if ( in_array( $post_type, $disabled_post_types, true ) ) {
         $current_status = false;
     }

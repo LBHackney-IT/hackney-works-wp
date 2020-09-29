@@ -18,10 +18,10 @@ if(have_posts()): while(have_posts()): the_post();
             <p class="visually-hidden">Loading...</p>
         </main>
         <aside class="layout-sidebar-right__sidebar">
-            <div class="course-summary">
-                <h2 class="course-summary__title">Your chosen course</h2>
+            <div class="sidebar-widget">
+                <h2 class="sidebar-widget__title">Your chosen course</h2>
 
-                <a class="course-summary__name" href="<?php the_permalink($course); ?>"><?php echo get_the_title($course); ?></a>
+                <a class="sidebar-widget__name" href="<?php the_permalink($course); ?>"><?php echo get_the_title($course); ?></a>
 
                 <p><?php the_field("start_date") ?> — <?php the_field("end_date") ?></p>
                 <p><?php the_field("days") ?></p>
@@ -29,7 +29,7 @@ if(have_posts()): while(have_posts()): the_post();
 
 
                 <?php if(get_field("delivered_online", $course)): ?>
-                    <p class="course-summary__important">This course is delivered online using <strong><?php the_field("online_tool", $course); ?></strong>.</p>
+                    <p class="sidebar-widget__important">This course is delivered online using <strong><?php the_field("online_tool", $course); ?></strong>.</p>
                 <?php endif; ?>
 
             </div>

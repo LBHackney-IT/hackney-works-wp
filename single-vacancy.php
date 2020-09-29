@@ -19,11 +19,13 @@ if(have_posts()): while(have_posts()): the_post();
 <article class="page-content">
     <div class="container layout-sidebar-right">
         <main class="layout-sidebar-right__main">
-            Content
+            <div class="content-area">
+                Content goes here
+            </div>
         </main>
         <aside class="layout-sidebar-right__sidebar">
-            <div class="course-summary">
-                <h2 class="course-summary__title">At a glance</h2>
+            <div class="sidebar-widget">
+                <h2 class="sidebar-widget__title">At a glance</h2>
 
                 Sidebar content
             </div>

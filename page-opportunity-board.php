@@ -15,11 +15,14 @@ if(get_query_var("type")){
 
 $search = new WP_Query();
 $search->parse_query(array(
-    "posts_per_page" => -1,
-    "post_type" => $type_query,
-    "s" => get_query_var("keywords")
+    "posts_per_page" => 9,
+    "post_type" => $type_query
 ));
 relevanssi_do_query( $search );
+
+global $paged;
+$max_page = $search->max_num_pages;
+$results = $search->found_posts;
 
 get_header();
 
@@ -48,7 +51,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
             >  
                 
             <div class="opportunity-search__field">
-                    <label class="opportunity-search__label" for="type">Type</label>
+                    <label class="opportunity-search__label" for="type">Search by type</label>
                     <select class="opportunity-search__input" name="type" id="type">
                         <?php foreach($types as $key => $value): ?>
                             <option value="<?php echo $value ?>" <?php if(get_query_var("type") === $value){ echo "selected"; } ?>>
@@ -93,7 +96,34 @@ if(have_posts()): while(have_posts()): the_post(); ?>
         <?php else: ?>
             <p class="no-results">No matching opportunities. Try widening your search.</p>
         <?php endif; ?>
+
+        <?php if($max_page > 1): ?>
+            <nav class="page-navigation">
+                <ul class="page-navigation__list">  
+                    <?php if($paged > 1): ?>
+                    <li class="page-navigation__item page-navigation__item--previous">
+                        <a class="page-navigation__link" href="<?php echo previous_posts(); ?>">
+                            <span>Previous</span>    
+                            <span>Page <?php echo $paged - 1 ?> of <?php echo $max_page ?></span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+                    <?php if($paged < $max_page): ?>
+                    <li class="page-navigation__item page-navigation__item--next"> 
+                        <a class="page-navigation__link" href="<?php echo next_posts(); ?>">
+                            <span>Next</span>   
+                            <span>Page <?php echo $paged + 1 ?> of <?php echo $max_page ?></span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+                </ul>
+            </nav>
+        <?php endif; ?>
+
+
     </div>
+
+    
 
 </article>
 

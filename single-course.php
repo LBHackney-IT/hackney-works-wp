@@ -26,7 +26,7 @@ $intakes = new WP_Query(array(
     </div>
 </section>
 
-<article class="page-content">
+<article class="page-content page-content--deeper-padding">
     <?php if($intakes->have_posts()): ?>
         <?php if($intakes->found_posts > 1): ?>
             <form method="get" action="/" class="mini-apply-form">
@@ -115,7 +115,7 @@ $intakes = new WP_Query(array(
     </div>
 </section>
 
-<article class="page-content">
+<article class="page-content page-content--deeper-padding">
     <div class="content-area container container--narrow">
         <?php endif;?>
 

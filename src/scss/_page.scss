@@ -1,8 +1,14 @@
 .page-content{
     background: $pale;
-    padding: 35px 25px;
+    padding: 25px;
     @media screen and (min-width: 700px){
-        padding: 55px 25px;
+        padding: 35px 25px 55px 25px;
+    }
+
+    &--deeper-padding{
+        @media screen and (min-width: 700px){
+            padding-top: 55px;
+        }
     }
 
     &--white{

@@ -27,7 +27,7 @@
     </div>
 </section>
 
-<article class="page-content">
+<article class="page-content page-content--deeper-padding">
     <div class="content-area container container--narrow">
         <?php the_content(); ?>
     </div>

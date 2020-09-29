@@ -3,14 +3,21 @@
     padding-left: 0px;
 
     &--grid{
-        @media screen and (min-width: 700px){
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: 25px;
-        }
-    
-        @media screen and (min-width: 1000px){
-            grid-template-columns: 1fr 1fr 1fr;
+        @supports(display: grid){
+            @media screen and (min-width: 700px){
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+
+                .card-list__card{
+                    margin-bottom: 0px;
+                    height: 100%;
+                }
+            }
+        
+            @media screen and (min-width: 1000px){
+                grid-template-columns: 1fr 1fr 1fr;
+            }
         }
     }
 

@@ -1,36 +1,7 @@
-.with-sidebar{
-    @media screen and (min-width: 1000px){
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        column-gap: 55px;
-    }
-
-    &__sidebar{
-        color: $grey1;
-        margin-top: 55px;
-        @media screen and (min-width: 1000px){
-            margin-top: 0px;
-        }
-
-        h2{
-            margin-top: 45px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            @media screen and (min-width: 700px){
-                margin-top: 65px;
-            }
-
-            &:first-child{
-                margin-top: 0px;
-            }
-        }
-
-    }
-}
-
 .related-content-list{
     list-style: none;
     padding-left: 0px;
+    margin: 0;
     @media screen and (min-width: 700px){
         font-size: 1.1rem;
     }

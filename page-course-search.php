@@ -86,8 +86,8 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 </section>
 
 <article class="page-content" id="results">
-    <div class="container container--mid layout-sidebar-left">
-        <aside class="layout-sidebar-left__sidebar">
+    <div class="container container--mid with-sidebar with-sidebar--reversed">
+        <aside class="">
             <form method="get" action="#results">
 
                 <input name="keywords" type="hidden" value="<?php echo get_query_var("keywords"); ?>"/>
@@ -159,7 +159,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
             </form>
         </aside>
-        <main class="layout-sidebar-left__main">
+        <main class="">
             <?php if($search->have_posts()): ?>
 
                 <p class="alert">Because of coronavirus (COVID-19), we're changing the way we teach our courses. We're trialling a smaller number for the moment, with more coming soon.</p>

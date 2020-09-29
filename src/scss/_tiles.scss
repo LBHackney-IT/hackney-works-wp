@@ -69,7 +69,6 @@
         }
     }
 
-
     &__button{
         @include button;
         color: white;
@@ -77,20 +76,7 @@
         margin-top: auto;
 
         &--outline{
-            background: none;
-            border: 2px solid $blue1;
-            color: $blue1;
-            &:hover,
-            &:focus{
-                background: none;
-                border-color: darken($blue1, 5);
-                color: darken($blue1, 5);
-            }
-            &:active{
-                background: none;
-                border-color: darken($blue1, 10);
-                color: darken($blue1, 10);
-            }
+            @include outline-button;
         }
     }
 }

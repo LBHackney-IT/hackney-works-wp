@@ -1,0 +1,138 @@
+.vacancy-details{
+    margin: 0;
+    color: $grey1;
+
+    dt{
+        font-size: 1.2rem;
+    }
+
+    dd{
+        margin-left: 0px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        &:last-child{
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.vacancy-prep-form{
+    &__items{
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item{
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    input{
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        top: 50%;
+        left: 25px;
+        z-index: -1;
+        transform: translateY(-50%);
+        @media screen and (min-width: 700px){
+            padding: 35px;
+        }
+    }
+
+    label{
+        display: block;
+        cursor: pointer;
+        color: $grey1;
+        padding: 25px;
+        background: $pale;
+        padding-left: 85px;
+        border-radius: 5px;
+        @media screen and (min-width: 700px){
+            padding: 35px;
+            padding-left: 115px;
+        }
+
+        &:before{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 25px;
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: darken($pale, 4);
+            border-radius: 5px;
+            transform: translateY(-50%);
+            @media screen and (min-width: 700px){
+                left: 45px;
+            }
+        }
+        &:hover:before{
+            background: $grey3;
+        }
+
+
+        h2{
+            margin: 0;
+            font-size: 1.2rem;
+            margin-bottom: 7px;
+        }
+
+        p{
+            margin: 0;
+            color: $grey2;
+            font-size: 1rem;
+        }
+    }
+
+    input:checked + label{
+        &:before{
+            background: $blue1;
+        }
+        &:after{
+            content: "";
+            display: block;
+            width: 19px;
+            height: 19px;
+            position: absolute;
+            left: 33px;
+            top: 50%;
+            background-image: url("data:image/svg+xml,%3Csvg width='19' height='14' viewBox='0 0 19 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 7.5L7 12.5L17.5 2' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: translateY(-50%);
+            @media screen and (min-width: 700px){
+                left: 53px;
+            }
+        }
+    }
+
+    input:focus + label{
+        box-shadow: 0px 0px 0px 3px $focus;
+    }
+
+
+
+
+
+    &__button{
+        @include button;
+        width: 100%;
+    }
+
+    &__nag{
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 15px;
+        color: $grey2;
+        a{
+            @include text-link;
+        }
+    }
+}

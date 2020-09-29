@@ -1,3 +1,16 @@
+@mixin text-link{
+    color: $blue1;
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+    &:focus{
+        outline: 3px solid $focus;
+        background: $focus;
+        color: $grey1;
+    }
+}
+
 @mixin button {
     display: inline-block;
     text-decoration: none;
@@ -28,5 +41,24 @@
 
     @media screen and (min-width: 700px){
         font-size: 1.1rem;
+    }
+}
+
+
+@mixin outline-button{
+    @include button;
+    background: none;
+    border: 2px solid $blue1;
+    color: $blue1;
+    &:hover,
+    &:focus{
+        background: none;
+        border-color: darken($blue1, 5);
+        color: darken($blue1, 5);
+    }
+    &:active{
+        background: none;
+        border-color: darken($blue1, 10);
+        color: darken($blue1, 10);
     }
 }

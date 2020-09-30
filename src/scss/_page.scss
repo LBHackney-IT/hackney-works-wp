@@ -79,12 +79,12 @@
         height: auto;
     }
 
-    .wp-block-buttons{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
+    // .wp-block-buttons{
+    //     display: flex;
+    //     flex-direction: row;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
 
     .wp-block-button{
         &:last-of-type{
@@ -158,11 +158,13 @@
     }
 
     .last-reviewed{
+        margin: 0;
         font-size: 0.9rem;
         color: $grey2;
+        margin-top: 25px;
         @media screen and (min-width: 700px){
             font-size: 1rem;
-            margin: 50px 0px;
+            margin-top: 50px;
         }
     }
 

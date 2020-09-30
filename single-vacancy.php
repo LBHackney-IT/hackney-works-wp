@@ -49,7 +49,7 @@ if(have_posts()): while(have_posts()): the_post();
                             </fieldset>
                     <?php endif; ?>
 
-                    <button href="#" class="vacancy-prep-form__button">Apply now</button>
+                    <button href="#" class="vacancy-prep-form__button">Apply on external website</button>
                     <p class="vacancy-prep-form__nag">Not ready to apply yet? <a href="#">We can help.</a></p>
                 </form>
             </div>

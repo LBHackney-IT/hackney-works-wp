@@ -79,13 +79,6 @@
         height: auto;
     }
 
-    // .wp-block-buttons{
-    //     display: flex;
-    //     flex-direction: row;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
-
     .wp-block-button{
         &:last-of-type{
             margin-right: 0px;
@@ -168,4 +161,11 @@
         }
     }
 
+}
+
+.page-template-page-promotional .wp-block-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

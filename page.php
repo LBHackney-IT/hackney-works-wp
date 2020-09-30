@@ -19,6 +19,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
         </article>
 
         <aside>
+            <?php the_children(); ?>
             <?php $related = get_field('related');
             if ( $related ): ?>
                 <div class="panel panel--sticky">
@@ -28,7 +29,8 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                             echo "<li>";
                             echo "<a href='" . get_the_permalink($post) . "'>" . get_the_title($post) . "</a>";
                             echo "</li>";
-                        endforeach; ?>
+                        endforeach; 
+                        wp_reset_postdata(); ?>
                     </ul>
                 </div>
             <?php endif; ?>

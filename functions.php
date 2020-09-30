@@ -6,6 +6,7 @@ require "inc/customizer/call-to-action.php";
 require "inc/application-flow/index.php";
 
 require "inc/breadcrumbs.php";
+require "inc/children.php";
 require "inc/post-types.php";
 require "inc/taxonomies.php";
 require "inc/blocks.php";

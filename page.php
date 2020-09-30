@@ -15,7 +15,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
         <article class="panel panel--more-padding content-area">
             <?php the_content(); ?>
-            <p class="last-reviewed">Page last reviewed: <?php echo get_the_modified_date(); ?><p>
+            <p class="last-reviewed">Page last reviewed: <?php echo get_the_modified_date(); ?></p>
         </article>
 
         <aside>

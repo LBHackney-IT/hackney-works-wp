@@ -5,7 +5,6 @@ function lbh_custom_post_types_init() {
         "label" => __("Hubs"),
         "public" => true,
         "menu_icon" => "dashicons-location",
-        "show_in_nav_menus"     => true,
         "supports" => array("title")
     ));
 
@@ -13,45 +12,40 @@ function lbh_custom_post_types_init() {
         "label" => __("Events"),
         "public" => true,
         "menu_icon" => "dashicons-calendar-alt",
-        "show_in_nav_menus" => true,
         "show_in_rest" => true,
-        "supports" => array("title", "revisions")
+        "supports" => array("title", "revisions", "author")
     ));
 
     register_post_type("vacancy", array(
         "label" => __("Vacancies"),
         "public" => true,
         "menu_icon" => "dashicons-coffee",
-        "show_in_nav_menus" => true,
         "show_in_rest" => true,
-        "supports" => array("title", "revisions")
+        "supports" => array("title", "revisions", "author")
+    ));
+
+    register_post_type("checklist_item", array(
+        "label" => __("Checklist items"),
+        "public" => false,
+        "show_ui" => true,
+        "menu_icon" => "dashicons-editor-ul",
+        "supports" => array("title", "editor")
     ));
 
     register_post_type("course", array(
         "label" => __("Courses"),
         "public" => true,
         "menu_icon" => "dashicons-welcome-learn-more",
-        "show_in_nav_menus" => true,
         "show_in_rest" => true,
-        "supports" => array("title", "thumbnail", "revisions")
-    ));
-
-    register_post_type("checklist_item", array(
-        "label" => __("Checklist items"),
-        "public" => true,
-        "menu_icon" => "dashicons-editor-ul",
-        "show_in_nav_menus" => true,
-        "show_in_rest" => true,
-        "supports" => array("title", "editor")
+        "supports" => array("title", "thumbnail", "revisions", "author")
     ));
 
     register_post_type("intake", array(
         "label" => __("Intakes"),
         "public" => true,
         "menu_icon" => "dashicons-groups",
-        "show_in_nav_menus" => true,
         "show_in_rest" => true,
-        "supports" => array("revisions"),
+        "supports" => array("revisions", "author"),
         "rewrite" => array(
             "slug" => "apply"
         )
@@ -59,10 +53,9 @@ function lbh_custom_post_types_init() {
 
     register_post_type("testimonial", array(
         "label" => __("Testimonials"),
-        "public" => true,
+        "public" => false,
+        "show_ui" => true,
         "menu_icon" => "dashicons-format-quote",
-        "show_in_nav_menus" => true,
-        "show_in_rest" => true,
         "supports" => array("title", "editor", "thumbnail")
     ));
 }

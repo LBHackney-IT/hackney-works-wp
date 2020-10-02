@@ -3,7 +3,8 @@
 function lbh_custom_post_types_init() {
     register_post_type("hub", array(
         "label" => __("Hubs"),
-        "public" => true,
+        "public" => false,
+        "show_ui" => true,
         "menu_icon" => "dashicons-location",
         "supports" => array("title")
     ));

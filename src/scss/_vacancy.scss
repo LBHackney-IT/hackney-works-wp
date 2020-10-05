@@ -51,6 +51,10 @@
         border-radius: 5px;
         margin-bottom: 35px;
 
+        @media screen and (min-width: 700px){
+            padding-left: 70px;
+        }
+
         &:before{
             content: "";
             position: absolute;
@@ -90,8 +94,8 @@
             width: 19px;
             height: 19px;
             position: absolute;
-            left: 7px;
-            top: 10px;
+            left: 8px;
+            top: 11px;
             background-image: url("data:image/svg+xml,%3Csvg width='19' height='14' viewBox='0 0 19 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 7.5L7 12.5L17.5 2' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
             background-size: contain;
             background-position: center;

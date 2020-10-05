@@ -65,6 +65,9 @@ function lbh_course_search_query_vars($qvars) {
     $qvars[] = 'topic';
     $qvars[] = 'only';
     $qvars[] = 'type';
+    // for quiz
+    $qvars[] = 'sectors';
+    $qvars[] = 'curriculum_areas';
     return $qvars;
 }
 add_filter( 'query_vars', 'lbh_course_search_query_vars' );

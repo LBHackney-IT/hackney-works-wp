@@ -12,6 +12,8 @@ require "inc/taxonomies.php";
 require "inc/blocks.php";
 require "inc/course-search.php";
 
+require "inc/custom-fields.php";
+
 add_editor_style( 'dist/css/editor.css' );
 
 function lbh_load_scripts_and_styles() {

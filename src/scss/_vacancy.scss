@@ -18,6 +18,8 @@
 }
 
 .vacancy-prep-form{
+    margin-top: 25px;
+
     &__items{
         border: none;
         margin: 0;
@@ -35,42 +37,30 @@
         position: absolute;
         padding: 0;
         margin: 0;
-        top: 50%;
-        left: 25px;
+        top: 3px;
+        left: 0;
         z-index: -1;
-        transform: translateY(-50%);
-        @media screen and (min-width: 700px){
-            padding: 35px;
-        }
     }
 
     label{
+        position: relative;
         display: block;
         cursor: pointer;
         color: $grey1;
-        padding: 25px;
-        background: $pale;
-        padding-left: 85px;
+        padding-left: 55px;
         border-radius: 5px;
-        @media screen and (min-width: 700px){
-            padding: 35px;
-            padding-left: 115px;
-        }
+        margin-bottom: 35px;
 
         &:before{
             content: "";
             position: absolute;
-            top: 50%;
-            left: 25px;
+            top: 3px;
+            left: 0;
             display: inline-block;
             width: 35px;
             height: 35px;
             background: darken($pale, 4);
             border-radius: 5px;
-            transform: translateY(-50%);
-            @media screen and (min-width: 700px){
-                left: 45px;
-            }
         }
         &:hover:before{
             background: $grey3;
@@ -86,7 +76,7 @@
         p{
             margin: 0;
             color: $grey2;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
     }
 
@@ -100,20 +90,16 @@
             width: 19px;
             height: 19px;
             position: absolute;
-            left: 33px;
-            top: 50%;
+            left: 7px;
+            top: 10px;
             background-image: url("data:image/svg+xml,%3Csvg width='19' height='14' viewBox='0 0 19 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 7.5L7 12.5L17.5 2' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            transform: translateY(-50%);
-            @media screen and (min-width: 700px){
-                left: 53px;
-            }
         }
     }
 
-    input:focus + label{
+    input:focus + label:before{
         box-shadow: 0px 0px 0px 3px $focus;
     }
 

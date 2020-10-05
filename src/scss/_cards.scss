@@ -23,6 +23,8 @@
 
     &__card{
         position: relative;
+        display: flex;
+        flex-direction: column;
         padding: 25px;
         background: white;
         border: 1px solid $grey3;
@@ -111,15 +113,16 @@
         margin: 0;
         font-size: 0.9rem;
         color: $grey2;
+        margin-bottom: 25px;
+        @media screen and (min-width: 700px){
+            margin-bottom: 35px;
+        }
     }
 
     &__button{
         @include outline-button;
         width: 100%;
-        margin-top: 25px;
-        @media screen and (min-width: 700px){
-            margin-top: 35px;
-        }
+        margin-top: auto;
     }
 
 }

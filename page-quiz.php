@@ -64,8 +64,6 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                 <button>See results</button>
             </form>
 
-            <h2>Results</h2>
-
         </article>
 
         <aside>

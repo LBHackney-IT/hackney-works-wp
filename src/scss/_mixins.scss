@@ -14,6 +14,7 @@
 @mixin button {
     display: inline-block;
     text-decoration: none;
+    text-align: center;
     color: white;
     background: $blue1;
     border-radius: 5px;

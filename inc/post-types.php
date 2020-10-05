@@ -109,7 +109,7 @@ add_action( 'manage_intake_posts_custom_column' , 'lbh_custom_admin_columns', 10
 
 // rewrite content as the custom field value
 function lbh_custom_course_content($content){
-    if(get_post() && get_post()->post_type === "course"){
+    if(get_post() && in_array(get_post()->post_type, array("course", "vacancy", "event"))){
         return get_field("description");
     }
     return $content; 

@@ -48,6 +48,10 @@
         list-style-type: none;
         padding-left: 0;
         margin-bottom: -5px;
+
+        &--with-bottom-margin{
+            margin-bottom: 15px;
+        }
     }
 
     &__tag{
@@ -97,10 +101,25 @@
         }
     }
 
-    p{
+    &__description{
         line-height: 1.5;
         margin: 0;
         margin-bottom: 15px;
+    }
+
+    &__meta{
+        margin: 0;
+        font-size: 0.9rem;
+        color: $grey2;
+    }
+
+    &__button{
+        @include outline-button;
+        width: 100%;
+        margin-top: 25px;
+        @media screen and (min-width: 700px){
+            margin-top: 35px;
+        }
     }
 
 }

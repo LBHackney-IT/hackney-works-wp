@@ -86,11 +86,59 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
             <ol class="card-list card-list--grid">
                 <?php while($search->have_posts()): $search->the_post(); ?>
-                <li class="card-list__card">
-                    <p class="card-list__tag"><?php echo ucfirst(get_post_type()); ?></p>
-                    <h2 class="card-list__title"><a class="card-list__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <?php echo truncate(get_field("description"), 130); ?>
-                </li>
+
+                    <?php if(get_post_type() === "event"): ?>
+
+                        <li class="card-list__card">
+
+                            <ul class="card-list__tags card-list__tags--with-bottom-margin">
+                                <li class="card-list__tag card-list__tag--filled">Event</li>
+                                <?php if(get_the_terms(null, "sectors")): foreach(get_the_terms(null, "sectors") as $term): ?>
+                                    <li class="card-list__tag"><?php echo $term->name ?></li>
+                                <?php endforeach; endif; ?>
+                            </ul>
+                            
+                            <h2 class="card-list__title">
+                                <a class="card-list__link card-list__link--grey " href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </h2>
+                            <div class="card-list__description"><?php echo truncate(get_field("description"), 130); ?></div>
+                            <p class="card-list__meta"><?php the_field("location"); ?> | <?php the_field("event_date"); ?></p>
+                            <div class="card-list__button" href="<?php the_permalink(); ?>">See event</div>
+                        </li>
+
+                    <?php elseif(get_post_type() === "vacancy"): ?>
+
+
+                        <li class="card-list__card">
+                            <ul class="card-list__tags card-list__tags--with-bottom-margin">
+                                <li class="card-list__tag card-list__tag--filled">Vacancy</li>
+                                <?php if(get_the_terms(null, "sectors")): foreach(get_the_terms(null, "sectors") as $term): ?>
+                                    <li class="card-list__tag"><?php echo $term->name ?></li>
+                                <?php endforeach; endif; ?>
+                            </ul>
+                            <h2 class="card-list__title">
+                                <a class="card-list__link card-list__link--grey" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </h2>
+                            <div class="card-list__description"><?php echo truncate(get_field("description"), 130); ?></div>
+                        </li>
+
+                    <?php else: ?>
+
+                        <li class="card-list__card">
+                            <ul class="card-list__tags card-list__tags--with-bottom-margin">
+                                <li class="card-list__tag card-list__tag--filled">Course</li>
+                                <?php if(get_the_terms(null, "curriculum_areas")): foreach(get_the_terms(null, "curriculum_areas") as $term): ?>
+                                    <li class="card-list__tag"><?php echo $term->name ?></li>
+                                <?php endforeach; endif; ?>
+                            </ul>
+                            <h2 class="card-list__title">
+                                <a class="card-list__link card-list__link--grey" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </h2>
+                            <div class="card-list__description"><?php echo truncate(get_field("description"), 130); ?></div>
+                        </li>
+
+                    <?php endif; ?>
+
 
                 <?php endwhile; ?>
             </ol>

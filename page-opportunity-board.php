@@ -101,13 +101,13 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                             <h2 class="card-list__title">
                                 <a class="card-list__link card-list__link--grey " href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </h2>
-                            <div class="card-list__description"><?php echo truncate(get_field("description"), 130); ?></div>
+                            <p class="card-list__description"><?php echo truncate(strip_tags(get_field("description")), 130); ?></p>
                             <p class="card-list__meta">
                                 <?php the_field("event_date"); ?>
                                 <?php if(get_field("location")){ echo " | " . get_field("location"); } ?>
                             </p>
                           
-                          <div class="card-list__button" href="<?php the_permalink(); ?>">See event</div>
+                          <div class="card-list__button" href="<?php the_permalink(); ?>" aria-hidden="true">See event</div>
                         </li>
 
                     <?php elseif(get_post_type() === "vacancy"): ?>

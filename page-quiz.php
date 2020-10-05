@@ -30,7 +30,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
     <div class="container with-sidebar">
 
         <article class="panel panel--more-padding content-area">
-            <form method="get" action="/quiz-results">
+            <form method="get" action="/quiz/results">
 
                 <fieldset>
                     <legend>What are you interested in seeing?</legend>

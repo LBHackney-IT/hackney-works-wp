@@ -85,8 +85,10 @@ if(have_posts()): while(have_posts()): the_post();
                         <dd>Hours</dd>
                     <?php } ?>
 
-                    <?php if(get_field("sector")){ ?>
-                        <dt><?php the_field("sector") ?></dt>
+                    <?php if(get_the_terms(null, "sectors")){ ?>
+                        <dt>
+                            <?php echo join(", ", wp_list_pluck(get_the_terms(null, "sectors"), "name")); ?>
+                        </dt>
                         <dd>Sector</dd>
                     <?php } ?>
 

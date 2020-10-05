@@ -32,7 +32,7 @@
         font-weight: 700;
         margin-bottom: 25px;
         @media screen and (min-width: 700px){
-            margin-top: 65px;
+            margin-top: 45px;
         }
         &.centred{
             text-align: center;
@@ -163,9 +163,19 @@
 
 }
 
-.page-template-page-promotional .wp-block-buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.page-template-page-promotional{
+    .content-area{
+        h2, h3, h4, h5, h6{
+            @media screen and (min-width: 700px){
+                margin-top: 65px;
+            }
+        }
+    }
+
+    .wp-block-buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 }

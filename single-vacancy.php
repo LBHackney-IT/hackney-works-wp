@@ -42,7 +42,7 @@ if(have_posts()): while(have_posts()): the_post();
                                         <input type="checkbox" id="<?php echo $item->ID; ?>" required="true">
                                         <label for="<?php echo $item->ID; ?>">
                                             <h2><?php echo get_the_title($item); ?></h3>
-                                            <p><?php echo strip_tags(get_the_content(null, null, $item)); ?></p>
+                                            <p><?php echo get_the_content(null, null, $item); ?></p>
                                         </label>
                                     </div>
                                 <?php endforeach; ?>

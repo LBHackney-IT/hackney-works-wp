@@ -141,6 +141,25 @@
             padding: 35px;
         }
     }
+
+    &--location{
+        p{
+            margin-bottom: 15px;
+            &:last-of-type{
+                margin-bottom: 0px;
+            }
+        }
+
+        img{
+            @media screen and (min-width: 500px){
+                width: 50%;
+            }
+        }
+
+        .media-card__address{
+            font-size: 1.3rem;
+        }
+    }
 }
 
 .online-course-warning{

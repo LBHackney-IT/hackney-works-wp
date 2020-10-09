@@ -95,7 +95,7 @@ $intakes = new WP_Query(array(
             <?php the_field("accreditation_details") ?>
         <?php endif; ?>
 
-        <?php if(get_field("delivered_online")): ?>
+        <?php if(get_field("delivery") === "online"): ?>
     </div>
 </article>
 
@@ -179,6 +179,19 @@ $intakes = new WP_Query(array(
         <?php else: ?>
             <p>We don't have times and dates for this course yet, but you can still <a href="mailto:sai.wong@hackney.gov.uk">email us to register your interest</a>.</p>
         <?php endif; ?>
+
+        <?php if(get_field("delivery") === "person"): ?>
+            <h2 class="centred">Location</h2>
+            <section class="media-card media-card--location">
+                <img class="dialog__map" src="https://maps.googleapis.com/maps/api/staticmap?key=<?php echo GOOGLE_CLIENT_KEY; ?>&size=500x300&markers=<?php echo get_field('venue')["location"]["lat"] ?>,<?php echo get_field('venue')["location"]["lng"] ?>" alt=""/>
+                <div class="media-card__inner">
+                    <p class="media-card__address"><?php echo get_field('venue')["location"]["address"]; ?></p>
+                    <p><a href="https://www.google.co.uk/maps/search/<?php echo get_field('venue')["location"]["address"]; ?>">Get directions</a>
+                    <p><?php echo get_field('venue')["venue_details"]; ?></p>
+                </div>
+            </section>
+        <?php endif; ?>
+
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
             <h2 class="centred">Who you'll learn with</h2>

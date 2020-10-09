@@ -52,25 +52,43 @@ body{
     animation-timing-function: linear;
 }
 
+.alert{
+    padding: 25px;
+    margin-top: 0;
+    background: transparentize($focus, 0.75);
+    border-radius: 5px;
+    border: 1px solid $focus;
+    color: darken($focus, 50);
+    margin-bottom: 25px;
+}
+
 @import "node_modules/slick-carousel/slick/slick.scss";
 @import "node_modules/slick-carousel/slick/slick-theme.scss";
 
+// generic page parts
 @import "beta-banner";
 @import "header";
 @import "mini-search";
 @import "hero";
 @import "page";
 @import "tiles";
+@import "selling-points";
 @import "testimonials";
 @import "key-stats";
 @import "call-to-action-banner";
 @import "footer";
+@import "similar-courses";
+@import "page-navigation";
+@import "with-sidebar";
+@import "cards";
+@import "breadcrumbs";
+@import "sidebar";
+@import "panel";
 
+// special page layouts
 @import "course";
 @import "course-search";
-@import "similar-courses";
-
 @import "apply";
 @import "confirmation";
-
-@import "search-results";
+@import "opportunities-board";
+@import "vacancy";

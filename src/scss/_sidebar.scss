@@ -1,0 +1,13 @@
+.with-sidebar{
+    @media screen and (min-width: 1000px){
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 55px;
+    }
+
+    &--reversed{
+        @media screen and (min-width: 1000px){
+            grid-template-columns: 1fr 2fr;
+        }
+    }
+}

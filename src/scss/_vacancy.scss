@@ -1,0 +1,141 @@
+.vacancy-details{
+    margin: 0;
+    color: $grey1;
+
+    dt{
+        font-size: 1.2rem;
+    }
+
+    dd{
+        margin-left: 0px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        margin-bottom: 12.5px;
+        &:last-child{
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.vacancy-prep-form{
+    margin-top: 25px;
+
+    &__items{
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item{
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    input{
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        top: 3px;
+        left: 0;
+        z-index: -1;
+    }
+
+    label{
+        position: relative;
+        display: block;
+        cursor: pointer;
+        color: $grey1;
+        padding-left: 55px;
+        border-radius: 5px;
+        margin-bottom: 35px;
+
+        @media screen and (min-width: 700px){
+            padding-left: 70px;
+        }
+
+        &:before{
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 0;
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: darken($pale, 4);
+            border-radius: 5px;
+        }
+        &:hover:before{
+            background: $grey3;
+        }
+
+
+        h2{
+            margin: 0;
+            font-size: 1.2rem;
+            margin-bottom: 7px;
+        }
+
+        p{
+            margin: 0;
+            color: $grey2;
+            font-size: 0.95rem;
+        }
+
+        a{
+            color: $blue1;
+            z-index: 2;
+            &:hover{
+                text-decoration: none;
+            }
+            &:active{
+                color: $grey1;
+            }
+            &:focus{
+                background: $focus;
+                outline: 3px solid $focus;
+                color: $grey1;
+            }
+        }
+    }
+
+    input:checked + label{
+        &:before{
+            background: $blue1;
+        }
+        &:after{
+            content: "";
+            display: block;
+            width: 19px;
+            height: 19px;
+            position: absolute;
+            left: 8px;
+            top: 11px;
+            background-image: url("data:image/svg+xml,%3Csvg width='19' height='14' viewBox='0 0 19 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 7.5L7 12.5L17.5 2' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    input:focus + label:before{
+        box-shadow: 0px 0px 0px 3px $focus;
+    }
+
+
+    &__button{
+        @include button;
+        width: 100%;
+    }
+
+    &__nag{
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 15px;
+        color: $grey2;
+        a{
+            @include text-link;
+        }
+    }
+}

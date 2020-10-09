@@ -14,7 +14,7 @@ registerBlockType( 'lbh/tiles', {
     category: "hackney",
     edit: ({ className }) => 
         <div className={className}>
-            <InnerBlocks allowedBlocks={['lbh/tile']} />
+            <InnerBlocks allowedBlocks={['lbh/tile', 'lbh/tile-outline-button', 'lbh/tile-solid-button']} />
         </div>
     ,
     save: ({ className }) => {

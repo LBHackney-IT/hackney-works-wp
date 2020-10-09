@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/wearefuturegov/hackney-works-wp#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "@reach/alert": "^0.10.5",
     "formik": "^2.1.5",
     "jquery": "^3.5.1",

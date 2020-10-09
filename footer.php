@@ -27,12 +27,6 @@
     </div>
 </footer>
 
-<?php if(isset($APPLICATION_SUBMIT_ENDPOINT)): ?>
-    <script>
-        __APPLICATION_SUBMIT_ENDPOINT__ = "<?php echo $APPLICATION_SUBMIT_ENDPOINT ?>"
-    </script>
-<?php endif; ?>
-
 <?php wp_footer(); ?>
 </body>
 </html>

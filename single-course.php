@@ -26,7 +26,7 @@ $intakes = new WP_Query(array(
     </div>
 </section>
 
-<article class="page-content">
+<article class="page-content page-content--deeper-padding">
     <?php if($intakes->have_posts()): ?>
         <?php if($intakes->found_posts > 1): ?>
             <form method="get" action="/" class="mini-apply-form">
@@ -95,7 +95,7 @@ $intakes = new WP_Query(array(
             <?php the_field("accreditation_details") ?>
         <?php endif; ?>
 
-        <?php if(get_field("delivered_online")): ?>
+        <?php if(get_field("delivery") === "online"): ?>
     </div>
 </article>
 
@@ -115,7 +115,7 @@ $intakes = new WP_Query(array(
     </div>
 </section>
 
-<article class="page-content">
+<article class="page-content page-content--deeper-padding">
     <div class="content-area container container--narrow">
         <?php endif;?>
 
@@ -152,13 +152,26 @@ $intakes = new WP_Query(array(
                         <?php if($i !== 0){ echo "hidden"; } ?>
                     >
                         <h3 class="intake-tabs__title"><?php echo get_the_title($intake); ?></h3>
+                        
                         <p><?php the_field("days", $intake) ?></p>
-                        <p><?php the_field("start_time", $intake) ?> to <?php the_field("end_time", $intake) ?></p>
+                        
+                        <?php if(get_field("start_time", $intake) && get_field("start_time", $intake)): ?>
+                            <p><?php the_field("start_time", $intake) ?> to <?php the_field("end_time", $intake) ?></p>
+                        <?php else: ?>
+                            <p>From <?php the_field("start_time", $intake) ?></p>
+                        <?php endif; ?>
+
                         <p><?php the_field("description", $intake) ?></p>
+
                         <a class="intake-tabs__button" href="<?php echo get_the_permalink($intake); ?>">
-                            Apply for these dates
+                            <?php if(get_field("external_application_url", $intake)): ?>
+                                Apply on external website
+                            <?php else: ?>
+                                Apply for these dates
+                            <?php endif; ?>
                             <img src="<?php echo get_stylesheet_directory_uri() . "/assets/right-arrow.svg" ?>" alt="" aria-hidden="true"/>
                         </a>
+        
                     </section>
                     <?php $i++ ?>
                 <?php endforeach; ?>
@@ -166,6 +179,19 @@ $intakes = new WP_Query(array(
         <?php else: ?>
             <p>We don't have times and dates for this course yet, but you can still <a href="mailto:sai.wong@hackney.gov.uk">email us to register your interest</a>.</p>
         <?php endif; ?>
+
+        <?php if(get_field("delivery") === "person"): ?>
+            <h2 class="centred">Location</h2>
+            <section class="media-card media-card--location">
+                <img class="dialog__map" src="https://maps.googleapis.com/maps/api/staticmap?key=<?php echo GOOGLE_CLIENT_KEY; ?>&size=500x300&markers=<?php echo get_field('venue')["location"]["lat"] ?>,<?php echo get_field('venue')["location"]["lng"] ?>" alt=""/>
+                <div class="media-card__inner">
+                    <p class="media-card__address"><?php echo get_field('venue')["location"]["address"]; ?></p>
+                    <p><a href="https://www.google.co.uk/maps/search/<?php echo get_field('venue')["location"]["address"]; ?>">Get directions</a>
+                    <p><?php echo get_field('venue')["venue_details"]; ?></p>
+                </div>
+            </section>
+        <?php endif; ?>
+
 
         <?php if(get_field("show_tutor") && get_field("tutor_name")): ?>
             <h2 class="centred">Who you'll learn with</h2>

@@ -181,7 +181,7 @@ $intakes = new WP_Query(array(
                 <div class="media-card__inner">
                     <p><?php the_field("no_intakes_message"); ?></p>
                 </div>
-            </section
+            </section>
         <?php else: ?>
             <p>We don't have times and dates for this course yet, but you can still <a href="mailto:sai.wong@hackney.gov.uk">email us to register your interest</a>.</p>
         <?php endif; ?>

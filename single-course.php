@@ -63,7 +63,7 @@ $intakes = new WP_Query(array(
 
     <ul class="key-stats container">
         <li class="key-stats__stat">
-            <?php if(get_field("delivered_online")): ?>
+            <?php if(get_field("delivery") === "online"): ?>
                 <p>Online</p>
             <?php else: ?>
                 <p>In person</p>
@@ -155,7 +155,7 @@ $intakes = new WP_Query(array(
                         
                         <p><?php the_field("days", $intake) ?></p>
                         
-                        <?php if(get_field("start_time", $intake) && get_field("start_time", $intake)): ?>
+                        <?php if(get_field("start_time", $intake) && get_field("end_time", $intake)): ?>
                             <p><?php the_field("start_time", $intake) ?> to <?php the_field("end_time", $intake) ?></p>
                         <?php else: ?>
                             <p>From <?php the_field("start_time", $intake) ?></p>

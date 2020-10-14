@@ -51,7 +51,7 @@ const App = () => {
                         body: JSON.stringify({
                             course_application: {
                                 ...values,
-                                intake_id: __INTAKE_ID__
+                                vacancy_id: __VACANCY_ID__
                             }
                         })
                     })

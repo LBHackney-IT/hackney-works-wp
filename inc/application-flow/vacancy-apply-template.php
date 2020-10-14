@@ -39,7 +39,7 @@ if($vacancy->have_posts()): while($vacancy->have_posts()): $vacancy->the_post();
 </article>
 
 <script>
-    __INTAKE_ID__=<?php echo get_the_ID() ?>
+    __VACANCY_ID__=<?php echo get_the_ID() ?>
 </script>
 
 <?php endwhile; endif;

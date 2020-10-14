@@ -1,5 +1,6 @@
 <?php
 
+
 if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
@@ -527,7 +528,7 @@ if( function_exists('acf_add_local_field_group') ):
 			array(
 				'key' => 'field_5f844628def4d',
 				'label' => 'How will applications to this intake be managed?',
-				'name' => 'how_will_applications_to_this_intake_be_managed',
+				'name' => 'management',
 				'type' => 'button_group',
 				'instructions' => 'Do you want to use the built-in application form, or provide your own?',
 				'required' => 1,
@@ -921,22 +922,6 @@ if( function_exists('acf_add_local_field_group') ):
 				'maxlength' => '',
 			),
 			array(
-				'key' => 'field_5f649745a7fc6',
-				'label' => 'Vacancy URL',
-				'name' => 'external_application_url',
-				'type' => 'url',
-				'instructions' => 'If applications for this vacancy are handled on a third-party website, give the URL here. This will OVERRIDE the normal application form.',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'placeholder' => '',
-			),
-			array(
 				'key' => 'field_5f73494474999',
 				'label' => 'What preparation does this vacancy need?',
 				'name' => 'checklist_items',
@@ -958,6 +943,52 @@ if( function_exists('acf_add_local_field_group') ):
 				'min' => '',
 				'max' => 5,
 				'return_format' => 'object',
+			),
+			array(
+				'key' => 'field_5f86f270b4deb',
+				'label' => 'How will applications to this vacancy be managed?',
+				'name' => 'management',
+				'type' => 'button_group',
+				'instructions' => '',
+				'required' => 1,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array(
+					'internal' => 'Hackney Council will manage applications',
+					'external' => 'On an external website',
+				),
+				'allow_null' => 0,
+				'default_value' => '',
+				'layout' => 'horizontal',
+				'return_format' => 'value',
+			),
+			array(
+				'key' => 'field_5f649745a7fc6',
+				'label' => 'External application URL',
+				'name' => 'external_application_url',
+				'type' => 'url',
+				'instructions' => 'If applications for this vacancy are handled on a third-party website, give the URL here. This will OVERRIDE the normal application form.',
+				'required' => 1,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_5f86f270b4deb',
+							'operator' => '==',
+							'value' => 'external',
+						),
+					),
+				),
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
 			),
 		),
 		'location' => array(

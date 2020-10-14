@@ -82,7 +82,7 @@ registerBlockType( "lbh/tile-outline-button", {
  
     save: ({ attributes: { title, content, imageSrc, imageAlt, buttonHref, buttonText }, className }) => 
         <div className="tiles__tile">
-            <img loading="lazy" src={imageSrc} alt={imageAlt}/>
+            {imageSrc && <img loading="lazy" src={imageSrc} alt={imageAlt}/>}
             <div class="tiles__inner">
                 <h3>{title}</h3>
                 <RichText.Content tagName="p" value={content}/>

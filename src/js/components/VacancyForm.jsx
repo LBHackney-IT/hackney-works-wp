@@ -108,7 +108,7 @@ const App = () => {
                         errors={touched.live_in_hackney ? errors.live_in_hackney : null} 
                     />
 
-                    <p className="apply-form__guidance">Once you submit this application it will be reviewed by the team and you will be contacted about joining the course and what to do next. </p>
+                    <p className="apply-form__guidance">Once you submit this application it will be reviewed by Hackney employment advisors, who'll be in touch about the next step. </p>
 
                     <button 
                         className={processing ? "apply-form__button apply-form__button--processing" : "apply-form__button"}

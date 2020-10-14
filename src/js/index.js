@@ -10,7 +10,8 @@ import initTabs from "./_tabs"
 // react deps
 import React from "react"
 import { render } from "react-dom"
-import App from "./components/App"
+import CourseForm from "./components/CourseForm"
+import VacancyForm from "./components/VacancyForm"
 
 // polyfill foreach
 if (window.NodeList && !NodeList.prototype.forEach) {
@@ -21,7 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
     initTestimonials()
     initFilters()
     initTabs()
-    // mount react app
-    const reactRoot = document.querySelector("[data-apply-form]")
-    if(reactRoot) render(<App/>, reactRoot)
+
+    // mount react apps
+    const courseRoot = document.querySelector("[data-course-form]")
+    if(courseRoot) render(<CourseForm/>, courseRoot)
+
+    const vacancyRoot = document.querySelector("[data-vacancy-form]")
+    if(vacancyRoot) render(<VacancyForm/>, vacancyRoot)
 })

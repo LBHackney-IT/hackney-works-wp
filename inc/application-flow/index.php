@@ -45,10 +45,18 @@ add_action( 'init',  function() {
         'index.php?intake=$matches[1]&apply_confirmation=1', 
         'top' 
     );
+
+    add_rewrite_rule( 
+        'vacancy/([a-z0-9-]+)/apply/?$', 
+        'index.php?vacancy=$matches[1]&apply_vacancy=1', 
+        'top' 
+    );
+
 } );
 
 add_filter( 'query_vars', function( $query_vars ) {
     $query_vars[] = 'apply_confirmation';
+    $query_vars[] = 'apply_vacancy';
     return $query_vars;
 } );
 
@@ -59,12 +67,22 @@ function lbh_parse_request( &$wp ) {
         include "confirmation-template.php";
         exit();
     }
+    if ( array_key_exists( 'apply_vacancy', $wp->query_vars ) ) {
+        include "vacancy-apply-template.php";
+        exit();
+    }
     return;
 }
 
 add_action("template_redirect", "handle_external_applications");
 function handle_external_applications(){
-    if(in_array(get_post_type(), array("intake", "event")) && get_field("external_application_url")){
+    // handle intakes and vacancies
+    if(in_array(get_post_type(), array("intake", "vacancy")) && get_field("management") === "external"){
+        nocache_headers();
+        wp_redirect(get_field("external_application_url"));
+    }
+    // handle events
+    if(get_post_type() === "event"){
         nocache_headers();
         wp_redirect(get_field("external_application_url"));
     }

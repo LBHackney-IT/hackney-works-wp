@@ -25,7 +25,7 @@
 
     }
 
-    input{
+    input, textarea{
         font-size: 1rem;
         padding: 10px;
         border-radius: 5px;
@@ -43,7 +43,7 @@
         margin-bottom: 25px;
         @media screen and (min-width: 700px){
             font-size: 1.1rem;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
     }
 

@@ -33,7 +33,7 @@ if(have_posts()): while(have_posts()): the_post();
 
                 <p>Check that you're ready to apply.</p>
 
-                <form class="vacancy-prep-form" method="get" action="<?php the_field("external_application_url") ?>">
+                <form class="vacancy-prep-form" method="get" action="<?php the_permalink(); ?>/apply">
                     <?php $items = get_field("checklist_items");
                     if($items): ?>
                             <fieldset class="vacancy-prep-form__items">
@@ -49,7 +49,14 @@ if(have_posts()): while(have_posts()): the_post();
                             </fieldset>
                     <?php endif; ?>
 
-                    <button href="#" class="vacancy-prep-form__button">Apply on external website</button>
+                    <button class="vacancy-prep-form__button">
+                        <?php if(get_field("management") === "external"): ?>
+                            Apply on external website
+                        <?php else: ?>
+                            Apply now
+                        <?php endif; ?>
+                    </button>
+
                     <p class="vacancy-prep-form__nag">Not ready to apply yet? <a href="#">We can help.</a></p>
                 </form>
             </div>

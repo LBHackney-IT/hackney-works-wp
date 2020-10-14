@@ -164,7 +164,7 @@ $intakes = new WP_Query(array(
                         <p><?php the_field("description", $intake) ?></p>
 
                         <a class="intake-tabs__button" href="<?php echo get_the_permalink($intake); ?>">
-                            <?php if(get_field("external_application_url", $intake)): ?>
+                            <?php if(get_field("management", $intake) === "external"): ?>
                                 Apply on external website
                             <?php else: ?>
                                 Apply for these dates

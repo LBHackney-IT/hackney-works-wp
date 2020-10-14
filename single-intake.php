@@ -19,7 +19,7 @@ if(have_posts()): while(have_posts()): the_post();
 
 <article class="page-content">
     <div class="container with-sidebar">
-        <main class="panel panel--more-padding" data-apply-form>
+        <main class="panel panel--more-padding" data-course-form>
             <!-- React app mounts here -->
             <img class="spinner" src="<?php echo get_stylesheet_directory_uri() . "/assets/spinner.svg" ?>" alt="" />
             <p class="visually-hidden">Loading...</p>

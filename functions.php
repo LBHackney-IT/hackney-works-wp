@@ -45,7 +45,7 @@ add_action( "init", "lbh_register_menus" );
 
 // Configure ACF Google Maps field
 function lbh_acf_init() {
-    acf_update_setting('google_api_key', GOOGLE_API_KEY);
+    acf_update_setting('google_api_key', GOOGLE_CLIENT_KEY);
 }
 add_action('acf/init', 'lbh_acf_init');
 

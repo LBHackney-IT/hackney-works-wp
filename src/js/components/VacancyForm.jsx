@@ -49,7 +49,7 @@ const App = () => {
                           'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            course_application: {
+                            vacancy_application: {
                                 ...values,
                                 vacancy_id: __VACANCY_ID__
                             }

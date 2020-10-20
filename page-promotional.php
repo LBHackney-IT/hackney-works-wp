@@ -53,7 +53,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
 <?php endif; ?>
 
-<?php if($featured_opps->have_posts()): ?>
+<?php if(is_front_page() && $featured_opps->have_posts()): ?>
     <section class="page-content similar-courses">
         <div class="container container--mid">
             <h2 class="similar-courses__title">Featured opportunities</h2>

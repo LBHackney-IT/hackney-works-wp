@@ -41,34 +41,44 @@ add_filter("the_title", "lbh_custom_intake_title", 10, 6);
 
 add_action( 'init',  function() {
     add_rewrite_rule( 
-        'apply/([a-z0-9-]+)/confirmation/?$', 
-        'index.php?intake=$matches[1]&apply_confirmation=1', 
+        'vacancy/([a-z0-9-]+)/apply/confirmation/?$', 
+        'index.php?vacancy=$matches[1]&apply_vacancy_confirmation=1', 
         'top' 
     );
-
     add_rewrite_rule( 
         'vacancy/([a-z0-9-]+)/apply/?$', 
         'index.php?vacancy=$matches[1]&apply_vacancy=1', 
         'top' 
     );
-
+    add_rewrite_rule( 
+        'apply/([a-z0-9-]+)/confirmation/?$', 
+        'index.php?intake=$matches[1]&apply_confirmation=1', 
+        'top' 
+    );
 } );
 
 add_filter( 'query_vars', function( $query_vars ) {
     $query_vars[] = 'apply_confirmation';
     $query_vars[] = 'apply_vacancy';
+    $query_vars[] = 'apply_vacancy_confirmation';
     return $query_vars;
 } );
 
 
 add_action( 'parse_request', 'lbh_parse_request' );
 function lbh_parse_request( &$wp ) {
-    if ( array_key_exists( 'apply_confirmation', $wp->query_vars ) ) {
-        include "confirmation-template.php";
-        exit();
-    }
+    // handle vacancies
     if ( array_key_exists( 'apply_vacancy', $wp->query_vars ) ) {
         include "vacancy-apply-template.php";
+        exit();
+    }
+    if ( array_key_exists( 'apply_vacancy_confirmation', $wp->query_vars ) ) {
+        include "vacancy-confirmation-template.php";
+        exit();
+    }
+    // handle courses
+    if ( array_key_exists( 'apply_confirmation', $wp->query_vars ) ) {
+        include "confirmation-template.php";
         exit();
     }
     return;
@@ -76,13 +86,11 @@ function lbh_parse_request( &$wp ) {
 
 add_action("template_redirect", "handle_external_applications");
 function handle_external_applications(){
-
     // handle intakes
     if(get_post_type() === "intake" && get_field("management") === "external"){
         nocache_headers();
         wp_redirect(get_field("external_application_url"));
     }
-
     // handle events
     if(get_post_type() === "event"){
         nocache_headers();

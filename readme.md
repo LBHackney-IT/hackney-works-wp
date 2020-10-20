@@ -43,7 +43,7 @@ Make sure that you run `npm run build` to create production JS and SCSS before d
 It's intended to be used with [ACF's Google Map field](https://www.advancedcustomfields.com/resources/google-map/). It needs a Google API key to be set. You can do it with a line like this in `wp-config.php`:
 
 ```
-define("GOOGLE_API_KEY", "your_api_key_here");
+define("GOOGLE_CLIENT_KEY", "your_api_key_here");
 ```
 
 It also calls an API for opportunity data:

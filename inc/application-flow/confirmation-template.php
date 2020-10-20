@@ -31,7 +31,7 @@ $course = get_field("parent_course");
             <p>At busy times this can take longer.</p>
             <p>We’ll confirm some details and make sure the course is a good fit for you.</p>
             <p>Close to the start date, we’ll put you in touch with your tutor.</p>
-            <p>If you have questions, <a href="#">contact us</a>.</p>
+            <p>If you have questions, <a href="mailto:info@learningtrust.co.uk">contact us</a>.</p>
         </div>
         </div>
     </div>

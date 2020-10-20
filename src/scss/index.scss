@@ -60,6 +60,14 @@ body{
     border: 1px solid $focus;
     color: darken($focus, 50);
     margin-bottom: 25px;
+
+    &__title{
+        margin-top: 0px;
+    }
+
+    &__content{
+        margin-bottom: 0px;
+    }
 }
 
 @import "node_modules/slick-carousel/slick/slick.scss";

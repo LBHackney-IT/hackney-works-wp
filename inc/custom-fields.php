@@ -1,6 +1,5 @@
 <?php
 
-
 if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
@@ -1188,6 +1187,63 @@ if( function_exists('acf_add_local_field_group') ):
 					'param' => 'taxonomy',
 					'operator' => '==',
 					'value' => 'curriculum_areas',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+	));
+	
+	acf_add_local_field_group(array(
+		'key' => 'group_5f8f06d15f8c6',
+		'title' => 'Featured',
+		'fields' => array(
+			array(
+				'key' => 'field_5f8f06d85f3c2',
+				'label' => 'Feature this opportunity on the homepage?',
+				'name' => 'featured',
+				'type' => 'true_false',
+				'instructions' => 'The three most recent featured opportunities will appear on the homepage',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'message' => '',
+				'default_value' => 0,
+				'ui' => 0,
+				'ui_on_text' => '',
+				'ui_off_text' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'event',
+				),
+			),
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'vacancy',
+				),
+			),
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'course',
 				),
 			),
 		),

@@ -23,15 +23,15 @@ $similar_courses = new WP_Query(array(
             <?php foreach($similar_courses->get_posts() as $course): ?>
                 
                 <article class="similar-courses__course">
-                    <h3 class="similar-courses__course-name">
-                        <a class="similar-courses__link" href="<?php echo get_the_permalink($course); ?>"><?php echo get_the_title($course); ?></a>
-                    </h3>
-                    <p><?php echo truncate(strip_tags(get_field("description", $course)), 80); ?></p>
                     <ul class="similar-courses__tags">
                         <?php if(get_the_terms($course, "curriculum_areas")): foreach(get_the_terms($course, "curriculum_areas") as $term): ?>
                             <li class="similar-courses__tag"><?php echo $term->name ?></li>
                         <?php endforeach; endif; ?>
                     </ul>
+                    <h3 class="similar-courses__course-name">
+                        <a class="similar-courses__link" href="<?php echo get_the_permalink($course); ?>"><?php echo get_the_title($course); ?></a>
+                    </h3>
+                    <p><?php echo truncate(strip_tags(get_field("description", $course)), 80); ?></p>
                 </article>
 
             <?php endforeach; ?>

@@ -57,7 +57,7 @@ if(have_posts()): while(have_posts()): the_post();
                         <?php endif; ?>
                     </button>
 
-                    <p class="vacancy-prep-form__nag">Not ready to apply yet? <a href="#">We can help.</a></p>
+                    <p class="vacancy-prep-form__nag">Not ready to apply yet? <a href="https://app.opportunities.hackney.gov.uk/">We can help.</a></p>
                 </form>
             </div>
         </main>
@@ -110,7 +110,7 @@ if(have_posts()): while(have_posts()): the_post();
             <div class="panel">
                 <h2 class="panel__title">We can help</h2>
                 <p>Our friendly and well-trained advisors can help you get a career, not just a job.</p>
-                <a class="panel__button" href="#">Speak to an advisor</a>
+                <a class="panel__button" href="https://app.opportunities.hackney.gov.uk/">Speak to an advisor</a>
             </div>
 
         </aside>

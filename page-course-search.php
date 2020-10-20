@@ -162,7 +162,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
         <main class="">
             <?php if($search->have_posts()): ?>
 
-                <p class="alert">Because of coronavirus (COVID-19), we're changing the way we teach our courses. We're trialling a smaller number for the moment, with more coming soon.</p>
+                <?php get_template_part("announcement"); ?>
 
                 <p class="results-count">
                     <?php if($search->found_posts == 1): ?>

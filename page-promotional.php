@@ -40,6 +40,8 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 </section>
 
 <article class="page-content page-content--deeper-padding">
+    <?php get_template_part("announcement"); ?>
+    
     <div class="content-area container container--narrow">
         <?php the_content(); ?>
     </div>

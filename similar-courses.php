@@ -15,7 +15,7 @@ $similar_courses = new WP_Query(array(
     )
 )) ?>
 
-<?php if($similar_courses->have_posts()): ?>
+<?php if(is_home() && $similar_courses->have_posts()): ?>
     <section class="page-content similar-courses">
         <div class="container container--mid">
             <h2 class="similar-courses__title">Similar courses</h2>

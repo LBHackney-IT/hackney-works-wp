@@ -1,6 +1,14 @@
-<?php get_header(); 
+<?php
 $vacancy = new WP_Query($wp->query_vars);
 if($vacancy->have_posts()): while($vacancy->have_posts()): $vacancy->the_post();
+
+// handle external applications
+if(get_field("management") === "external"):
+    wp_redirect(get_field("external_application_url"));
+endif;
+
+get_header(); 
+
 ?>
 
 <section class="hero hero--with-breadcrumbs">

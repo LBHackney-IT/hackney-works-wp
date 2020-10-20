@@ -76,11 +76,13 @@ function lbh_parse_request( &$wp ) {
 
 add_action("template_redirect", "handle_external_applications");
 function handle_external_applications(){
-    // handle intakes and vacancies
-    if(in_array(get_post_type(), array("intake", "vacancy")) && get_field("management") === "external"){
+
+    // handle intakes
+    if(get_post_type() === "intake" && get_field("management") === "external"){
         nocache_headers();
         wp_redirect(get_field("external_application_url"));
     }
+
     // handle events
     if(get_post_type() === "event"){
         nocache_headers();

@@ -23,9 +23,6 @@
             margin-bottom: 0px;
         }
         @media screen and (min-width: 700px){
-            display: flex;
-            flex-direction: row;
-            align-items: center;
             display: grid;
             grid-template-columns: 2fr 3fr 3fr;
             gap: 35px;
@@ -42,20 +39,16 @@
         margin: 0;
         margin-bottom: 15px;
         @media screen and (min-width: 700px){
-            flex: 1;
+            order: 0;
             margin-bottom: 0px;
-            order: 1;
         }
     }
 
     p{
         margin: 0;
         line-height: 1.5;
-        margin-bottom: 15px;
         @media screen and (min-width: 700px){
-            margin-bottom: 0px;
-            flex: 2;
-            order: 3;
+            order: 2;
         }
     }
 
@@ -83,10 +76,10 @@
         margin-top: 0;
         list-style-type: none;
         padding-left: 0;
-        margin-bottom: -5px;
+        margin-bottom: 15px;
         @media screen and (min-width: 700px){
-            order: 2;
-            flex: 1;
+            order: 1;
+            margin-bottom: 0px;
         }
     }
 
@@ -101,6 +94,15 @@
         margin-bottom: 5px;
         &:last-of-type{
             margin-right: 0px;
+        }
+    }
+
+    &__button{
+        @include button;
+        display: table;
+        margin: 25px auto;
+        @media screen and (min-width: 700px){
+            margin: 35px auto;
         }
     }
 

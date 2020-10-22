@@ -19,6 +19,7 @@ $intakes = new WP_Query(array(
 <section class="hero <?php if(has_post_thumbnail()){ echo "hero--with-image"; } ?>">
     <?php if(has_post_thumbnail()): ?>
         <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
+        <img class="hero__lines" src="<?php echo get_template_directory_uri(); ?>/assets/lines-inverted.svg" alt=""/>
     <?php endif; ?>
     <div class="hero__content">
         <h1 class="hero__title"><?php the_title(); ?></h1>
@@ -75,9 +76,15 @@ $intakes = new WP_Query(array(
             <p>Skill level</p>
         </li>
         <li class="key-stats__stat">
-            <p>Free</p>
-            <p>For Hackney residents</p>
+            <?php if(get_field("course_code")): ?>
+                <p><?php the_field("course_code"); ?></p>
+                <p>Course code</p>
+            <?php else: ?>
+                <p>Free</p>
+                <p>For eligible Hackney residents</p>
+            <?php endif; ?>
         </li>
+
     </ul>
 
     <div class="content-area container container--narrow">

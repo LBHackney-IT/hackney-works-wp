@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 if( function_exists('acf_add_local_field_group') ):
 
@@ -6,6 +6,25 @@ if( function_exists('acf_add_local_field_group') ):
 		'key' => 'group_5f1720f72023c',
 		'title' => 'About the course',
 		'fields' => array(
+			array(
+				'key' => 'field_5f9155d369552',
+				'label' => 'Course code',
+				'name' => 'course_code',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
 			array(
 				'key' => 'field_5f1720f93b0ef',
 				'label' => 'What will people learn?',

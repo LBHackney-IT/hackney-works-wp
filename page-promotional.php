@@ -18,6 +18,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
     
     <?php if(has_post_thumbnail()): ?>
         <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
+        <img class="hero__lines" src="<?php echo get_template_directory_uri(); ?>/assets/lines-inverted.svg" alt=""/>
     <?php endif; ?>
 
 

@@ -1,4 +1,5 @@
 .site-header{
+    background: $blue1;
 
     .container{
         display: flex;
@@ -7,9 +8,14 @@
         align-items: center;
     }
 
-    &__top-navigation{
+    &__left{
+        padding: 15px 25px;
+    }
+
+    &__right{
         display: none;
-        @media screen and (min-width: 800px){
+        @media screen and (min-width: 1000px){
+            padding: 15px 25px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -17,12 +23,9 @@
         }
     }
 
-    &__masthead{
-        padding: 15px 25px;
-        background: $blue1;
-    }
-
     .custom-logo-link{
+        display: block;
+        margin-bottom: 15px;
         &:focus{
             outline: 3px solid $focus;
         }
@@ -61,11 +64,6 @@
         }
     }
 
-    &__navigation{
-        padding: 10px 25px;
-        background: $blue3;
-    }
-
     &__main-menu{
         margin: 0;
         list-style: none;
@@ -80,7 +78,7 @@
         }
         a{
             font-weight: bold;
-            color: $blue2;
+            color: white;
             text-decoration: none;
             &:hover{
                 text-decoration: underline;
@@ -92,4 +90,11 @@
             }
         }
     }
+}
+
+
+.lines{
+    width: 100%;
+    height: 15px;
+    margin-top: 3px;
 }

@@ -24,7 +24,7 @@
     }
 
     .custom-logo-link{
-        display: block;
+        display: inline-block;
         margin-bottom: 15px;
         &:focus{
             outline: 3px solid $focus;

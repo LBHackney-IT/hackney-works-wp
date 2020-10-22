@@ -1,5 +1,6 @@
 .site-header{
     background: $blue1;
+    padding: 15px 25px;
 
     .container{
         display: flex;
@@ -8,14 +9,9 @@
         align-items: center;
     }
 
-    &__left{
-        padding: 15px 25px;
-    }
-
     &__right{
         display: none;
         @media screen and (min-width: 1000px){
-            padding: 15px 25px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -25,7 +21,7 @@
 
     .custom-logo-link{
         display: inline-block;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         &:focus{
             outline: 3px solid $focus;
         }

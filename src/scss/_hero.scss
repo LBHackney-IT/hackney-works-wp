@@ -76,7 +76,9 @@
     &--with-image{
         background: $grey1;
         color: white;
-        padding: 90px 25px;
+        // increase top padding to account for negative margin
+        padding: 113px 25px 90px 25px;
+        margin-top: -23px;
         
         @media screen and (min-width: 1000px){
             padding: 170px 25px;
@@ -129,5 +131,13 @@
         .hero__background{
             background-position: top;
         }
+    }
+
+    &__lines{
+        position: absolute;
+        top: 3px;
+        left: 0;
+        width: 100%;
+        height: 15px;
     }
 }

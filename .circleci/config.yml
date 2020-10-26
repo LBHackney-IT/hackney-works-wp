@@ -3,14 +3,18 @@ orbs:
   node: circleci/node@4.1.0
   aws-s3: circleci/aws-s3@1.0.15
 jobs:
+ install-node:
+  executor:
+      name: node/default
+    steps:
+      - node/install
+      - node/install-packages:
+          pkg-manager: yarn
  build-and-run:
     executor:
       name: node/default
     steps:
       - checkout
-      - node/install
-      - node/install-packages:
-          pkg-manager: yarn
       - npm_build:
           steps:           
             - run: npm run build
@@ -34,11 +38,17 @@ jobs:
 workflows:
     build-and-deploy-staging:
       jobs:
+        - install-node:
+            filters:
+              branches:
+                only: staging
         - build-and-run:
             context: hackney-works-wp-staging-context
             filters:
               branches:
                 only: staging
+            requires:
+              - install-node
         - deploy2s3:
             filters:
               branches:

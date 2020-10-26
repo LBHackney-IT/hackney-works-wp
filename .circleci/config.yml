@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@4.1.0
   aws-s3: circleci/aws-s3@1.0.15
 jobs:
- install-node:
+  install-node:
     executor:
       name: node/default
     steps:

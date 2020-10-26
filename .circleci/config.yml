@@ -8,7 +8,9 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/install
+      - node/install:
+          install-npm: false
+      - install-npm
       - node/install-packages:
           with-cache: false
       - run: node --version

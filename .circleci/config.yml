@@ -1,3 +1,7 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.1.0
+  aws-s3: circleci/aws-s3@1.0.15
 jobs:
   install-node:
     docker:
@@ -6,8 +10,8 @@ jobs:
       - checkout
       - node/install:
           install-yarn: true
-      - run: node --version
- build-and-run:
+      - run: node --version  
+  build-and-run:
      docker: 
       - image: cimg/python:3.6
     steps:
@@ -32,10 +36,6 @@ jobs:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           aws-region: AWS_REGION
-version: 2.1
-orbs:
-  node: circleci/node@4.1.0
-  aws-s3: circleci/aws-s3@1.0.15
 workflows:
     build-and-deploy-staging:
       jobs:

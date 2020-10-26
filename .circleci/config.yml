@@ -9,8 +9,7 @@ jobs:
     steps:
       - checkout
       - node/install
-      - node/install-packages:
-          with-cache: false
+      - node/install-packages
       - npm_build:
           steps:           
             - run: npm run build

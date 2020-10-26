@@ -42,19 +42,19 @@ if(have_posts()): while(have_posts()): the_post(); ?>
     </div>
 </section>
 
-<article class="page-content">
+<article class="page-content" id="results">
     <div class="container">
 
         <nav class="opportunity-search">
             <form 
                 class="opportunity-search__form" 
-                action="<?php the_permalink(); ?>" 
+                action="<?php the_permalink(); ?>#results" 
                 method="get"
             >  
                 
             <div class="opportunity-search__field">
                     <label class="opportunity-search__label" for="type">Search by type</label>
-                    <select class="opportunity-search__input" name="type" id="type">
+                    <select class="opportunity-search__input" name="type" id="type" onchange="this.form.submit()">
                         <?php foreach($types as $key => $value): ?>
                             <option value="<?php echo $value ?>" <?php if(get_query_var("type") === $value){ echo "selected"; } ?>>
                                 <?php echo $key ?>

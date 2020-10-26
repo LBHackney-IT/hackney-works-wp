@@ -10,7 +10,7 @@ jobs:
       - checkout
       - node/install:
           install-npm: false
-      - install-npm
+      - node/install-npm
       - node/install-packages:
           with-cache: false
       - run: node --version

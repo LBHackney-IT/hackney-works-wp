@@ -16,9 +16,7 @@ jobs:
       - image: cimg/python:3.6
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm run build
+      - run: npm run build
       - persist_to_workspace:
           root: /home/circleci/project
           paths: .

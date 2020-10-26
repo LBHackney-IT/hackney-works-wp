@@ -46,7 +46,7 @@ workflows:
               - install-node
     build-and-deploy-production:
       jobs:
-      - install-node:
+        - install-node:
             filters:
               branches:
                 only: master

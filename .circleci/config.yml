@@ -43,12 +43,16 @@ workflows:
               branches:
                 only: staging
             requires:
-              - build-and-run
+              - install-node
     build-and-deploy-production:
       jobs:
+      - install-node:
+            filters:
+              branches:
+                only: master
         - deploy2s3:
             filters:
               branches:
                 only: master
             requires:
-              - build-and-run
+              - install-node

@@ -15,8 +15,8 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - npm_build:
-          steps:           
+      - node/with-cache:
+          steps:
             - run: npm run build
       - persist_to_workspace:
           root: /home/circleci/project

@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - node/install
-      - node/install-packages
+      - node/install-packages:
           pkg-manager: yarn
       - run: node --version
       - run: npm run build

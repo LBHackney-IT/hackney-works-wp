@@ -9,6 +9,7 @@ jobs:
     steps:
       - checkout
       - node/install
+      - node/install-packages
       - run: node --version
       - run: npm run build
       - persist_to_workspace:

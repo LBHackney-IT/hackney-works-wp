@@ -11,8 +11,6 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
  build-and-run:
-    executor:
-      name: node/default
     steps:
       - checkout
       - node/with-cache:

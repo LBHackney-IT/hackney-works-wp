@@ -11,6 +11,7 @@ jobs:
       - node/install
       - node/install-packages:
           pkg-manager: yarn
+          with-cache: false
       - run: node --version
       - run: npm run build
       - persist_to_workspace:

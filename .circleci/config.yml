@@ -12,7 +12,7 @@ jobs:
           install-yarn: true
       - run: node --version  
   build-and-run:
-     docker: 
+    docker: 
       - image: cimg/python:3.6
     steps:
       - checkout

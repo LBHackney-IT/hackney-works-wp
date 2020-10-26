@@ -17,15 +17,6 @@ jobs:
       - persist_to_workspace:
           root: /home/circleci/project
           paths: .
-  build-and-run:
-    docker: 
-      - image: cimg/python:3.6
-    steps:
-      - checkout
-      - run: npm run build
-      - persist_to_workspace:
-          root: /home/circleci/project
-          paths: .
   deploy2s3:
     docker: 
       - image: cimg/python:3.6
@@ -47,13 +38,6 @@ workflows:
             filters:
               branches:
                 only: staging
-        - build-and-run:
-            context: hackney-works-wp-staging-context
-            filters:
-              branches:
-                only: staging
-            requires:
-              - install-node
         - deploy2s3:
             filters:
               branches:
@@ -62,11 +46,6 @@ workflows:
               - build-and-run
     build-and-deploy-production:
       jobs:
-        - build-and-run:
-            context: hackney-works-wp-production-context
-            filters:
-              branches:
-                only: master
         - deploy2s3:
             filters:
               branches:

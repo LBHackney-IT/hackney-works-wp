@@ -4,8 +4,8 @@ orbs:
   aws-s3: circleci/aws-s3@1.0.15
 jobs:
   install-node:
-    docker:
-      - image: 'cimg/base:stable'
+    executor:
+      name: node/default
     steps:
       - checkout
       - node/install

@@ -10,7 +10,7 @@ jobs:
       - checkout
       - node/install
       - node/install-packages:
-          pkg-manager: yarn
+          pkg-manager: npm
           with-cache: false
       - run: node --version
       - run: npm run build

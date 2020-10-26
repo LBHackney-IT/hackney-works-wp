@@ -1,7 +1,3 @@
-version: 2.1
-orbs:
-  node: circleci/node@4.1.0
-  aws-s3: circleci/aws-s3@1.0.15
 jobs:
   install-node:
     docker:
@@ -36,6 +32,10 @@ jobs:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           aws-region: AWS_REGION
+version: 2.1
+orbs:
+  node: circleci/node@4.1.0
+  aws-s3: circleci/aws-s3@1.0.15
 workflows:
     build-and-deploy-staging:
       jobs:

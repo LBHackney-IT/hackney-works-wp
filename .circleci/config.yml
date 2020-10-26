@@ -10,6 +10,7 @@ jobs:
       - checkout
       - node/install
       - node/install-packages
+          pkg-manager: yarn
       - run: node --version
       - run: npm run build
       - persist_to_workspace:

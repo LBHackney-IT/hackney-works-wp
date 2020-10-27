@@ -1,21 +1,23 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
+  node: circleci/node@4.1.0
   aws-s3: circleci/aws-s3@1.0.15
 jobs:
- build-and-run:
+  install-node:
     executor:
       name: node/default
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm run build
+      - node/install:
+          install-npm: false
+      - node/install-packages:
+          with-cache: false
+      - run: node --version
+      - run: npm run build
       - persist_to_workspace:
           root: /home/circleci/project
           paths: .
- deploy2s3:
+  deploy2s3:
     docker: 
       - image: cimg/python:3.6
     steps:
@@ -32,8 +34,7 @@ jobs:
 workflows:
     build-and-deploy-staging:
       jobs:
-        - build-and-run:
-            context: hackney-works-wp-staging-context
+        - install-node:
             filters:
               branches:
                 only: staging
@@ -42,11 +43,10 @@ workflows:
               branches:
                 only: staging
             requires:
-              - build-and-run
+              - install-node
     build-and-deploy-production:
       jobs:
-        - build-and-run:
-            context: hackney-works-wp-production-context
+        - install-node:
             filters:
               branches:
                 only: master
@@ -55,4 +55,4 @@ workflows:
               branches:
                 only: master
             requires:
-              - build-and-run
+              - install-node

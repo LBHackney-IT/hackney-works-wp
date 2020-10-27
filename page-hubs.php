@@ -34,8 +34,8 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 <?php endwhile; else: ?>
 
 
-<?php endif; ?>
+<?php endif;
 
-<?php get_template_part("call-to-action"); ?>
+get_template_part("call-to-action");
 
-<?php get_footer(); ?>
+get_footer(); ?>

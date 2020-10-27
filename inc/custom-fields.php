@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if( function_exists('acf_add_local_field_group') ):
 
@@ -231,7 +231,9 @@ if( function_exists('acf_add_local_field_group') ):
 				'label' => 'Custom "no intakes" message',
 				'name' => 'no_intakes_message',
 				'type' => 'wysiwyg',
-				'instructions' => 'If this course has no intakes, this fallback message will be shown instead. You can use it to invite people to apply to courses by phone or email.',
+				'instructions' => 'If this course has no intakes, this fallback message will be shown instead. You can use it to invite people to apply to courses by phone or email.
+	
+	Be careful using formatting here. You might, at most, want to include a single mailto: link.',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
@@ -959,7 +961,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'filters' => '',
 				'elements' => '',
 				'min' => '',
-				'max' => 5,
+				'max' => 3,
 				'return_format' => 'object',
 			),
 			array(
@@ -1365,12 +1367,29 @@ if( function_exists('acf_add_local_field_group') ):
 					'operator' => '==',
 					'value' => 'course',
 				),
+				array(
+					'param' => 'post_template',
+					'operator' => '==',
+					'value' => 'default',
+				),
 			),
 			array(
 				array(
 					'param' => 'post_type',
 					'operator' => '==',
 					'value' => 'page',
+				),
+			),
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'page',
+				),
+				array(
+					'param' => 'post_template',
+					'operator' => '==',
+					'value' => 'page-promotional.php',
 				),
 			),
 		),

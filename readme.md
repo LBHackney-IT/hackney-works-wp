@@ -50,13 +50,7 @@ It's intended to be used with [ACF's Google Map field](https://www.advancedcusto
 define("GOOGLE_CLIENT_KEY", "your_api_key_here");
 ```
 
-It also calls an API for opportunity data:
-
-```
-define("API_HOST", "");
-```
-
-Make sure you add them above the `/* That's all, stop editing. Happy blogging! */` line.
+Make sure you add it above the `/* That's all, stop editing. Happy blogging! */` line.
 
 ### Submitting applications
 

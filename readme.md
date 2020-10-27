@@ -17,7 +17,7 @@ You need a Wordpress website up and running. Clone this repo into the `wp-conten
 
 Then, activate it through the WP admin dashboard.
 
-**It expects Advanced Custom Fields to be installed.**
+**It expects [Advanced Custom Fields](https://www.advancedcustomfields.com/) to be installed.**
 
 It has some pre-configured custom fields in `inc/custom-fields.php`.
 

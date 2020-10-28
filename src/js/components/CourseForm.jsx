@@ -45,7 +45,7 @@ const App = () => {
                           'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            course_application: {
+                            application: {
                                 ...values,
                                 type: "CourseApplication",
                                 wordpress_object_id: __INTAKE_ID__

@@ -49,7 +49,7 @@ const App = () => {
                           'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            vacancy_application: {
+                            application: {
                                 ...values,
                                 type: "VacancyApplication",
                                 wordpress_object_id: __VACANCY_ID__

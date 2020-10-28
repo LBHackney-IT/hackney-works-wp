@@ -15,7 +15,7 @@ if(get_query_var("type")){
 
 $search = new WP_Query();
 $search->parse_query(array(
-    "posts_per_page" => 9,
+    "posts_per_page" => 12,
     "s" => get_query_var("keywords"),
     "post_type" => $type_query,
     "paged" => get_query_var( "paged" )

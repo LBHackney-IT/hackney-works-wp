@@ -4,7 +4,7 @@ import * as Yup from "yup"
 import fetch from "unfetch"
 import Field from "./Field"
 
-const endpoint = process.env.SUBMIT_APPLICATION_ENDPOINT || "https://app.opportunities.hackney.gov.uk/api/v1/vacancy_applications"
+const endpoint = process.env.SUBMIT_APPLICATION_ENDPOINT || "https://app.opportunities.hackney.gov.uk/api/v1/applications"
 
 const schema = Yup.object().shape({
     first_name: Yup.string()
@@ -51,7 +51,8 @@ const App = () => {
                         body: JSON.stringify({
                             vacancy_application: {
                                 ...values,
-                                vacancy_id: __VACANCY_ID__
+                                type: "VacancyApplication",
+                                wordpress_object_id: __VACANCY_ID__
                             }
                         })
                     })

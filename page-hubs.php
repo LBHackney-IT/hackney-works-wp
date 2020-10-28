@@ -16,6 +16,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 </section>
 
 <div class="page-content">
+    <?php get_template_part("announcement"); ?>
     <div class="container hubs">
 
         <?php if($query->have_posts()): while($query->have_posts()): $query->the_post(); ?>

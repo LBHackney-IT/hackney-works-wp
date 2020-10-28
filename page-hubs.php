@@ -23,6 +23,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                 <div class="hubs__inner">
                     <h2><?php the_title(); ?></h2>
                     <p><?php echo get_field('location')["address"]; ?></p>
+                    <p><?php echo strip_tags(get_the_content()); ?></p>
                 </div>
                 <div class="hubs__map" data-latitude="<?php echo get_field('location')["lat"]; ?>" data-longitude="<?php echo get_field('location')["lng"]; ?>" data-zoom="15">Loading map...</div>
             </div>

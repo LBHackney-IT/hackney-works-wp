@@ -86,7 +86,7 @@ const App = () => {
                         label="Phone number" 
                         name="phone_number" 
                         optional
-                        hint="We'll use this to send you text updates about your application"
+                        hint="We'll use this to send you updates about your application"
                         errors={touched.phone_number ? errors.phone_number : null} 
                     />
 

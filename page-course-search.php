@@ -176,9 +176,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                 <ol class="card-list">
                     <?php while($search->have_posts()): $search->the_post(); ?>
                     <li class="card-list__card">
-                        <h2 class="card-list__title"><a class="card-list__link card-list__link--grey" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                        <p class="card-list__description"><?php echo truncate(strip_tags(get_field("description")), 130); ?></p>
-                        <ul class="card-list__tags">
+                        <ul class="card-list__tags card-list__tags--with-bottom-margin">
                             <?php if(get_field("intake_count")): ?>
                                 <li class="card-list__tag card-list__tag--filled">Has spaces</li>
                             <?php endif; ?>
@@ -186,6 +184,8 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                                 <li class="card-list__tag"><?php echo $term->name ?></li>
                             <?php endforeach; endif; ?>
                         </ul>
+                        <h2 class="card-list__title"><a class="card-list__link card-list__link--grey" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <p class="card-list__description"><?php echo truncate(strip_tags(get_field("description")), 130); ?></p>
                     </li>
 
                     <?php endwhile; ?>

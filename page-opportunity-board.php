@@ -65,7 +65,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
                 <div class="opportunity-search__field">
                     <label class="opportunity-search__label" for="keywords">Search by keyword</label>
-                    <input class="opportunity-search__input" name="keywords" type="search" id="keywords" value="<?php echo get_query_var("keywords") ?>" placeholder="eg. designer"/>
+                    <input class="opportunity-search__input" name="keywords" type="search" id="keywords" value="<?php echo stripslashes(esc_attr(get_query_var("keywords"), "")) ?>" placeholder="eg. designer"/>
                     <?php if(get_query_var("keywords")): ?>
                         <a class="opportunity-search__clear" href="<?php the_permalink(); ?>"><img src="<?php echo get_stylesheet_directory_uri() . "/assets/cross.svg" ?>" alt="Clear search"/></a>
                     <?php endif; ?>

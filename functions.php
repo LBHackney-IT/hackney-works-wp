@@ -89,14 +89,10 @@ function truncate($text, $length){
 
 
 // fix relevanssi
-add_filter( 'relevanssi_private_cap', 'lbh_relevanssi_private_cap' );
-function lbh_relevanssi_private_cap( $cap ) {
+add_filter('relevanssi_post_ok', 'lbh_handle_private_courses', 11, 2);
 
-    $cpt_slug = 'course';
-
-    if ( $cap == 'read_private_' . $cpt_slug . 's' ) {
-        $cap = 'read_private_posts';
-    }
-
-    return $cap;
+function lbh_handle_private_courses($post_ok, $post_id) {
+    $status = relevanssi_get_post_status($post_id);
+    if ($status == 'private') $post_ok = false;
+    return $post_ok;
 }

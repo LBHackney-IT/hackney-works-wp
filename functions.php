@@ -89,10 +89,10 @@ function truncate($text, $length){
 
 
 // fix relevanssi
-// add_filter('relevanssi_post_ok', 'lbh_handle_private_courses', 11, 2);
+add_filter('relevanssi_post_ok', 'lbh_handle_private_courses', 11, 2);
 
-// function lbh_handle_private_courses($post_ok, $post_id) {
-//     $status = relevanssi_get_post_status($post_id);
-//     if ($status == 'private') $post_ok = false;
-//     return $post_ok;
-// }
+function lbh_handle_private_courses($post_ok, $post_id) {
+    $status = relevanssi_get_post_status($post_id);
+    if ($status == 'private') $post_ok = false;
+    return $post_ok;
+}

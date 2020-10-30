@@ -6,6 +6,10 @@ It makes heavy use of custom post types and taxonomies, particularly:
 
 - `courses`, which can belong to curriculum areas and providers.
 - `intakes`, which belong to courses
+- `vacancies`, which can belong to sectors
+- `events`, which can belong to sectors
+- `checklist items`, which can belong to a course
+- `testimonials`, which can be added to courses and some pages
 
 ## Developing locally
 
@@ -13,9 +17,9 @@ You need a Wordpress website up and running. Clone this repo into the `wp-conten
 
 Then, activate it through the WP admin dashboard.
 
-**It expects Advanced Custom Fields to be installed.**
+**It expects [Advanced Custom Fields](https://www.advancedcustomfields.com/) to be installed.**
 
-You'll need to import a copy of the ACF config before you can use the theme as intended.
+It has some pre-configured custom fields in `inc/custom-fields.php`.
 
 To make changes to JS and SCSS files you'll need to start up the [Parcel](https://parceljs.org) bundler and Gulp:
 
@@ -46,16 +50,14 @@ It's intended to be used with [ACF's Google Map field](https://www.advancedcusto
 define("GOOGLE_CLIENT_KEY", "your_api_key_here");
 ```
 
-It also calls an API for opportunity data:
-
-```
-define("API_HOST", "");
-```
+Make sure you add it above the `/* That's all, stop editing. Happy blogging! */` line.
 
 ### Submitting applications
 
 It looks for a JS environment variable `SUBMIT_APPLICATION_ENDPOINT` which is the API host applications will be posted to.
 
-You can [provide this with a .env file](https://parceljs.org/env.html) if you like.
+You can [provide this with a .env file](https://parceljs.org/env.html) if you like. 
+
+You **can't** provide JS config using PHP `define()` statements.,
 
 If you don't provide a value, it defaults to the Hackney Works staging site URL.

@@ -4,7 +4,7 @@ import * as Yup from "yup"
 import fetch from "unfetch"
 import Field from "./Field"
 
-const endpoint = process.env.SUBMIT_APPLICATION_ENDPOINT || "https://app.opportunities.hackney.gov.uk/api/v1/course_applications"
+const endpoint = "https://app.opportunities.hackney.gov.uk/api/v1/course_applications"
 
 const schema = Yup.object().shape({
     first_name: Yup.string()

@@ -87,8 +87,8 @@ function truncate($text, $length){
     );
 }
 
-
-// fix relevanssi
+// stop relevanssi indexing private opportunities
+// https://www.relevanssi.com/knowledge-base/private-posts-custom-post-types/
 add_filter('relevanssi_post_ok', 'lbh_handle_private_courses', 11, 2);
 
 function lbh_handle_private_courses($post_ok, $post_id) {

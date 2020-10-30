@@ -86,3 +86,17 @@ function truncate($text, $length){
         $text
     );
 }
+
+
+// fix relevanssi
+add_filter( 'relevanssi_private_cap', 'lbh_relevanssi_private_cap' );
+function lbh_relevanssi_private_cap( $cap ) {
+ 
+    $cpt_slug = 'course'; // Edit as required
+ 
+    if ( $cap == 'read_private_' . $cpt_slug ) {
+        $cap = 'read_private_posts';
+    }
+ 
+    return $cap;
+}

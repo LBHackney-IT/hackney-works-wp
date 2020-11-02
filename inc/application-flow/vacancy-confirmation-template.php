@@ -22,7 +22,7 @@ $course = get_field("parent_course");
             <h2>What happens next?</h2>
             <p>After the closing date, we'll review applications for this vacancy with the employer.</p>
             <p>We aim to be in touch with shortlisted candidates a few days after the closing date, but at busy times this can take longer.</p>
-            <p>If you have questions, <a href="mailto:hackneyworks@hackney.gov.uk">contact us</a>.</p>
+            <p>If you have questions, <a href="mailto:opportunities@hackney.gov.uk">contact us</a>.</p>
         </div>
         </div>
     </div>

@@ -21,7 +21,7 @@ const schema = Yup.object().shape({
         .min(5, "Your statement is a bit short. Try to write at least a few sentences"),
     phone_number: Yup.number("Please give a valid phone number"),
     live_in_hackney: Yup.bool()
-        .oneOf([true], "Our courses are only for Hackney residents")
+        .oneOf([true], "Our opportunities are for Hackney residents")
 })
 
 const App = () => {

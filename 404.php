@@ -21,7 +21,7 @@
             <article class="panel panel--more-padding content-area">
                 <p>If you typed the web address, check it is correct.</p>
                 <p>If you pasted the web address, check you copied the entire address. </p>
-                <p>If the web address is correct or you selected a link or button, you can <a href="/contact">contact Hackney Opportunities</a>.</p>
+                <p>If the web address is correct or you selected a link or button, you can <a href="mailto:opportunities@hackney.gov.uk">contact Hackney Opportunities</a>.</p>
             </article>
         </div>
 

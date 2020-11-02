@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 if( function_exists('acf_add_local_field_group') ):
 
@@ -600,8 +600,8 @@ if( function_exists('acf_add_local_field_group') ):
 				'key' => 'field_5f6228bacb211',
 				'label' => 'External application URL',
 				'name' => 'external_application_url',
-				'type' => 'url',
-				'instructions' => 'Provide a webpage or mailto: link where people can apply to this course, if applicable.',
+				'type' => 'text',
+				'instructions' => 'Provide a webpage or mailto: link where people can apply to this course, if applicable. Double-check this works.',
 				'required' => 1,
 				'conditional_logic' => array(
 					array(
@@ -619,6 +619,9 @@ if( function_exists('acf_add_local_field_group') ):
 				),
 				'default_value' => '',
 				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
 			),
 		),
 		'location' => array(
@@ -990,8 +993,8 @@ if( function_exists('acf_add_local_field_group') ):
 				'key' => 'field_5f649745a7fc6',
 				'label' => 'External application URL',
 				'name' => 'external_application_url',
-				'type' => 'url',
-				'instructions' => 'If applications for this vacancy are handled on a third-party website, give the URL here. This will OVERRIDE the normal application form.',
+				'type' => 'text',
+				'instructions' => 'If applications for this vacancy are handled on a third-party website, give the URL or mailto: link here. This will OVERRIDE the normal application form, so double-check this works likke you expect.',
 				'required' => 1,
 				'conditional_logic' => array(
 					array(
@@ -1009,6 +1012,9 @@ if( function_exists('acf_add_local_field_group') ):
 				),
 				'default_value' => '',
 				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
 			),
 		),
 		'location' => array(

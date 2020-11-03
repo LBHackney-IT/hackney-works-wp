@@ -92,7 +92,7 @@ function handle_external_applications(){
         wp_redirect(get_field("external_application_url"));
     }
     // handle events
-    if(get_post_type() === "event"){
+    if(get_post_type() === "workshop"){
         nocache_headers();
         wp_redirect(get_field("external_application_url"));
     }

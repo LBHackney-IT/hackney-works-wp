@@ -4,11 +4,11 @@
 $types = array(
     "All" => "",
     "Courses" => "course",
-    "Events" => "event",
+    "Workshops" => "workshop",
     "Vacancies" => "vacancy"
 );
 
-$type_query = array("course", "event", "vacancy");
+$type_query = array("course", "workshop", "vacancy");
 if(get_query_var("type")){
     $type_query = get_query_var("type");
 }
@@ -88,12 +88,12 @@ if(have_posts()): while(have_posts()): the_post(); ?>
             <ol class="card-list card-list--grid">
                 <?php while($search->have_posts()): $search->the_post(); ?>
 
-                    <?php if(get_post_type() === "event"): ?>
+                    <?php if(get_post_type() === "workshop"): ?>
 
                         <li class="card-list__card">
 
                             <ul class="card-list__tags card-list__tags--with-bottom-margin">
-                                <li class="card-list__tag card-list__tag--filled">Event</li>
+                                <li class="card-list__tag card-list__tag--filled">Workshop</li>
                                 <?php if(get_the_terms(null, "sectors")): foreach(get_the_terms(null, "sectors") as $term): ?>
                                     <li class="card-list__tag"><?php echo $term->name ?></li>
                                 <?php endforeach; endif; ?>

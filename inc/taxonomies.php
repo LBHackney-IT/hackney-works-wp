@@ -15,7 +15,7 @@ function lbh_create_custom_taxonomies() {
       'query_var' => true
     ));
 
-    register_taxonomy('sectors', array('vacancy', 'event'), array(
+    register_taxonomy('sectors', array('vacancy', 'workshop'), array(
       "labels" => array(
           "name" => "Sectors",
           "singular_name" => "Sector",

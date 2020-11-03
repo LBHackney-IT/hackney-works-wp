@@ -2,7 +2,7 @@
 /* Template Name: Promotional (centred) page */
 
 $featured_opps = new WP_Query(array(
-    "post_type" => array("course", "vacancy", "event"),
+    "post_type" => array("course", "vacancy", "workshop"),
     "posts_per_page" => 3,
     "meta_query" => array(
         array(

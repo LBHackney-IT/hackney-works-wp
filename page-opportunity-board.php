@@ -15,7 +15,7 @@ if(get_query_var("type")){
 
 $search = new WP_Query();
 $search->parse_query(array(
-    "posts_per_page" => 9,
+    "posts_per_page" => 12,
     "s" => get_query_var("keywords"),
     "post_type" => $type_query,
     "paged" => get_query_var( "paged" )
@@ -65,7 +65,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
                 <div class="opportunity-search__field">
                     <label class="opportunity-search__label" for="keywords">Search by keyword</label>
-                    <input class="opportunity-search__input" name="keywords" type="search" id="keywords" value="<?php echo get_query_var("keywords") ?>" placeholder="eg. designer"/>
+                    <input class="opportunity-search__input" name="keywords" type="search" id="keywords" value="<?php echo stripslashes(esc_attr(get_query_var("keywords"), "")) ?>" placeholder="eg. designer"/>
                     <?php if(get_query_var("keywords")): ?>
                         <a class="opportunity-search__clear" href="<?php the_permalink(); ?>"><img src="<?php echo get_stylesheet_directory_uri() . "/assets/cross.svg" ?>" alt="Clear search"/></a>
                     <?php endif; ?>
@@ -115,7 +115,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
                         <li class="card-list__card">
                             <ul class="card-list__tags card-list__tags--with-bottom-margin">
-                                <li class="card-list__tag card-list__tag--filled">Vacancy</li>
+                                <li class="card-list__tag card-list__tag--filled"><?php the_field("vacancy_kind"); ?></li>
                                 <?php if(get_the_terms(null, "sectors")): foreach(get_the_terms(null, "sectors") as $term): ?>
                                     <li class="card-list__tag"><?php echo $term->name ?></li>
                                 <?php endforeach; endif; ?>

@@ -4,7 +4,7 @@ import * as Yup from "yup"
 import fetch from "unfetch"
 import Field from "./Field"
 
-const endpoint = process.env.SUBMIT_APPLICATION_ENDPOINT || "https://app.opportunities.hackney.gov.uk/api/v1/vacancy_applications"
+const endpoint = "https://app.opportunities.hackney.gov.uk/api/v1/applications"
 
 const schema = Yup.object().shape({
     first_name: Yup.string()
@@ -21,7 +21,7 @@ const schema = Yup.object().shape({
         .min(5, "Your statement is a bit short. Try to write at least a few sentences"),
     phone_number: Yup.number("Please give a valid phone number"),
     live_in_hackney: Yup.bool()
-        .oneOf([true], "Our courses are only for Hackney residents")
+        .oneOf([true], "Our opportunities are for Hackney residents")
 })
 
 const App = () => {
@@ -49,9 +49,10 @@ const App = () => {
                           'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            vacancy_application: {
+                            application: {
                                 ...values,
-                                vacancy_id: __VACANCY_ID__
+                                type: "VacancyApplication",
+                                wordpress_object_id: __VACANCY_ID__
                             }
                         })
                     })
@@ -89,7 +90,7 @@ const App = () => {
                         label="Phone number" 
                         name="phone_number" 
                         optional
-                        hint="We'll use this to send you text updates about your application"
+                        hint="We'll use this to send you updates about your application"
                         errors={touched.phone_number ? errors.phone_number : null} 
                     />
                     <Field 

@@ -42,20 +42,11 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
 <article class="page-content page-content--deeper-padding">
     <?php get_template_part("announcement"); ?>
-    
-    <div class="content-area container container--narrow">
-        <?php the_content(); ?>
-    </div>
-</article>
 
-<?php endwhile; else: ?>
 
-<p>Nothing to show</p>
-
-<?php endif; ?>
 
 <?php if(is_front_page() && $featured_opps->have_posts()): ?>
-    <section class="page-content similar-courses">
+    <section class="similar-courses similar-courses--padding-top">
         <div class="container container--mid">
             <h2 class="similar-courses__title">Featured opportunities</h2>
             
@@ -63,7 +54,13 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                 
                 <article class="similar-courses__course">
                     <ul class="similar-courses__tags">
-                        <li class="card-list__tag card-list__tag--filled"><?php echo ucfirst(get_post_type($opp)); ?></li>
+                        <li class="card-list__tag card-list__tag--filled">
+                            <?php if(get_post_type($opp) == "vacancy"): 
+                                the_field("vacancy_kind", $opp);
+                            else:
+                                echo ucfirst(get_post_type($opp));
+                            endif; ?>
+                        </li>
 
                         <?php if(get_the_terms($opp, "curriculum_areas")): foreach(get_the_terms($opp, "curriculum_areas") as $term): ?>
                             <li class="similar-courses__tag"><?php echo $term->name ?></li>
@@ -86,6 +83,18 @@ if(have_posts()): while(have_posts()): the_post(); ?>
         </div>
 
     </section>
+<?php endif; ?>
+
+
+    <div class="content-area container container--narrow">
+        <?php the_content(); ?>
+    </div>
+</article>
+
+<?php endwhile; else: ?>
+
+<p>Nothing to show</p>
+
 <?php endif; ?>
 
 <?php get_template_part("testimonials"); ?>

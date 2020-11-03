@@ -56,7 +56,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                     <ul class="similar-courses__tags">
                         <li class="card-list__tag card-list__tag--filled">
                             <?php if(get_post_type($opp) == "vacancy"): 
-                                the_field("vacancy_kind");
+                                the_field("vacancy_kind", $opp);
                             else:
                                 echo ucfirst(get_post_type($opp));
                             endif; ?>

@@ -54,7 +54,13 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                 
                 <article class="similar-courses__course">
                     <ul class="similar-courses__tags">
-                        <li class="card-list__tag card-list__tag--filled"><?php echo ucfirst(get_post_type($opp)); ?></li>
+                        <li class="card-list__tag card-list__tag--filled">
+                            <?php if(get_post_type($opp) == "vacancy"): 
+                                the_field("vacancy_kind");
+                            else:
+                                echo ucfirst(get_post_type($opp));
+                            endif; ?>
+                        </li>
 
                         <?php if(get_the_terms($opp, "curriculum_areas")): foreach(get_the_terms($opp, "curriculum_areas") as $term): ?>
                             <li class="similar-courses__tag"><?php echo $term->name ?></li>

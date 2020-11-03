@@ -18,6 +18,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
     
     <?php if(has_post_thumbnail()): ?>
         <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
+        <img class="hero__lines" src="<?php echo get_template_directory_uri(); ?>/assets/lines-inverted.svg" alt=""/>
     <?php endif; ?>
 
 
@@ -41,20 +42,11 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
 <article class="page-content page-content--deeper-padding">
     <?php get_template_part("announcement"); ?>
-    
-    <div class="content-area container container--narrow">
-        <?php the_content(); ?>
-    </div>
-</article>
 
-<?php endwhile; else: ?>
 
-<p>Nothing to show</p>
-
-<?php endif; ?>
 
 <?php if(is_front_page() && $featured_opps->have_posts()): ?>
-    <section class="page-content similar-courses">
+    <section class="similar-courses similar-courses--padding-top">
         <div class="container container--mid">
             <h2 class="similar-courses__title">Featured opportunities</h2>
             
@@ -85,6 +77,18 @@ if(have_posts()): while(have_posts()): the_post(); ?>
         </div>
 
     </section>
+<?php endif; ?>
+
+
+    <div class="content-area container container--narrow">
+        <?php the_content(); ?>
+    </div>
+</article>
+
+<?php endwhile; else: ?>
+
+<p>Nothing to show</p>
+
 <?php endif; ?>
 
 <?php get_template_part("testimonials"); ?>

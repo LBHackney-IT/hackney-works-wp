@@ -34,9 +34,10 @@ if(have_posts()): while(have_posts()): the_post();
                 <p><?php the_field("days") ?></p>
                 <p><?php the_field("start_time") ?> to <?php the_field("end_time") ?></p>
 
-
-                <?php if(get_field("delivered_online", $course)): ?>
+                <?php if(get_field("delivery", $course) === "online"): ?>
                     <p class="panel__important">This course is delivered online using <strong><?php the_field("online_tool", $course); ?></strong>.</p>
+                <?php else: ?>
+                    <p class="panel__important">This course is at <?php echo get_field('venue')["location"]["address"]; ?>.</p>
                 <?php endif; ?>
 
             </div>

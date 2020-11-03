@@ -15,7 +15,7 @@ if(get_query_var("type")){
 
 $search = new WP_Query();
 $search->parse_query(array(
-    "posts_per_page" => 9,
+    "posts_per_page" => 12,
     "s" => get_query_var("keywords"),
     "post_type" => $type_query,
     "paged" => get_query_var( "paged" )
@@ -42,19 +42,19 @@ if(have_posts()): while(have_posts()): the_post(); ?>
     </div>
 </section>
 
-<article class="page-content">
+<article class="page-content" id="results">
     <div class="container">
 
         <nav class="opportunity-search">
             <form 
                 class="opportunity-search__form" 
-                action="<?php the_permalink(); ?>" 
+                action="<?php the_permalink(); ?>#results" 
                 method="get"
             >  
                 
             <div class="opportunity-search__field">
                     <label class="opportunity-search__label" for="type">Search by type</label>
-                    <select class="opportunity-search__input" name="type" id="type">
+                    <select class="opportunity-search__input" name="type" id="type" onchange="this.form.submit()">
                         <?php foreach($types as $key => $value): ?>
                             <option value="<?php echo $value ?>" <?php if(get_query_var("type") === $value){ echo "selected"; } ?>>
                                 <?php echo $key ?>
@@ -65,7 +65,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
                 <div class="opportunity-search__field">
                     <label class="opportunity-search__label" for="keywords">Search by keyword</label>
-                    <input class="opportunity-search__input" name="keywords" type="search" id="keywords" value="<?php echo get_query_var("keywords") ?>" placeholder="eg. designer"/>
+                    <input class="opportunity-search__input" name="keywords" type="search" id="keywords" value="<?php echo stripslashes(esc_attr(get_query_var("keywords"), "")) ?>" placeholder="eg. designer"/>
                     <?php if(get_query_var("keywords")): ?>
                         <a class="opportunity-search__clear" href="<?php the_permalink(); ?>"><img src="<?php echo get_stylesheet_directory_uri() . "/assets/cross.svg" ?>" alt="Clear search"/></a>
                     <?php endif; ?>

@@ -6,7 +6,7 @@ function lbh_custom_post_types_init() {
         "public" => false,
         "show_ui" => true,
         "menu_icon" => "dashicons-location",
-        "supports" => array("title")
+        "supports" => array("title", "editor")
     ));
 
     register_post_type("event", array(

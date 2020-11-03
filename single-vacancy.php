@@ -17,52 +17,17 @@ if(have_posts()): while(have_posts()): the_post();
 </section>
 
 <article class="page-content">
-    <div class="container with-sidebar">
+    <div class="container vacancy-layout">
 
-        <main>
-            <div class="panel content-area">
-                <?php if(get_field("full_description")):
-                the_field("full_description"); 
-                else: ?>
-                <p><?php the_field("description"); ?></p>
-                <?php endif; ?>
-            </div>
+        <article class="panel content-area">
+            <?php if(get_field("full_description")):
+            the_field("full_description"); 
+            else: ?>
+            <p><?php the_field("description"); ?></p>
+            <?php endif; ?>
+        </article>
 
-            <div class="panel">
-                <h2 class="panel__title">Apply now</h2>
-
-                <p>Check that you're ready to apply.</p>
-
-                <form class="vacancy-prep-form" method="get" action="<?php the_permalink(); ?>/apply">
-                    <?php $items = get_field("checklist_items");
-                    if($items): ?>
-                            <fieldset class="vacancy-prep-form__items">
-                                <?php foreach($items as $item): ?>
-                                    <div class="vacancy-prep-form__item">
-                                        <input type="checkbox" id="<?php echo $item->ID; ?>" required="true">
-                                        <label for="<?php echo $item->ID; ?>">
-                                            <h2><?php echo get_the_title($item); ?></h3>
-                                            <p><?php echo get_the_content(null, null, $item); ?></p>
-                                        </label>
-                                    </div>
-                                <?php endforeach; ?>
-                            </fieldset>
-                    <?php endif; ?>
-
-                    <button class="vacancy-prep-form__button">
-                        <?php if(get_field("management") === "external"): ?>
-                            Apply on external website
-                        <?php else: ?>
-                            Apply now
-                        <?php endif; ?>
-                    </button>
-
-                    <p class="vacancy-prep-form__nag">Not ready to apply yet? <a href="https://app.opportunities.hackney.gov.uk/">We can help.</a></p>
-                </form>
-            </div>
-        </main>
-
-        <aside>
+        <aside class="vacancy-layout__sidebar">
             <div class="panel">
                 <h2 class="panel__title">At a glance</h2>
 
@@ -107,13 +72,53 @@ if(have_posts()): while(have_posts()): the_post();
                 </dl>
             </div>
 
-            <div class="panel">
+            <div class="panel vacancy-layout__desktop-only">
                 <h2 class="panel__title">We can help</h2>
                 <p>Our friendly and well-trained advisors can help you get a career, not just a job.</p>
                 <a class="panel__button" href="https://app.opportunities.hackney.gov.uk/">Speak to an advisor</a>
             </div>
 
         </aside>
+
+        <div class="panel">
+            <h2 class="panel__title">Apply now</h2>
+
+            <p>Check that you're ready to apply.</p>
+
+            <form class="vacancy-prep-form" method="get" action="<?php the_permalink(); ?>/apply">
+                <?php $items = get_field("checklist_items");
+                if($items): ?>
+                        <fieldset class="vacancy-prep-form__items">
+                            <?php foreach($items as $item): ?>
+                                <div class="vacancy-prep-form__item">
+                                    <input type="checkbox" id="<?php echo $item->ID; ?>" required="true">
+                                    <label for="<?php echo $item->ID; ?>">
+                                        <h2><?php echo get_the_title($item); ?></h3>
+                                        <p><?php echo get_the_content(null, null, $item); ?></p>
+                                    </label>
+                                </div>
+                            <?php endforeach; ?>
+                        </fieldset>
+                <?php endif; ?>
+
+                <button class="vacancy-prep-form__button">
+                    <?php if(get_field("management") === "external"): ?>
+                        Apply on external website
+                    <?php else: ?>
+                        Apply now
+                    <?php endif; ?>
+                </button>
+
+                <p class="vacancy-prep-form__nag">Not ready to apply yet? <a href="https://app.opportunities.hackney.gov.uk/">We can help.</a></p>
+            </form>
+        </div>
+
+        <div class="panel vacancy-layout__mobile-only">
+            <h2 class="panel__title">We can help</h2>
+            <p>Our friendly and well-trained advisors can help you get a career, not just a job.</p>
+            <a class="panel__button" href="https://app.opportunities.hackney.gov.uk/">Speak to an advisor</a>
+        </div>
+
     </div>
 </article>
 

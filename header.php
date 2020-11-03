@@ -23,24 +23,9 @@
 </section>
 
 <header class="site-header">
-    <div class="site-header__masthead">
-        <div class="container">
+    <div class="container">
+        <div class="site-header__left">
             <?php the_custom_logo(); ?>
-
-            <nav class="site-header__top-navigation">
-                <?php get_search_form(); ?>
-                <?php wp_nav_menu(array(
-                    "theme_location" => "top-header-menu",
-                    "menu_class" => "site-header__top-menu",
-                    "container" => false,
-                    "fallback_cb" => false
-                )); ?>
-            </nav>
-        </div>
-    </div>
-
-    <nav class="site-header__navigation">
-        <div class="container">
             <?php wp_nav_menu(array(
                 "theme_location" => "header-menu",
                 "menu_class" => "site-header__main-menu",
@@ -48,5 +33,16 @@
                 "fallback_cb" => false
             )); ?>
         </div>
-    </nav>
+        <nav class="site-header__right">
+            <?php get_search_form(); ?>
+            <?php wp_nav_menu(array(
+                "theme_location" => "top-header-menu",
+                "menu_class" => "site-header__top-menu",
+                "container" => false,
+                "fallback_cb" => false
+            )); ?>
+        </nav>
+    </div>
 </header>
+
+<img class="lines" src="<?php echo get_template_directory_uri(); ?>/assets/lines.svg" alt=""/>

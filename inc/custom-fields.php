@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 if( function_exists('acf_add_local_field_group') ):
 
@@ -6,6 +6,25 @@ if( function_exists('acf_add_local_field_group') ):
 		'key' => 'group_5f1720f72023c',
 		'title' => 'About the course',
 		'fields' => array(
+			array(
+				'key' => 'field_5f9155d369552',
+				'label' => 'Course code',
+				'name' => 'course_code',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
 			array(
 				'key' => 'field_5f1720f93b0ef',
 				'label' => 'What will people learn?',
@@ -212,7 +231,9 @@ if( function_exists('acf_add_local_field_group') ):
 				'label' => 'Custom "no intakes" message',
 				'name' => 'no_intakes_message',
 				'type' => 'wysiwyg',
-				'instructions' => 'If this course has no intakes, this fallback message will be shown instead. You can use it to invite people to apply to courses by phone or email.',
+				'instructions' => 'If this course has no intakes, this fallback message will be shown instead. You can use it to invite people to apply to courses by phone or email.
+	
+	Be careful using formatting here. You might, at most, want to include a single mailto: link.',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
@@ -579,8 +600,8 @@ if( function_exists('acf_add_local_field_group') ):
 				'key' => 'field_5f6228bacb211',
 				'label' => 'External application URL',
 				'name' => 'external_application_url',
-				'type' => 'url',
-				'instructions' => 'Provide a webpage or mailto: link where people can apply to this course, if applicable.',
+				'type' => 'text',
+				'instructions' => 'Provide a webpage or mailto: link where people can apply to this course, if applicable. Double-check this works.',
 				'required' => 1,
 				'conditional_logic' => array(
 					array(
@@ -598,6 +619,9 @@ if( function_exists('acf_add_local_field_group') ):
 				),
 				'default_value' => '',
 				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
 			),
 		),
 		'location' => array(
@@ -940,7 +964,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'filters' => '',
 				'elements' => '',
 				'min' => '',
-				'max' => 5,
+				'max' => 3,
 				'return_format' => 'object',
 			),
 			array(
@@ -969,8 +993,8 @@ if( function_exists('acf_add_local_field_group') ):
 				'key' => 'field_5f649745a7fc6',
 				'label' => 'External application URL',
 				'name' => 'external_application_url',
-				'type' => 'url',
-				'instructions' => 'If applications for this vacancy are handled on a third-party website, give the URL here. This will OVERRIDE the normal application form.',
+				'type' => 'text',
+				'instructions' => 'If applications for this vacancy are handled on a third-party website, give the URL or mailto: link here. This will OVERRIDE the normal application form, so double-check this works likke you expect.',
 				'required' => 1,
 				'conditional_logic' => array(
 					array(
@@ -988,6 +1012,9 @@ if( function_exists('acf_add_local_field_group') ):
 				),
 				'default_value' => '',
 				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
 			),
 		),
 		'location' => array(
@@ -1346,12 +1373,29 @@ if( function_exists('acf_add_local_field_group') ):
 					'operator' => '==',
 					'value' => 'course',
 				),
+				array(
+					'param' => 'post_template',
+					'operator' => '==',
+					'value' => 'default',
+				),
 			),
 			array(
 				array(
 					'param' => 'post_type',
 					'operator' => '==',
 					'value' => 'page',
+				),
+			),
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'page',
+				),
+				array(
+					'param' => 'post_template',
+					'operator' => '==',
+					'value' => 'page-promotional.php',
 				),
 			),
 		),

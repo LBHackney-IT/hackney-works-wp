@@ -13,10 +13,13 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 <div class="page-content">
     <div class="container with-sidebar">
 
+    <div>
+        <?php get_template_part("announcement"); ?>
         <article class="panel panel--more-padding content-area">
             <?php the_content(); ?>
             <p class="last-reviewed">Page last reviewed: <?php echo get_the_modified_date(); ?></p>
         </article>
+    </div>
 
         <aside>
             <?php the_children(); ?>

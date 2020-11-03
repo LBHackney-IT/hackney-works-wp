@@ -6,6 +6,7 @@ import "@fortawesome/fontawesome-free/js/all.js"
 import initTestimonials from "./_testimonials"
 import initFilters from "./_filters"
 import initTabs from "./_tabs"
+import initMaps from "./_maps"
 
 // react deps
 import React from "react"
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initTestimonials()
     initFilters()
     initTabs()
+    initMaps()
 
     // mount react apps
     const courseRoot = document.querySelector("[data-course-form]")

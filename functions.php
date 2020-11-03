@@ -19,7 +19,8 @@ add_editor_style( 'dist/css/editor.css' );
 function lbh_load_scripts_and_styles() {
     wp_enqueue_style("main", get_stylesheet_directory_uri()."/dist/css/index.css");
     wp_enqueue_style("fonts", "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
-    // wp_enqueue_style("fontawesome", get_stylesheet_directory_uri()."/assets/fontawesome/css/all.min.css");
+
+    wp_enqueue_script("maps", "https://maps.googleapis.com/maps/api/js?key=" . GOOGLE_CLIENT_KEY);
     wp_enqueue_script("main", get_stylesheet_directory_uri()."/dist/js/index.js");
 }
 add_action("wp_enqueue_scripts", "lbh_load_scripts_and_styles");
@@ -84,4 +85,14 @@ function truncate($text, $length){
         '\\1...',
         $text
     );
+}
+
+// stop relevanssi indexing private opportunities
+// https://www.relevanssi.com/knowledge-base/private-posts-custom-post-types/
+add_filter('relevanssi_post_ok', 'lbh_handle_private_courses', 11, 2);
+
+function lbh_handle_private_courses($post_ok, $post_id) {
+    $status = relevanssi_get_post_status($post_id);
+    if ($status == 'private') $post_ok = false;
+    return $post_ok;
 }

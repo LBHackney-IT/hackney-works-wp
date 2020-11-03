@@ -7,7 +7,7 @@ It makes heavy use of custom post types and taxonomies, particularly:
 - `courses`, which can belong to curriculum areas and providers.
 - `intakes`, which belong to courses
 - `vacancies`, which can belong to sectors
-- `events`, which can belong to sectors
+- `workshops`, which can belong to sectors
 - `checklist items`, which can belong to a course
 - `testimonials`, which can be added to courses and some pages
 

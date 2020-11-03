@@ -9,8 +9,8 @@ function lbh_custom_post_types_init() {
         "supports" => array("title", "editor")
     ));
 
-    register_post_type("event", array(
-        "label" => __("Events"),
+    register_post_type("workshop", array(
+        "label" => __("Workshops"),
         "public" => true,
         "menu_icon" => "dashicons-calendar-alt",
         "show_in_rest" => true,
@@ -109,7 +109,7 @@ add_action( 'manage_intake_posts_custom_column' , 'lbh_custom_admin_columns', 10
 
 // rewrite content as the custom field value
 function lbh_custom_course_content($content){
-    if(get_post() && in_array(get_post()->post_type, array("course", "vacancy", "event"))){
+    if(get_post() && in_array(get_post()->post_type, array("course", "vacancy", "workshop"))){
         return get_field("description");
     }
     return $content; 

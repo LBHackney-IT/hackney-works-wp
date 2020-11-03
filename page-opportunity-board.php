@@ -115,7 +115,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
 
                         <li class="card-list__card">
                             <ul class="card-list__tags card-list__tags--with-bottom-margin">
-                                <li class="card-list__tag card-list__tag--filled">Vacancy</li>
+                                <li class="card-list__tag card-list__tag--filled"><?php the_field("vacancy_kind"); ?></li>
                                 <?php if(get_the_terms(null, "sectors")): foreach(get_the_terms(null, "sectors") as $term): ?>
                                     <li class="card-list__tag"><?php echo $term->name ?></li>
                                 <?php endforeach; endif; ?>

@@ -75,7 +75,7 @@ if(have_posts()): while(have_posts()): the_post();
             <div class="panel vacancy-layout__desktop-only">
                 <h2 class="panel__title">We can help</h2>
                 <p>Our friendly and well-trained advisors can help you get a career, not just a job.</p>
-                <a class="panel__button" href="https://app.opportunities.hackney.gov.uk/">Speak to an advisor</a>
+                <a class="panel__button" href="https://opportunities.hackney.gov.uk/advisor/">Register for support</a>
             </div>
 
         </aside>

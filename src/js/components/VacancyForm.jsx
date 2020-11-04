@@ -3,6 +3,7 @@ import { Formik, Form } from "formik"
 import * as Yup from "yup"
 import fetch from "unfetch"
 import Field from "./Field"
+import FileField from "./FileField"
 
 const endpoint = "https://app.opportunities.hackney.gov.uk/api/v1/applications"
 
@@ -16,6 +17,8 @@ const schema = Yup.object().shape({
     email: Yup.string()
         .required("Please give an email address")
         .email('Please give a valid email address'),
+    cv: Yup.mixed()
+        .required("Please provide a CV"),
     statement: Yup.string()
         .required("Please give a personal statement")
         .min(5, "Your statement is a bit short. Try to write at least a few sentences"),
@@ -35,18 +38,20 @@ const App = () => {
                 last_name: "",
                 email: "",
                 phone_number: "",
+                cv: "",
                 statement: "",
                 live_in_hackney: false
             }}
             validationSchema={schema}
             onSubmit={async values => {
                 try{
+                    console.log(values)
                     setProcessing(true)
-
+                    
                     const res = await fetch(endpoint, {
                         method: "post",
                         headers: {
-                          'Content-Type': 'application/json'
+                            'Content-Type': 'multipart/form-data'
                         },
                         body: JSON.stringify({
                             application: {
@@ -69,7 +74,7 @@ const App = () => {
                 }
             }}
         >
-            {({errors, touched}) =>
+            {({errors, touched, setFieldValue}) =>
                 <Form className="apply-form">
                     <Field 
                         label="First name" 
@@ -92,6 +97,13 @@ const App = () => {
                         optional
                         hint="We'll use this to send you updates about your application"
                         errors={touched.phone_number ? errors.phone_number : null} 
+                    />
+                    <FileField
+                        setFieldValue={setFieldValue}
+                        label="CV" 
+                        name="cv"
+                        hint="Upload a PDF file"
+                        errors={touched.cv ? errors.cv : null} 
                     />
                     <Field 
                         as="textarea"

@@ -81,13 +81,12 @@ if(have_posts()): while(have_posts()): the_post();
         </aside>
 
         <div class="panel">
-            <h2 class="panel__title">Apply now</h2>
-
-            <p>Check that you're ready to apply.</p>
+            <h2 class="panel__title">Apply for this vacancy</h2>
 
             <form class="vacancy-prep-form" method="get" action="<?php the_permalink(); ?>/apply">
                 <?php $items = get_field("checklist_items");
                 if($items): ?>
+                        <p>Check that you're ready to apply.</p>
                         <fieldset class="vacancy-prep-form__items">
                             <?php foreach($items as $item): ?>
                                 <div class="vacancy-prep-form__item">

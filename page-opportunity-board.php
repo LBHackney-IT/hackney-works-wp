@@ -102,7 +102,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                             <h2 class="card-list__title">
                                 <a class="card-list__link card-list__link--grey " href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </h2>
-                            <p class="card-list__description"><?php echo truncate(strip_tags(get_field("description")), 130); ?></p>
+                            <p class="card-list__description"><?php echo strip_tags(get_field("description"), 130); ?></p>
                             <p class="card-list__meta">
                                 <?php the_field("event_date"); ?>
                                 <?php if(get_field("location")){ echo " | " . get_field("location"); } ?>

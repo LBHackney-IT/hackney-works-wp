@@ -49,15 +49,15 @@ const App = () => {
 
                     let formData = new FormData();
 
-                    formData.set("type", "VacancyApplication")
-                    formData.set("wordpress_object_id", __VACANCY_ID__)
-                    formData.set("first_name", values.first_name)
-                    formData.set("last_name", values.last_name)
-                    formData.set("email", values.email)
-                    formData.set("phone_number", values.phone_number)
-                    formData.set("cv", values.cv)
-                    formData.set("statement", values.statement)
-                    formData.set("live_in_hackney", values.live_in_hackney)
+                    formData.set("application[type]", "VacancyApplication")
+                    formData.set("application[wordpress_object_id]", __VACANCY_ID__)
+                    formData.set("application[first_name]", values.first_name)
+                    formData.set("application[last_name]", values.last_name)
+                    formData.set("application[email]", values.email)
+                    formData.set("application[phone_number]", values.phone_number)
+                    formData.set("application[cv]", values.cv)
+                    formData.set("application[statement]", values.statement)
+                    formData.set("application[live_in_hackney]", values.live_in_hackney)
                     
                     const res = await fetch(endpoint, {
                         method: "post",

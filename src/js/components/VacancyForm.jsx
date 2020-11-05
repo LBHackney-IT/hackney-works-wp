@@ -45,21 +45,23 @@ const App = () => {
             validationSchema={schema}
             onSubmit={async values => {
                 try{
-                    console.log(values)
                     setProcessing(true)
+
+                    let formData = new FormData();
+
+                    formData.set("type", "VacancyApplication")
+                    formData.set("wordpress_object_id", __VACANCY_ID__)
+                    formData.set("first_name", values.first_name)
+                    formData.set("last_name", values.last_name)
+                    formData.set("email", values.email)
+                    formData.set("phone_number", values.phone_number)
+                    formData.set("cv", values.cv)
+                    formData.set("statement", values.statement)
+                    formData.set("live_in_hackney", values.live_in_hackney)
                     
                     const res = await fetch(endpoint, {
                         method: "post",
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
-                        },
-                        body: JSON.stringify({
-                            application: {
-                                ...values,
-                                type: "VacancyApplication",
-                                wordpress_object_id: __VACANCY_ID__
-                            }
-                        })
+                        body: formData
                     })
                     const data = await res.json()
                     if(res.status === 200) {

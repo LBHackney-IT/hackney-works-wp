@@ -16,7 +16,7 @@ $intakes = new WP_Query(array(
 ));
 ?>
 
-<section class="hero <?php if(has_post_thumbnail()){ echo "hero--with-image"; } ?>">
+<section class="hero <?php if(has_post_thumbnail()){ echo "hero--with-image"; } ?>" id="main-content">
     <?php if(has_post_thumbnail()): ?>
         <div class="hero__background" style="background-image: url('<?php echo get_the_post_thumbnail_url( null, "full" ); ?>')"></div>
         <img class="hero__lines" src="<?php echo get_template_directory_uri(); ?>/assets/lines-inverted.svg" alt=""/>

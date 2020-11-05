@@ -15,7 +15,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
     </div>
 </section>
 
-<div class="page-content">
+<div class="page-content" id="main-content">
     <?php get_template_part("announcement"); ?>
     <div class="container hubs">
 

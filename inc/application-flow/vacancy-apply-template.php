@@ -11,7 +11,7 @@ get_header();
 
 ?>
 
-<section class="hero hero--with-breadcrumbs">
+<section class="hero hero--with-breadcrumbs" id="main-content">
     <div class="container">
         <div class="hero__content">
             <ul class="breadcrumbs">

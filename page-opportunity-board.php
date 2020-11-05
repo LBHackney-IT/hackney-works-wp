@@ -30,7 +30,7 @@ get_header();
 
 if(have_posts()): while(have_posts()): the_post(); ?>
 
-<section class="hero hero--with-breadcrumbs">
+<section class="hero hero--with-breadcrumbs" id="main-content">
     <div class="container">
         <div class="hero__content">
             <ul class="breadcrumbs">

@@ -5,7 +5,7 @@ $max_page = $wp_query->max_num_pages;
 $results = $wp_query->found_posts;
 ?>
 
-<section class="hero">
+<section class="hero" id="main-content">
     <div class="hero__content">
         <h1 class="hero__title">Search results</h1>
     </div>

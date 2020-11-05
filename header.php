@@ -15,6 +15,8 @@
 </head>
 <body <?php body_class() ?>>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <section class="beta-banner">
     <div class="container">
         <strong>Beta</strong> 

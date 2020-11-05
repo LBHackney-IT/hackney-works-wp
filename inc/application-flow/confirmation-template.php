@@ -4,7 +4,7 @@ if($intake->have_posts()): while($intake->have_posts()): $intake->the_post();
 $course = get_field("parent_course");
 ?>
 
-<article class="page-content">
+<article class="page-content" id="main-content">
     <div class="container container--narrow">
         <div class="confirmation-panel">
         <img class="confirmation-panel__icon" src="<?php echo get_stylesheet_directory_uri() . "/assets/tick-circle.svg" ?>" alt=""/>

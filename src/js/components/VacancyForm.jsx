@@ -17,8 +17,7 @@ const schema = Yup.object().shape({
     email: Yup.string()
         .required("Please give an email address")
         .email('Please give a valid email address'),
-    cv: Yup.mixed()
-        .required("Please provide a CV"),
+    cv: Yup.mixed(),
     statement: Yup.string()
         .required("Please give a personal statement")
         .min(5, "Your statement is a bit short. Try to write at least a few sentences"),
@@ -102,9 +101,10 @@ const App = () => {
                     />
                     <FileField
                         setFieldValue={setFieldValue}
+                        optional
                         label="CV" 
                         name="cv"
-                        hint="Upload a PDF file"
+                        hint="Upload a PDF or Word document"
                         errors={touched.cv ? errors.cv : null} 
                     />
                     <Field 

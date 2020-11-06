@@ -5,20 +5,23 @@ const FileField = ({
     name,
     hint,
     errors,
+    optional,
     setFieldValue
 }) =>
     <div className="apply-form__field">
         <label htmlFor="cv">
-            Upload a CV
+            {label}
+            {optional && <span className="apply-form__optional">Optional</span>}
         </label>
         <input
             type="file"
             name={name} 
             id="cv"
+            accept=".pdf,.docx,.doc"
             onChange={e => {
                 setFieldValue("cv", e.currentTarget.files[0])
             }}
-            aria-required="true"
+            aria-required={!optional}
             aria-invalid={!!errors}
             aria-describedby={`${name}-errors`}
         />

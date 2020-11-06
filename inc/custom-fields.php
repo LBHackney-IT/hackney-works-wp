@@ -1309,7 +1309,7 @@ if( function_exists('acf_add_local_field_group') ):
 					2 => 'taxonomy',
 				),
 				'elements' => '',
-				'min' => 1,
+				'min' => '',
 				'max' => '',
 				'return_format' => 'object',
 			),

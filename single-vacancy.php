@@ -154,7 +154,7 @@ if(have_posts()): while(have_posts()): the_post();
             <div class="panel">
                 <h2 class="panel__title">We can help</h2>
                 <p>Our friendly and well-trained advisors can help you get a career, not just a job.</p>
-                <a class="panel__button" href="https://opportunities.hackney.gov.uk/advisor/">Register for support</a>
+                <a class="panel__button" href="https://opportunities.hackney.gov.uk/support/">Register for support</a>
             </div>
 
         </aside>

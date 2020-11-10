@@ -76,13 +76,8 @@ $intakes = new WP_Query(array(
             <p>Skill level</p>
         </li>
         <li class="key-stats__stat">
-            <?php if(get_field("course_code")): ?>
-                <p><?php the_field("course_code"); ?></p>
-                <p>Course code</p>
-            <?php else: ?>
-                <p>Free</p>
-                <p>For eligible Hackney residents</p>
-            <?php endif; ?>
+            <p>Free</p>
+            <p>For eligible Hackney residents</p>
         </li>
 
     </ul>

@@ -13,10 +13,15 @@ $course = get_field("parent_course");
             <p>You've applied for:</p>
             <p>
                 <a class="confirmation-panel__course-name" href="<?php the_permalink($course); ?>"><?php echo get_the_title($course); ?></a><br/>
+                <p><?php the_field("intake_code"); ?></p>
+
                 <?php the_field("start_date") ?>
-                 <?php if(get_field("end_date")): ?>
+                <?php if(get_field("end_date")): ?>
                     — <?php the_field("end_date") ?>
-                <?php endif; ?><br/>
+                <?php endif; ?>
+                
+                <br/>
+
                 <?php the_field("start_time") ?> 
                 <?php if(get_field("end_time")): ?>
                     to <?php the_field("end_time") ?>

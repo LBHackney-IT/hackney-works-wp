@@ -30,9 +30,23 @@ if(have_posts()): while(have_posts()): the_post();
 
                 <a class="panel__name" href="<?php the_permalink($course); ?>"><?php echo get_the_title($course); ?></a>
 
-                <p><?php the_field("start_date") ?> — <?php the_field("end_date") ?></p>
+                <p><?php the_field("intake_code"); ?></p>
+                
+                <p>
+                    <?php the_field("start_date") ?>
+                    <?php if(get_field("end_date")): ?>
+                        — <?php the_field("end_date") ?>
+                    <?php endif; ?>
+                </p>
+
                 <p><?php the_field("days") ?></p>
-                <p><?php the_field("start_time") ?> to <?php the_field("end_time") ?></p>
+
+                <p>
+                    <?php the_field("start_time") ?> 
+                    <?php if(get_field("end_time")): ?>
+                        to <?php the_field("end_time") ?>
+                    <?php endif; ?>
+                </p>
 
                 <?php if(get_field("delivery", $course) === "online"): ?>
                     <p class="panel__important">This course is delivered online using <strong><?php the_field("online_tool", $course); ?></strong>.</p>

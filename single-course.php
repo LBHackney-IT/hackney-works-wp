@@ -159,7 +159,7 @@ $intakes = new WP_Query(array(
                         
                         <?php if(get_field("start_time", $intake) && get_field("end_time", $intake)): ?>
                             <p><?php the_field("start_time", $intake) ?> to <?php the_field("end_time", $intake) ?></p>
-                        <?php elseif(get_field("start_time", $intake): ?>
+                        <?php elseif(get_field("start_time", $intake)): ?>
                             <p>From <?php the_field("start_time", $intake) ?></p>
                         <?php endif; ?>
 

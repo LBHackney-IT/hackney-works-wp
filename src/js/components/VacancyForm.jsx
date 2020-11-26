@@ -95,7 +95,7 @@ const App = () => {
                     <Field 
                         label="Phone number" 
                         name="phone_number" 
-                        optional
+                        // optional
                         hint="We'll use this to send you updates about your application"
                         errors={touched.phone_number ? errors.phone_number : null} 
                     />

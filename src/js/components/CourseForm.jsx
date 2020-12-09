@@ -16,7 +16,9 @@ const schema = Yup.object().shape({
     email: Yup.string()
         .required("Please give an email address")
         .email('Please give a valid email address'),
-    phone_number: Yup.number("Please give a valid phone number"),
+    phone_number: Yup
+        .required("Please give a phone number")
+        .number("Please give a valid phone number"),
     live_in_hackney: Yup.bool()
         .oneOf([true], "Our courses are only for Hackney residents")
 })

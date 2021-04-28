@@ -28,7 +28,8 @@ function lbh_create_custom_taxonomies() {
       'show_ui' => true,
       'show_admin_column' => true,
       'query_var' => true,
-      'show_in_rest' => true
+      'show_in_rest' => true,
+      'rest_base' => 'sector'
     ));
   
     register_taxonomy('providers', 'course', array(

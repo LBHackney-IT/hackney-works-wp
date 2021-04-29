@@ -22,13 +22,13 @@ function lbh_create_custom_taxonomies() {
           "add_new_item" => "Add New Sector",
           "separate_items_with_commas" => "Separate multiple sectors with commas",
           "choose_from_most_used" => "Choose from the most used sectors",
-          "not_found" => "No sectors found",
-          "show_in_rest" => true
+          "not_found" => "No sectors found"
       ),
       "hierarchical" => false,
       'show_ui' => true,
       'show_admin_column' => true,
-      'query_var' => true
+      'query_var' => true,
+      'show_in_rest' => true
     ));
   
     register_taxonomy('providers', 'course', array(

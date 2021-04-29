@@ -22,7 +22,8 @@ function lbh_create_custom_taxonomies() {
           "add_new_item" => "Add New Sector",
           "separate_items_with_commas" => "Separate multiple sectors with commas",
           "choose_from_most_used" => "Choose from the most used sectors",
-          "not_found" => "No sectors found"
+          "not_found" => "No sectors found",
+          "show_in_rest" => true
       ),
       "hierarchical" => false,
       'show_ui' => true,

@@ -12,7 +12,8 @@ function lbh_create_custom_taxonomies() {
       "hierarchical" => true,
       'show_ui' => true,
       'show_admin_column' => true,
-      'query_var' => true
+      'query_var' => true,
+      'show_in_rest' => true
     ));
 
     register_taxonomy('sectors', array('vacancy', 'workshop'), array(
@@ -43,7 +44,8 @@ function lbh_create_custom_taxonomies() {
       "hierarchical" => false,
       'show_ui' => true,
       'show_admin_column' => true,
-      'query_var' => true
+      'query_var' => true,
+      'show_in_rest' => true
     ));
   }
   add_action('init', 'lbh_create_custom_taxonomies', 0 );
